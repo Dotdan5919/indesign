@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\event;
 use App\Models\cause;
+use App\Models\blog;
+
 
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -125,6 +127,78 @@ class AdminController extends Controller
     
                 
             return Redirect::back()->with('error_2','cause with the same name exists');
+    
+            }
+    
+
+        }
+        else {
+
+            return Redirect::back()->with('error_2','error with image');
+    
+        }
+    }
+       
+
+    }
+
+
+
+
+
+
+
+
+    public function create()
+    {
+        $validator = Validator::make(request()->all(), [
+            'blog_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust validation rules as needed
+        ]);
+
+
+        if ($validator->fails()) {
+            return redirect()->route('home')
+                             ->withErrors($validator)
+                             ->withInput();
+        }
+        else { 
+
+
+        if (request()->hasFile('blog_image')) {
+            $image = request('blog_image');
+            $filename = time() . '_' . $image->getClientOriginalName();
+            $path = $image->storeAs('uploads', $filename, 'public'); // Store in storage/app/public/uploads
+
+            // You can also store the path in your database if needed
+            // $imagePath = Storage::url($path); // Get the public URL of the stored image
+
+            $blog=blog::where('blog_title','=',request('blog_title'))->get();
+        
+            if(count($blog)<1)
+            {
+    
+                $NewBlog= new blog();
+                $NewBlog->blog_image=$filename;
+                $NewBlog->blog_title=request('blog_title');
+
+                $NewBlog->blog_subtitle=request('blog_subtitle');
+            
+                $NewBlog->blog_content=request('blog_content');
+
+                $NewBlog->special_quote=request('special_quote');
+
+                
+
+                $NewBlog->save();
+                
+                return Redirect::back()->with('success_3','Blog Created');
+    
+    
+            }
+            else{
+    
+                
+            return Redirect::back()->with('error_3','Blog with the same name exists');
     
             }
     

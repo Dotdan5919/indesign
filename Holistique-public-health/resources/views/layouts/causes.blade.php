@@ -173,9 +173,63 @@
             </footer>
             
             <!-- Bootstrap Icons -->
+         
             
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const track = document.querySelector(".slider-track");
+                    const items = document.querySelectorAll(".slider-item");
+                    const visibleItems = window.innerWidth < 768 ? 1 : 3; // Adjust for screen size
+                    const itemWidth = 100 / visibleItems; // Calculate item width
             
-        
+                    // Duplicate first and last items for infinite scrolling effect
+                    track.insertAdjacentHTML("beforeend", items[0].outerHTML);
+                    track.insertAdjacentHTML("afterbegin", items[items.length - 1].outerHTML);
+            
+                    let currentIndex = 1; // Start from the first real item
+                    updateSlider();
+            
+                    function updateSlider() {
+                        track.style.transition = "transform 0.5s ease-in-out";
+                        track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+                    }
+            
+                    function nextSlide() {
+                        if (currentIndex >= items.length) {
+                            currentIndex = 1;
+                            track.style.transition = "none";
+                            track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+                            setTimeout(() => {
+                                track.style.transition = "transform 0.5s ease-in-out";
+                                currentIndex++;
+                                updateSlider();
+                            }, 50);
+                        } else {
+                            currentIndex++;
+                            updateSlider();
+                        }
+                    }
+            
+                    function prevSlide() {
+                        if (currentIndex <= 0) {
+                            currentIndex = items.length - 1;
+                            track.style.transition = "none";
+                            track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+                            setTimeout(() => {
+                                track.style.transition = "transform 0.5s ease-in-out";
+                                currentIndex--;
+                                updateSlider();
+                            }, 50);
+                        } else {
+                            currentIndex--;
+                            updateSlider();
+                        }
+                    }
+            
+                    document.querySelector(".next").addEventListener("click", nextSlide);
+                    document.querySelector(".prev").addEventListener("click", prevSlide);
+                });
+            </script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
             <script src="{{ asset('node_modules/aos/dist/aos.js') }}"></script>
     <script>

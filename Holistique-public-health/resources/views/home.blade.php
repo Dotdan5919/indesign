@@ -121,12 +121,12 @@
            
     
             <button type="submit" class="btn btn-primary">Create Cause</button>
-            @if (session('success'))
+            @if (session('success_2'))
             <div class="alert alert-success mt-2" role="alert">
                 <strong>{{ session('success') }}</strong>
             </div>
             @endif
-            @if (session('error'))
+            @if (session('error_2'))
             <div class="alert alert-danger mt-2" role="alert">
                 <strong>{{ session('error') }}</strong>
             </div>
@@ -142,6 +142,71 @@
     @endif
         </form>
 </div>
+
+
+
+<div class=" mt-5 col-md-5 col-sm-12 p-3 card shadow   ">
+
+    <div class="card-header ">
+        <h1 class="py-3">Create New Blog</h1>
+    </div>
+        <form method="POST" action={{route('create-blog')}} enctype="multipart/form-data">
+           
+           @csrf
+    
+           <div class="mb-3">
+            <label for="formFileAllowed" class="form-label">Blog Image</label>
+            <input name="blog_image" class="form-control" type="file" id="formFileAllowed" title="only these formats are accepted (jpg, png, gif)" accept="image/png, image/jpeg, image/gif">
+        </div>
+    
+            <div class="mb-3">
+                <label for="eventName" class="form-label">Blog title</label>
+                <input type="text"   name="blog_title"  class="form-control" id="eventName" placeholder="Enter event name">
+            </div>
+
+            <div class="mb-3">
+                <label for="eventName" class="form-label">Blog subtitle</label>
+                <input type="text"   name="blog_subtitle"  class="form-control" id="eventName" placeholder="Enter event name">
+            </div>
+    
+            <div class="mb-3">
+                <label for="eventDescription" class="form-label">Blog Content</label>
+                <textarea class="form-control"  name="blog_content"  id="eventDescription" rows="3" placeholder="Enter event description" required></textarea>
+            </div>
+    
+            <div class="mb-3">
+                <label for="eventName" class="form-label">Special Quote</label>
+                <input type="text"   name="special_quote"  class="form-control" id="eventName" placeholder="Enter event name">
+            </div>
+           
+    
+            
+    
+           
+    
+            <button type="submit" class="btn btn-primary">Create Blog</button>
+            @if (session('success_3'))
+            <div class="alert alert-success mt-2" role="alert">
+                <strong>{{ session('success') }}</strong>
+            </div>
+            @endif
+            @if (session('error_3'))
+            <div class="alert alert-danger mt-2" role="alert">
+                <strong>{{ session('error') }}</strong>
+            </div>
+            @endif
+            @if ($errors->any())
+        <div class="alert alert-danger mt-2">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+        </form>
+</div>
+
 
 </div>
 

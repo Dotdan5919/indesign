@@ -79,3 +79,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('/upload-event',[App\Http\Controllers\AdminController::class, 'index'])->name('upload-event');
 Route::post('/upload-cause',[App\Http\Controllers\AdminController::class, 'submit'])->name('upload-cause');
+Route::post('/create-blog',[App\Http\Controllers\AdminController::class, 'create'])->name('create-blog');
+

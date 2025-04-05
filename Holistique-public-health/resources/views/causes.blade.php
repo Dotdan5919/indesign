@@ -167,39 +167,5 @@
     </section>
 
 
-    <!-- footer -->
-
-<footer class="py-4 bg-white border-top">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-4 text-center text-md-start">
-                <img src="./images/logo.png" alt="Logo" class="mb-3" style="width: 80px;">
-                <div class="d-flex justify-content-center justify-content-md-start gap-3">
-                    <a href="#" class="text-dark"><i class="bi bi-x-lg"></i></a>
-                    <a href="#" class="text-dark"><i class="bi bi-envelope"></i></a>
-                    <a href="#" class="text-dark"><i class="bi bi-gear"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 text-center text-md-start">
-                <h6 class="fw-bold">Useful Links</h6>
-                <ul class="list-unstyled ">
-                    <li><a href="#" class="text-dark text-decoration-none">About Us</a></li>
-                    <li><a href="#" class="text-dark text-decoration-none">Events</a></li>
-                    <li><a href="#" class="text-dark text-decoration-none">Careers</a></li>
-                    <li><a href="#" class="text-dark text-decoration-none">Blog</a></li>
-                    <li><a href="#" class="text-dark text-decoration-none">Gallery</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4 text-center text-md-start">
-                <h6 class="fw-bold">Support</h6>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-dark text-decoration-none">FAQ</a></li>
-                    <li><a href="#" class="text-dark text-decoration-none">Our Team</a></li>
-                    <li><a href="#" class="text-dark text-decoration-none">Contact Us</a></li>
-                    <li><a href="#" class="text-dark text-decoration-none">Become a Volunteer</a></li>
-                    <li><a href="#" class="text-dark text-decoration-none">Our Volunteers</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+  
 @endsection
