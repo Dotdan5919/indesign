@@ -1,0 +1,122 @@
+@extends('layouts.welcome');
+           
+        
+
+@section('content')
+
+<div class="container eventhome position-relative mt-4 ">
+<!-- logo positioned absolutely -->
+<div class="position-absolute top-0 start-0 translate-middle bg-white rounded-pill d-none d-md-block"> <a class="navbar-brand " href="#"><img src="images/logo.png" alt="Logo" width="150"></a>
+</div>
+
+
+<div class="row mb-5">
+
+</div>
+
+<!-- events text  -->
+<div class="row ">
+   
+    <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5 mt-5 hero-heading text-center text-md-start text-sm-center " >
+
+        
+        <h1 class="fs-1 fw-bold text-white">
+        Events
+        </h1>
+       
+
+    </div>
+</div>
+<div class=" position-absolute bottom-0 end-0 p-3" >
+<div class="me-4 noted align-items-center" >
+
+</div>
+</div>
+
+<div class=" mx-5 breadcrumb-box position-absolute bottom-0 end-0 bg-light px-3 pt-2">  <p >Home / <span class="text-danger">Events</span></p></div>
+</div>
+
+<!-- Event Details Section -->
+<section class="event-details py-5">
+    <div class="container">
+      <div class="row">
+        <!-- Left Column: Event Content -->
+        <div class="col-md-6 mx-auto">
+
+          <img 
+            src="/images/up.png" 
+            alt="Community Health Fair" 
+            class="img-fluid rounded mb-3 border-bottom border-4 border-danger"
+          >
+          
+        
+        </div>
+
+        <div class="col-md-6 mx-auto">
+
+              <!-- Event Title & Description -->
+          <h3 class="fw-bold">Community Health Fair</h3>
+          <p>
+            Sickle Cell Disease (SCD) is a genetic disorder that affects millions of people around the world. 
+            It is characterized by abnormally shaped red blood cells that can cause a range of health problems, 
+            including pain crises, anemia, and organ damage. 
+          </p>
+          <p>
+            Our Community Health Fair is geared towards providing resources and support 
+            to those impacted by SCD. Join us to learn more and help bring hope to those in need.
+          </p>
+  
+          <!-- Event Info: Date, Time, Location, Button -->
+          <div class="d-flex flex-wrap align-items-center mt-4 gap-3">
+            <span class="text-muted">
+              <i class="bi bi-calendar-event"></i> June 7, 2023
+            </span>
+            <span class="text-muted">
+              <i class="bi bi-clock"></i> 4:00 AM - 7:00 AM
+            </span>
+            <span class="text-muted">
+              <i class="bi bi-geo-alt"></i> Hamilton
+            </span>
+            <button class="btn btn-outline-secondary">
+              Add to Calendar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Donate Section -->
+  <section 
+    class="donate-section py-5 text-white mb-5" 
+    style="background-color: #1D2A4D;"
+  >
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left Column: Text -->
+        <div class="col-md-8">
+          <h3 class="fw-bold">
+            Donate now and help bring hope and relief to those in need!
+          </h3>
+          <p class="mt-3">
+            Every contribution counts. By donating, you can support our efforts 
+            to provide essential services, education, and resources to individuals 
+            and families affected by health challenges.
+          </p>
+          <a href="#" class="btn btn-danger mt-3">Donate now</a>
+        </div>
+  
+        <!-- Right Column: Image (Optional) -->
+        <div class="col-md-4 text-center mt-4 mt-md-0">
+          <img 
+            src="/images/round.png" 
+            alt="Donate Image" 
+            class="img-fluid rounded-circle border border-4 border-white"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+@endsection

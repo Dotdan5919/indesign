@@ -1,0 +1,157 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+
+.abouthome{
+    background-image: url('images/about.png') ;
+     height: 40vh;
+     border-radius: 50px;
+     /* background-color: rgb(236, 33, 33); */
+     background-repeat: no-repeat;
+     background-position:cover;
+     /* background-size: contain;
+     background-color: #d40f0f; */
+     
+     /* margin: 0 2rem; */
+}
+
+.noted{
+    background-color: #fff;
+     height: 30px;
+     margin-top: 40rem!important;
+}
+
+
+
+.custom-image-container {
+    width: auto;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .container {
+        text-align: center;
+    }
+
+    .custom-image-container {
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Mission & Vision Cards */
+.about-card {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+    color: white;
+    /* text-align: center; */
+    min-height: 280px;
+}
+
+.icon-left{
+
+    background-color: #09122C;
+    height: 120px;
+    width: 120px;
+}
+
+.mission-card {
+    background:   #BE3144/* Deep red */
+}
+
+.vision-card {
+    background: #872341; /* Dark pink */
+}
+
+.card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+/* Core Values Section */
+.core-values {
+  background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    position: relative;
+    height: 100%;
+    color: white;
+}
+
+
+
+.core-values .icon {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.values-list p {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.values-list i {
+    font-size: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .core-values {
+        height: auto;
+    }
+
+    .values-list {
+        text-align: center;
+    }
+}
+
+/* Team Card */
+.team-card {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 15px;
+}
+
+.team-card img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.team-card .info {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: -20px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-card h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.team-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .team-card {
+        margin-bottom: 20px;
+    }
+}

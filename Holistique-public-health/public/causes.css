@@ -1,0 +1,27 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+
+.abouthome{
+    background-image: url('images/about.png') ;
+     height: 40vh;
+     border-radius: 50px;
+     /* background-color: rgb(236, 33, 33); */
+     background-repeat: no-repeat;
+     background-position:cover;
+     /* background-size: contain;
+     background-color: #d40f0f; */
+     
+     /* margin: 0 2rem; */
+}
+
+.noted{
+    background-color: #fff;
+     height: 30px;
+     margin-top: 40rem!important;
+}
+
+
