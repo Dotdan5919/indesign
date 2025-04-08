@@ -98,7 +98,6 @@ function convertToAmPm(string $time24): ?string
 
 
             </div> --}}
-         @if ($all_events.length>0)
              
         @foreach ($all_events as $event)
         <div class="col-md-4 mb-4 eventcard" *ngFor="let event of events"> 
@@ -117,11 +116,9 @@ function convertToAmPm(string $time24): ?string
 
             
         @endforeach
-
-
-        @else
         
-        @endif    
+
+
         
         </div>
 
