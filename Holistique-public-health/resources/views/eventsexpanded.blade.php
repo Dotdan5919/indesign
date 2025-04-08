@@ -106,7 +106,7 @@
               <!-- Event Title & Description -->
           <h3 class="fw-bold">{{$event[0]->event_name}}</h3>
           <p>
-            {{$event[0]->description}} 
+            {!!$event[0]->description!!} 
           </p>
           {{-- <p>
             Our Community Health Fair is geared towards providing resources and support 

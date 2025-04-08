@@ -7,6 +7,8 @@ use App\Models\member;
 use App\Models\message;
 use App\Models\event;
 use App\Models\cause;
+use App\Models\blog;
+
 
 use Illuminate\Support\Facades\Redirect;
 
@@ -140,4 +142,29 @@ public function singleCause($id)
 
 }
 
+
+public function blog()
+{
+
+
+
+$blogs=blog::all();
+
+return view('blogs')->with('all_blogs',$blogs);
+
+
+}
+
+
+
+public function singleBlog($id)
+{
+
+
+    $blog=blog::where("id","=",$id)->get();
+
+return view('blogsexpanded')->with('blog',$blog);
+
+
+}
 }

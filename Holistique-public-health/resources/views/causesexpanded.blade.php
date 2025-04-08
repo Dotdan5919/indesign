@@ -141,9 +141,11 @@ Enroll 50 out of school children back 2 school.
  --}}
 
 
- <p>
-  {{$cause[0]->cause_description}}
- </p>
+
+  {!!$cause[0]->cause_description!!}
+  
+
+ 
 </div>
   
         <!-- Right Column (Sidebar) -->

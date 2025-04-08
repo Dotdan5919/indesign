@@ -467,27 +467,63 @@ $(document).ready(function() {
 <!-- Initialize Quill editor -->
 <script>
 
-
+// causes editor
   
   const quill = new Quill('#editor', {
-    theme: 'snow'
+    theme: 'snow',
+    
   });
-  const htmlContent = quill.root.innerHTML;
+  
 
   quill.on('text-change', (delta, oldDelta, source) => {
 
     console.log(quill.root.innerHTML);
-const cause=document.getElementById('causeDescription');
+const cause=document.querySelector('.hidden-area');
 
 
-console.log(cause.value);
-//  cause.= quill.root.innerHTML;
+ cause.value= quill.root.innerHTML;
+
+  });
+
+  
+// events editor
+  
+const quill2 = new Quill('#editor-event', {
+    theme: 'snow',
+    
+  });
+
+
+  quill2.on('text-change', (delta, oldDelta, source) => {
+
+   
+const event=document.querySelector('.hidden-event');
+
+
+ event.value= quill2.root.innerHTML;
+
+  });
+
+//   blog editor
+const quill3 = new Quill('#editor-blog', {
+    theme: 'snow',
+    
+  });
+//  
+
+  quill3.on('text-change', (delta, oldDelta, source) => {
+
+   
+const blog=document.querySelector('.hidden_blog');
+
+
+ blog.value= quill3.root.innerHTML;
 
   });
 
 
 
-   console.log(htmlContent)
+  
 
 </script>
     </body>

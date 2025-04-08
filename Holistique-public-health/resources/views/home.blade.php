@@ -48,7 +48,9 @@
 
         <div class="mb-3">
             <label for="eventDescription" class="form-label">Description</label>
-            <textarea class="form-control"  name="description"  id="eventDescription" rows="3" placeholder="Enter event description" required></textarea>
+            <textarea class="form-control hidden-event d-none"  name="description"  id="eventDescription" rows="3" placeholder="Enter event description" required></textarea>
+       
+       <div id="editor-event" class="editableDiv"> </div>
         </div>
 
         <div class="mb-3">
@@ -111,13 +113,13 @@
     
             <div class="mb-3">
                 <label for="eventDescription" class="form-label">Cause Description</label>
-                <textarea class="form-control hidden-area"  name="cause_description"  id="causeDescription hiddenarea " rows="6" 
+                <textarea class="form-control hidden-area d-none"  name="cause_description"  id="causeDescription " rows="6"  required
                  ></textarea>
 
                  <div id="editor" class="editableDiv">
-                    <p>Hello World!</p>
-                    <p>Some initial <strong>bold</strong> text</p>
-                    <p><br /></p>
+                    
+
+
                   </div>
             </div>
     
@@ -172,17 +174,19 @@
     
             <div class="mb-3">
                 <label for="eventName" class="form-label">Blog title</label>
-                <input type="text"   name="blog_title"  class="form-control" id="eventName" placeholder="Enter event name">
+                <input type="text"   name="blog_title"  class="form-control" id="eventName" placeholder="Enter Blog Title">
             </div>
 
             <div class="mb-3">
                 <label for="eventName" class="form-label">Blog subtitle</label>
-                <input type="text"   name="blog_subtitle"  class="form-control" id="eventName" placeholder="Enter event name">
+                <input type="text"   name="blog_subtitle"  class="form-control" id="eventName" placeholder="Enter Blog Subtitle">
             </div>
     
             <div class="mb-3">
                 <label for="eventDescription" class="form-label">Blog Content</label>
-                <textarea class="form-control"  name="blog_content"  id="eventDescription" rows="3" placeholder="Enter event description" required></textarea>
+                <textarea class="form-control hidden_blog d-none "  name="blog_content"  id="eventDescription" rows="3" placeholder="Enter Blog Content" required></textarea>
+          
+                <div id="editor-blog"></div>
             </div>
     
             <div class="mb-3">
@@ -226,22 +230,7 @@
 
 
 
-<script>
-    const editableDiv = document.querySelector('.editableDiv');
-    const form = document.getElementById('causeForm');
-    const hiddenInput = document.querySelector('.hidden-area');
-  
-    form.addEventListener('submit', function(event) {
-      hiddenInput.value = htmlContent; // Or editableDiv.textContent;
-    
-      console.log(hiddenInput);
-    });
 
-
-    cosole.log(htmlContent);
-
-    
-  </script>
 
 
 @endsection

@@ -6,12 +6,13 @@ body {
 
 
 .blogshome{
-    background-image: url('images/bloghome.png') ;
+    background-image: url('/images/bloghome.png') ;
      height: 40vh;
      border-radius: 50px;
      /* background-color: rgb(236, 33, 33); */
      background-repeat: no-repeat;
      background-position:cover;
+     
      /* background-size: contain;
      background-color: #d40f0f; */
      
@@ -39,3 +40,21 @@ body {
 
     height: 400px;
 } */
+
+.limited-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .short_blog
+  {
+
+    max-height: 170px;
+   overflow:hidden;
+   
+   
+
+  }

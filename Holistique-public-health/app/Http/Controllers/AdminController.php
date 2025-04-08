@@ -122,59 +122,59 @@ class AdminController extends Controller
 
 
 
-        echo request('cause_description');
+       
 
-    //     if ($validator->fails()) {
-    //         return redirect()->route('home')
-    //                          ->withErrors($validator)
-    //                          ->withInput();
-    //     }
-    //     else { 
+        if ($validator->fails()) {
+            return redirect()->route('home')
+                             ->withErrors($validator)
+                             ->withInput();
+        }
+        else { 
 
 
-    //     if (request()->hasFile('image')) {
-    //         $image = request('image');
-    //         $filename = time() . '_' . $image->getClientOriginalName();
-    //         $path = $image->storeAs('uploads', $filename, 'public'); // Store in storage/app/public/uploads
+        if (request()->hasFile('image')) {
+            $image = request('image');
+            $filename = time() . '_' . $image->getClientOriginalName();
+            $path = $image->storeAs('uploads', $filename, 'public'); // Store in storage/app/public/uploads
 
-    //         // You can also store the path in your database if needed
-    //         // $imagePath = Storage::url($path); // Get the public URL of the stored image
+            // You can also store the path in your database if needed
+            // $imagePath = Storage::url($path); // Get the public URL of the stored image
 
-    //         $cause=cause::where('cause_name','=',request('cause_name'))->get();
+            $cause=cause::where('cause_name','=',request('cause_name'))->get();
         
-    //         if(count($cause)<1)
-    //         {
+            if(count($cause)<1)
+            {
     
-    //             $NewCause= new cause();
-    //             $NewCause->image=$filename;
-    //             $NewCause->cause_name=request('cause_name');
-    //             $NewCause->cause_description=request('cause_description');
+                $NewCause= new cause();
+                $NewCause->image=$filename;
+                $NewCause->cause_name=request('cause_name');
+                $NewCause->cause_description=request('cause_description');
                
-    //             $NewCause->target=request('target');
-    //             $NewCause->is_active=true;
-    //             $NewCause->current_amount=0;
+                $NewCause->target=request('target');
+                $NewCause->is_active=true;
+                $NewCause->current_amount=0;
 
-    //             $NewCause->save();
+                $NewCause->save();
                 
-    //             return Redirect::back()->with('success_2','Cause Created');
+                return Redirect::back()->with('success_2','Cause Created');
     
     
-    //         }
-    //         else{
+            }
+            else{
     
                 
-    //         return Redirect::back()->with('error_2','cause with the same name exists');
+            return Redirect::back()->with('error_2','cause with the same name exists');
     
-    //         }
+            }
     
 
-    //     }
-    //     else {
+        }
+        else {
 
-    //         return Redirect::back()->with('error_2','error with image');
+            return Redirect::back()->with('error_2','error with image');
     
-    //     }
-    // }
+        }
+    }
        
 
     }

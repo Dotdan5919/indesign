@@ -31,7 +31,7 @@
            <!-- Navbar -->
            <nav class="navbar navbar-expand-lg navbar-light mt-2 " >
             <div class="container px-5">
-                <a class="navbar-brand d-sm-block d-md-none " href={{route('index')}}><img src="images/logo.png" alt="Logo" width="50"></a>
+                <a class="navbar-brand d-sm-block d-md-none " href={{route('index')}}><img src="/images/logo.png" alt="Logo" width="50"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -71,7 +71,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-4 text-center text-md-start">
-                            <img src="./images/logo.png" alt="Logo" class="mb-3" style="width: 80px;">
+                            <img src="/images/logo.png" alt="Logo" class="mb-3" style="width: 80px;">
                             <div class="d-flex justify-content-center justify-content-md-start gap-3">
                                 <a href="#" class="text-dark"><i class="bi bi-x-lg"></i></a>
                                 <a href="#" class="text-dark"><i class="bi bi-envelope"></i></a>

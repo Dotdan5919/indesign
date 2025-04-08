@@ -41,9 +41,7 @@ Route::get('/causes',[App\Http\Controllers\GuestController::class, 'showCause'])
 Route::get('/causes/{id}',[App\Http\Controllers\GuestController::class, 'singleCause']);
 
 
-Route::get('/blogs', function () {
-    return view('blogs');
-})->name('blogs');
+Route::get('/blogs',[App\Http\Controllers\GuestController::class, 'blog'])->name('blogs');
 
 Route::get('/aboutus', function () {
     return view('aboutus');
@@ -53,10 +51,13 @@ Route::get('/aboutus', function () {
 
 
 
+Route::get('/blogs/{id}' ,[App\Http\Controllers\GuestController::class, 'singleBlog']);
 
 Route::get('/blogs_2', function () {
     return view('blogsexpanded');
 });
+
+
 Route::get('/causes_2', function () {
     return view('causesexpanded');
 });
