@@ -6,7 +6,7 @@
 
 <div class="container eventhome position-relative mt-4 ">
 <!-- logo positioned absolutely -->
-<div class="position-absolute top-0 start-0 translate-middle bg-white rounded-pill d-none d-md-block"> <a class="navbar-brand " href="#"><img src="images/logo.png" alt="Logo" width="150"></a>
+<div class="position-absolute top-0 start-0 translate-middle bg-white rounded-pill d-none d-md-block"> <a class="navbar-brand " href="#"><img src="/images/logo.png" alt="Logo" width="150"></a>
 </div>
 
 
@@ -17,15 +17,15 @@
 <!-- events text  -->
 <div class="row ">
    
-    <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5 mt-5 hero-heading text-center text-md-start text-sm-center " >
+  <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5 mt-5 hero-heading text-center text-md-start text-sm-center eventhome " >
 
         
-        <h1 class="fs-1 fw-bold text-white">
-        Events
-        </h1>
-       
+    <h1 class="fs-1 fw-bold text-white">
+    Events
+    </h1>
+   
 
-    </div>
+</div>
 </div>
 <div class=" position-absolute bottom-0 end-0 p-3" >
 <div class="me-4 noted align-items-center" >
@@ -37,7 +37,7 @@
 </div>
 
 <!-- Event Details Section -->
-<section class="event-details py-5">
+{{-- <section class="event-details py-5">
     <div class="container">
       <div class="row">
         <!-- Left Column: Event Content -->
@@ -76,6 +76,53 @@
             </span>
             <span class="text-muted">
               <i class="bi bi-geo-alt"></i> Hamilton
+            </span>
+            <button class="btn btn-outline-secondary">
+              Add to Calendar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> --}}
+
+  <section class="event-details py-5 tester ">
+    <div class="container">
+      <div class="row">
+        <!-- Left Column: Event Content -->
+        <div class="col-md-6 mx-auto single_event_image ">
+
+          <img 
+            src="/storage/uploads/{{$event[0]->image}}" 
+            alt={{$event[0]->event_name}} 
+            class="img-fluid rounded mb-3 border-bottom border-4 border-danger"
+          >
+          
+        
+        </div>
+
+        <div class="col-md-6 mx-auto">
+
+              <!-- Event Title & Description -->
+          <h3 class="fw-bold">{{$event[0]->event_name}}</h3>
+          <p>
+            {{$event[0]->description}} 
+          </p>
+          {{-- <p>
+            Our Community Health Fair is geared towards providing resources and support 
+            to those impacted by SCD. Join us to learn more and help bring hope to those in need.
+          </p> --}}
+  
+          <!-- Event Info: Date, Time, Location, Button -->
+          <div class="d-flex flex-wrap align-items-center mt-4 gap-3">
+            <span class="text-muted">
+              <i class="bi bi-calendar-event"></i> {{$event[0]->event_date}}
+            </span>
+            <span class="text-muted">
+              <i class="bi bi-clock"></i> {{$event[0]->start_time}}
+            </span>
+            <span class="text-muted">
+              <i class="bi bi-geo-alt"></i> {{$event[0]->address}}
             </span>
             <button class="btn btn-outline-secondary">
               Add to Calendar

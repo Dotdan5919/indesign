@@ -1,3 +1,42 @@
+@php
+// convert time
+function convertToAmPm(string $time24): ?string
+{
+    // Validate the input format
+     // Validate the input format (with optional seconds)
+     if (!preg_match('/^([01]\d|2[0-3]):([0-5]\d)(:([0-5]\d))?$/', $time24, $matches)) {
+        return null; // Or throw an exception for invalid format
+    }
+
+    $hour = (int) $matches[1];
+    $minute = $matches[2];
+    $secondsPart = isset($matches[3]) ? $matches[3] : ''; // Capture the ":ss" part
+
+    $amPm = 'AM';
+
+    if ($hour == 0) {
+        $hour12 = 12; // Midnight
+    } elseif ($hour < 12) {
+        $hour12 = $hour;
+    } else {
+        $hour12 = $hour - 12;
+        $amPm = 'PM';
+    }
+
+    // Handle 12 PM
+    if ($hour == 12) {
+        $hour12 = 12;
+        $amPm = 'PM';
+    }
+
+    return sprintf('%02d:%s %s', $hour12, $minute, $amPm);
+}
+
+@endphp
+
+
+
+
 @extends('layouts.welcome');
            
         
@@ -45,7 +84,7 @@
         <h2 class="text-center mb-4 fw-bold">Upcoming Events</h2>
         <div class="row">
             <!-- Event Card -->
-            <div class="col-md-4 mb-4" *ngFor="let event of events"> 
+            {{-- <div class="col-md-4 mb-4" *ngFor="let event of events"> 
                 <div class="card shadow-sm border-0 rounded">
                     <img src="/images/up.png" class="card-img-top border-bottom border-4 border-danger" alt="Event Image">
                     <div class="card-body">
@@ -55,71 +94,32 @@
                         <a href="#" class="text-danger">Read More &raquo;</a>
                     </div>
                 </div>
+
+
+
+            </div> --}}
+             
+        @foreach ($all_events as $event)
+        <div class="col-md-4 mb-4 eventcard" *ngFor="let event of events"> 
+            <div class="card shadow-sm border-0 rounded">
+                <div class="div-img"> 
+                <img src="/storage/uploads/{{$event->image}}" class="card-img-top border-bottom border-4 border-danger" alt="Event Image">
             </div>
-             <!-- Event Card -->
-             <div class="col-md-4 mb-4" *ngFor="let event of events"> 
-                <div class="card shadow-sm border-0 rounded">
-                    <img src="/images/up.png" class="card-img-top border-bottom border-4 border-danger" alt="Event Image">
-                    <div class="card-body">
-                        <span class="badge bg-danger mb-2">June 7, 2023</span>
-                        <p class="small text-muted">4:00 AM - 7:00 AM | Hamilton</p>
-                        <h5 class="card-title fw-bold">Community Health Fair</h5>
-                        <a href="#" class="text-danger">Read More &raquo;</a>
-                    </div>
-                </div>
-            </div>
-             <!-- Event Card -->
-             <div class="col-md-4 mb-4" *ngFor="let event of events"> 
-                <div class="card shadow-sm border-0 rounded">
-                    <img src="/images/up.png" class="card-img-top border-bottom border-4 border-danger" alt="Event Image">
-                    <div class="card-body">
-                        <span class="badge bg-danger mb-2">June 7, 2023</span>
-                        <p class="small text-muted">4:00 AM - 7:00 AM | Hamilton</p>
-                        <h5 class="card-title fw-bold">Community Health Fair</h5>
-                        <a href="#" class="text-danger">Read More &raquo;</a>
-                    </div>
+                <div class="card-body">
+                    <span class="badge bg-danger mb-2">{{$event->event_date}}</span>
+                    <p class="small text-muted">{{convertToAmPm($event->start_time)}} | {{$event->address}}</p>
+                    <h5 class="card-title fw-bold">{{$event->event_name}}</h5>
+                    <a href="/events/{{$event->id}} " class="text-danger">Read More &raquo;</a>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <!-- Event Card -->
-            <div class="col-md-4 mb-4" *ngFor="let event of events"> 
-                <div class="card shadow-sm border-0 rounded">
-                    <img src="/images/up.png" class="card-img-top border-bottom border-4 border-danger" alt="Event Image">
-                    <div class="card-body">
-                        <span class="badge bg-danger mb-2">June 7, 2023</span>
-                        <p class="small text-muted">4:00 AM - 7:00 AM | Hamilton</p>
-                        <h5 class="card-title fw-bold">Community Health Fair</h5>
-                        <a href="#" class="text-danger">Read More &raquo;</a>
-                    </div>
-                </div>
-            </div>
-             <!-- Event Card -->
-             <div class="col-md-4 mb-4" *ngFor="let event of events"> 
-                <div class="card shadow-sm border-0 rounded">
-                    <img src="/images/up.png" class="card-img-top border-bottom border-4 border-danger" alt="Event Image">
-                    <div class="card-body">
-                        <span class="badge bg-danger mb-2">June 7, 2023</span>
-                        <p class="small text-muted">4:00 AM - 7:00 AM | Hamilton</p>
-                        <h5 class="card-title fw-bold">Community Health Fair</h5>
-                        <a href="#" class="text-danger">Read More &raquo;</a>
-                    </div>
-                </div>
-            </div>
-             <!-- Event Card -->
-             <div class="col-md-4 mb-4" *ngFor="let event of events"> 
-                <div class="card shadow-sm border-0 rounded">
-                    <img src="/images/up.png" class="card-img-top border-bottom border-4 border-danger" alt="Event Image">
-                    <div class="card-body">
-                        <span class="badge bg-danger mb-2">June 7, 2023</span>
-                        <p class="small text-muted">4:00 AM - 7:00 AM | Hamilton</p>
-                        <h5 class="card-title fw-bold">Community Health Fair</h5>
-                        <a href="#" class="text-danger">Read More &raquo;</a>
-                    </div>
-                </div>
-            </div>
+            
+        @endforeach
+        
         </div>
+
+        
     </div>
 </section>
 

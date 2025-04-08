@@ -19,9 +19,39 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
+    public function formatDateYMDText(string $dateYMD): ?string
+    {
+        // Validate the input format:<ctrl3348>-MM-DD
+        if (!preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $dateYMD, $matches)) {
+            return null;
+        }
+
+        $year = (int) $matches[1];
+        $month = (int) $matches[2];
+        $day = (int) $matches[3];
+
+        // Validate day and month (basic check)
+        if ($day < 1 || $day > 31 || $month < 1 || $month > 12) {
+            return null;
+        }
+
+        // Use DateTimeImmutable from the global namespace
+        try {
+            $dateTime = new \DateTimeImmutable("$year-$month-$day");
+            return $dateTime->format('d-F-Y');
+        } catch (Exception $e) {
+            return null;
+        }
+    }
+
 
     public function index()
     {
+        // convert date
+
+
+
+
         $validator = Validator::make(request()->all(), [
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust validation rules as needed
         ]);
@@ -48,14 +78,18 @@ class AdminController extends Controller
             if(count($event)<1)
             {
     
-                $NewEvent= new event();
+                $converted_date= $this->formatDateYMDText( request('event_date'));
+               
+              
+
+                 $NewEvent= new event();
                 $NewEvent->image=$filename;
-                $NewEvent->event_name=request('event_name');
+                 $NewEvent->event_name=request('event_name');
                 $NewEvent->description=request('description');
-                $NewEvent->event_date=request('event_date');
-                $NewEvent->start_time=request('start_time');
-                $NewEvent->address=request('address');
-                $NewEvent->save();
+                 $NewEvent->event_date=$converted_date;
+                 $NewEvent->start_time=request('start_time');
+                 $NewEvent->address=request('address');
+                 $NewEvent->save();
                 
                 return Redirect::back()->with('success','Event Created');
     
@@ -87,57 +121,60 @@ class AdminController extends Controller
         ]);
 
 
-        if ($validator->fails()) {
-            return redirect()->route('home')
-                             ->withErrors($validator)
-                             ->withInput();
-        }
-        else { 
+
+        echo request('cause_description');
+
+    //     if ($validator->fails()) {
+    //         return redirect()->route('home')
+    //                          ->withErrors($validator)
+    //                          ->withInput();
+    //     }
+    //     else { 
 
 
-        if (request()->hasFile('image')) {
-            $image = request('image');
-            $filename = time() . '_' . $image->getClientOriginalName();
-            $path = $image->storeAs('uploads', $filename, 'public'); // Store in storage/app/public/uploads
+    //     if (request()->hasFile('image')) {
+    //         $image = request('image');
+    //         $filename = time() . '_' . $image->getClientOriginalName();
+    //         $path = $image->storeAs('uploads', $filename, 'public'); // Store in storage/app/public/uploads
 
-            // You can also store the path in your database if needed
-            // $imagePath = Storage::url($path); // Get the public URL of the stored image
+    //         // You can also store the path in your database if needed
+    //         // $imagePath = Storage::url($path); // Get the public URL of the stored image
 
-            $cause=cause::where('cause_name','=',request('cause_name'))->get();
+    //         $cause=cause::where('cause_name','=',request('cause_name'))->get();
         
-            if(count($cause)<1)
-            {
+    //         if(count($cause)<1)
+    //         {
     
-                $NewCause= new cause();
-                $NewCause->image=$filename;
-                $NewCause->cause_name=request('cause_name');
-                $NewCause->cause_description=request('cause_description');
+    //             $NewCause= new cause();
+    //             $NewCause->image=$filename;
+    //             $NewCause->cause_name=request('cause_name');
+    //             $NewCause->cause_description=request('cause_description');
                
-                $NewCause->target=request('target');
-                $NewCause->is_active=true;
-                $NewCause->current_amount=0;
+    //             $NewCause->target=request('target');
+    //             $NewCause->is_active=true;
+    //             $NewCause->current_amount=0;
 
-                $NewCause->save();
+    //             $NewCause->save();
                 
-                return Redirect::back()->with('success_2','Cause Created');
+    //             return Redirect::back()->with('success_2','Cause Created');
     
     
-            }
-            else{
+    //         }
+    //         else{
     
                 
-            return Redirect::back()->with('error_2','cause with the same name exists');
+    //         return Redirect::back()->with('error_2','cause with the same name exists');
     
-            }
+    //         }
     
 
-        }
-        else {
+    //     }
+    //     else {
 
-            return Redirect::back()->with('error_2','error with image');
+    //         return Redirect::back()->with('error_2','error with image');
     
-        }
-    }
+    //     }
+    // }
        
 
     }
@@ -214,4 +251,3 @@ class AdminController extends Controller
 
     }
 }
-adfa

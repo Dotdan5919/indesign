@@ -44,103 +44,31 @@
         <P class="text-center text-danger">Our Causes</P>
         <h2 class="text-center fw-bold">You Can Help lots of People by Donating Little</h2>
         <div class="row mt-4">
-            <!-- Campaign Card -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="/images/donate1.png" class="card-img-top" alt="Campaign Image">
-                    <div class="card-body">
-                        <p class="card-text">Donations: <span class="text-danger">$50</span> / $5000</p>
-                        <h5 class="card-title fw-bold">It's on Your Hands Campaign</h5>
-                        
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 10%"></div>
-                        </div>
-                       <a href="causesexpanded.html"> <button class="btn btn-donate w-100 mt-3">Donate Now</button></a>
-                    </div>
-                </div>
-            </div>
-       
-            <!-- Campaign Card -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="/images/donate2.png" class="card-img-top" alt="Campaign Image">
-                    <div class="card-body">
-                        <p class="card-text">Donations: <span class="text-danger">$50</span> / $5000</p>
-                        <h5 class="card-title fw-bold">It's on Your Hands Campaign</h5>
-                        
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 10%"></div>
-                        </div>
-                        <button class="btn btn-donate w-100 mt-3">Donate Now</button>
-                    </div>
-                </div>
-            </div>
-       <!-- Campaign Card -->
-       <div class="col-md-4 mb-4">
-        <div class="card">
-            <img src="/images/donate3.png" class="card-img-top" alt="Campaign Image">
-            <div class="card-body">
-                <p class="card-text">Donations: <span class="text-danger">$50</span> / $5000</p>
-                <h5 class="card-title fw-bold">It's on Your Hands Campaign</h5>
+
+            @foreach ($all_causes as $cause)
                 
-                <div class="progress">
-                    <div class="progress-bar bg-danger" style="width: 10%"></div>
+           
+             <!-- Campaign Card -->
+             <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="/storage/uploads/{{$cause->image}}" class="card-img-top" alt="Campaign Image">
+                    <div class="card-body">
+                        <p class="card-text">Donations: <span class="text-danger">${{$cause->current_amount}}</span> / ${{$cause->target}}</p>
+                        <h5 class="card-title fw-bold">{{$cause->cause_name}}</h5>
+                        
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" style="width: 10%"></div>
+                        </div>
+                       <a href="/causes/{{$cause->id}}"> <button class="btn btn-donate w-100 mt-3 hover-me">Donate Now</button></a>
+                    </div>
                 </div>
-                <button class="btn btn-donate w-100 mt-3">Donate Now</button>
             </div>
-        </div>
-    </div>
 
-
-        </div>
+            @endforeach
+           
 
         <div class="row mt-4">
-            <!-- Campaign Card -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="/images/donate3.png" class="card-img-top" alt="Campaign Image">
-                    <div class="card-body">
-                        <p class="card-text">Donations: <span class="text-danger">$50</span> / $5000</p>
-                        <h5 class="card-title fw-bold">It's on Your Hands Campaign</h5>
-                        
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 10%"></div>
-                        </div>
-                        <button class="btn btn-donate w-100 mt-3">Donate Now</button>
-                    </div>
-                </div>
-            </div>
-       
-            <!-- Campaign Card -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="/images/donate4.png" class="card-img-top" alt="Campaign Image">
-                    <div class="card-body">
-                        <p class="card-text">Donations: <span class="text-danger">$50</span> / $5000</p>
-                        <h5 class="card-title fw-bold">It's on Your Hands Campaign</h5>
-                        
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 10%"></div>
-                        </div>
-                        <button class="btn btn-donate w-100 mt-3">Donate Now</button>
-                    </div>
-                </div>
-            </div>
-       <!-- Campaign Card -->
-       <div class="col-md-4 mb-4">
-        <div class="card">
-            <img src="/images/donate5.png" class="card-img-top" alt="Campaign Image">
-            <div class="card-body">
-                <p class="card-text">Donations: <span class="text-danger">$50</span> / $5000</p>
-                <h5 class="card-title fw-bold">It's on Your Hands Campaign</h5>
-                
-                <div class="progress">
-                    <div class="progress-bar bg-danger" style="width: 10%"></div>
-                </div>
-                <button class="btn btn-donate w-100 mt-3">Donate Now</button>
-            </div>
-        </div>
-    </div>
+         
 
 
         </div>

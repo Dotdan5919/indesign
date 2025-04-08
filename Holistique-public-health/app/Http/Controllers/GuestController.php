@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\member;
 use App\Models\message;
+use App\Models\event;
+use App\Models\cause;
 
 use Illuminate\Support\Facades\Redirect;
 
@@ -13,6 +15,7 @@ class GuestController extends Controller
     //
 
 
+    // add memebers
 
     public function index()
     {
@@ -50,6 +53,7 @@ class GuestController extends Controller
 
     }
 
+    // add messages
 
     public function message()
     {
@@ -84,5 +88,56 @@ class GuestController extends Controller
 
     }
 
+
+
+// show all eventes
+    public function show()
+    {
+
+        // $Events=new event();
+
+
+        $events=event::all();
+         return view('events')->with('all_events',$events);
+
+
+
+
+         
+    }
+
+// show specific events
+public function eventquery($id)
+{
+
+
+
+
+    $event=event::where("id","=",$id)->get();
+
+    return view('eventsexpanded')->with('event',$event);
+}
+
+
+
+public function showCause(){
+
+    $causes=cause::all();
+
+
+
+    return view('causes')->with('all_causes',$causes);
+}
+
+
+public function singleCause($id)
+{
+
+    $cause=cause::where("id","=",$id)->get();
+
+    return view('causesexpanded')->with('cause',$cause);
+
+
+}
 
 }

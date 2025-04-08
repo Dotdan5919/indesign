@@ -1,3 +1,6 @@
+
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -40,8 +43,8 @@
 
         <div class="mb-3">
             <label for="eventName" class="form-label">Name of Event</label>
-            <input type="text"   name="event_name"  class="form-control" id="eventName" placeholder="Enter event name">
-        </div>
+            <input type="text" name="event_name" class="form-control datepicker" id="eventDate" required>
+         </div>
 
         <div class="mb-3">
             <label for="eventDescription" class="form-label">Description</label>
@@ -92,7 +95,7 @@
     <div class="card-header ">
         <h1 class="py-3">Create New Cause</h1>
     </div>
-        <form method="POST" action={{route('upload-cause')}} enctype="multipart/form-data">
+        <form method="POST" action={{route('upload-cause')}} enctype="multipart/form-data" id="causeForm">
            
            @csrf
     
@@ -103,12 +106,19 @@
     
             <div class="mb-3">
                 <label for="eventName" class="form-label">Name of Cause</label>
-                <input type="text"   name="cause_name"  class="form-control" id="eventName" placeholder="Enter event name">
+                <input type="text"   name="cause_name"  class="form-control" id="eventName" >
             </div>
     
             <div class="mb-3">
                 <label for="eventDescription" class="form-label">Cause Description</label>
-                <textarea class="form-control"  name="cause_description"  id="eventDescription" rows="3" placeholder="Enter event description" required></textarea>
+                <textarea class="form-control hidden-area"  name="cause_description"  id="causeDescription hiddenarea " rows="6" 
+                 ></textarea>
+
+                 <div id="editor" class="editableDiv">
+                    <p>Hello World!</p>
+                    <p>Some initial <strong>bold</strong> text</p>
+                    <p><br /></p>
+                  </div>
             </div>
     
             <div class="mb-3">
@@ -123,12 +133,12 @@
             <button type="submit" class="btn btn-primary">Create Cause</button>
             @if (session('success_2'))
             <div class="alert alert-success mt-2" role="alert">
-                <strong>{{ session('success') }}</strong>
+                <strong>{{ session('success_2') }}</strong>
             </div>
             @endif
             @if (session('error_2'))
             <div class="alert alert-danger mt-2" role="alert">
-                <strong>{{ session('error') }}</strong>
+                <strong>{{ session('error_2') }}</strong>
             </div>
             @endif
             @if ($errors->any())
@@ -140,6 +150,7 @@
             </ul>
         </div>
     @endif
+    
         </form>
 </div>
 
@@ -187,12 +198,12 @@
             <button type="submit" class="btn btn-primary">Create Blog</button>
             @if (session('success_3'))
             <div class="alert alert-success mt-2" role="alert">
-                <strong>{{ session('success') }}</strong>
+                <strong>{{ session('success_3') }}</strong>
             </div>
             @endif
             @if (session('error_3'))
             <div class="alert alert-danger mt-2" role="alert">
-                <strong>{{ session('error') }}</strong>
+                <strong>{{ session('error_3') }}</strong>
             </div>
             @endif
             @if ($errors->any())
@@ -215,6 +226,23 @@
 
 
 
+<script>
+    const editableDiv = document.querySelector('.editableDiv');
+    const form = document.getElementById('causeForm');
+    const hiddenInput = document.querySelector('.hidden-area');
+  
+    form.addEventListener('submit', function(event) {
+      hiddenInput.value = htmlContent; // Or editableDiv.textContent;
+    
+      console.log(hiddenInput);
+    });
+
+
+    cosole.log(htmlContent);
+
+    
+  </script>
 
 
 @endsection
+

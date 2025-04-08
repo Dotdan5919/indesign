@@ -12,6 +12,10 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1DAHYbVcxyZ6mF1My6g7gkgyn5GBpdKPU0xyZcz/WrCXcgHaUkGhGQQ1XDasAQznWPWtNGn9SdPICag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    {{-- quill editor --}}
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
 
     {{-- dashboar links --}}
 
@@ -92,7 +96,7 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                    <div class="sidebar-brand-text mx-3"> <sup>2</sup></div>
                 </a>
     
                 <!-- Divider -->
@@ -423,6 +427,19 @@
     </div>
 
 
+    <script> 
+
+$(document).ready(function() {
+    $('#eventDate').datepicker({
+        format: 'd MM yyyy', // 'd' for day, 'MM' for full month name, 'yyyy' for 4-digit year
+        autoclose: true, // Close the datepicker when a date is selected
+        language: 'en-GB' // Set the language for month names (optional, if you included the locale file)
+    });
+});
+
+
+    </script>
+    
      <!-- Bootstrap core JavaScript-->
      <script src="vendor/jquery/jquery.min.js"></script>
      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -439,5 +456,39 @@
      <!-- Page level custom scripts -->
      <script src="js/demo/chart-area-demo.js"></script>
      <script src="js/demo/chart-pie-demo.js"></script>
-</body>
+     {{-- date picker --}}
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1njTZm3x/zqr1nrRQLtFIB/Gx/nRmIxDVdoYZu206Jdj9cUYmHYWMLmWwnATZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.en-GB.min.js" integrity="sha512-rGC3X+k3zYnxjbfQ/DRy6gWuDCcve6UYwy2mXJ/UvR9/CNNN/c6P9Q0jHJ12j64JZ0zQFOTmjpXdRi8P5yJu1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+     <!-- Include the Quill library -->
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+
+
+  
+  const quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+  const htmlContent = quill.root.innerHTML;
+
+  quill.on('text-change', (delta, oldDelta, source) => {
+
+    console.log(quill.root.innerHTML);
+const cause=document.getElementById('causeDescription');
+
+
+console.log(cause.value);
+//  cause.= quill.root.innerHTML;
+
+  });
+
+
+
+   console.log(htmlContent)
+
+</script>
+    </body>
 </html>

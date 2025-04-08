@@ -25,17 +25,21 @@ Route::get('/', function () {
 //     return view('index');
 // })->name('index');
 
-Route::get('/events', function () {
-    return view('events');
-})->name('events');
+Route::get('/events',[App\Http\Controllers\GuestController::class, 'show'])->name('events');
 
-Route::get('/events-single', function () {
-    return view('eventsexpanded');
-});
 
-Route::get('/causes', function () {
-    return view('causes');
-})->name('causes');
+
+Route::get('/events/{id}', [App\Http\Controllers\GuestController::class, 'eventquery']);
+
+
+// Route::get('/events-single', function () {
+//     return view('eventsexpanded');
+// });
+
+Route::get('/causes',[App\Http\Controllers\GuestController::class, 'showCause'])->name('causes');
+
+Route::get('/causes/{id}',[App\Http\Controllers\GuestController::class, 'singleCause']);
+
 
 Route::get('/blogs', function () {
     return view('blogs');
@@ -46,9 +50,9 @@ Route::get('/aboutus', function () {
 })->name('aboutus');
 
 
-Route::get('/events_2', function () {
-    return view('eventsexpanded');
-});
+
+
+
 
 Route::get('/blogs_2', function () {
     return view('blogsexpanded');
@@ -56,6 +60,7 @@ Route::get('/blogs_2', function () {
 Route::get('/causes_2', function () {
     return view('causesexpanded');
 });
+
 
 Route::post('/joinus', [App\Http\Controllers\GuestController::class, 'index'])->name('joinus');
 Route::post('/getintouch', [App\Http\Controllers\GuestController::class, 'message'])->name('getintouch');

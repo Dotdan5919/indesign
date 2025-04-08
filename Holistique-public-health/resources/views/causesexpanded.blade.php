@@ -55,7 +55,7 @@
           <!-- Large Image -->
           <div class="mb-4">
             <img
-              src="/images/camp.png"
+              src="/storage/uploads/{{$cause[0]->image}}"
               alt="Large Campaign Image"
               class="img-fluid rounded mb-3"
             />
@@ -63,9 +63,9 @@
   
           <!-- Campaign Info -->
           <p class="text-muted">
-            Donations: <span class="text-danger">$50</span> / $5000
+            Donations: <span class="text-danger">${{$cause[0]->current_amount}}</span> / ${{$cause[0]->target}}
           </p>
-          <h3 class="fw-bold">It's on Your Hands Campaign</h3>
+          <h3 class="fw-bold">{{$cause[0]->cause_name}}</h3>
   
           <!-- Donation Options -->
           <div class="d-flex flex-wrap align-items-center gap-2 mb-4">
@@ -99,7 +99,7 @@
             <button type="submit" class="btn btn-danger w-100">Donate Now</button>
           </form>
   
-          <!-- Additional Campaign Info -->
+          {{-- <!-- Additional Campaign Info -->
           <h4 class="fw-bold">Health Education Campaign</h4>
           <p class="text-muted">A School Based Health Education Program.</p>
          
@@ -138,8 +138,12 @@ Enroll 50 out of school children back 2 school.
 </ul> 
 
 
+ --}}
 
 
+ <p>
+  {{$cause[0]->cause_description}}
+ </p>
 </div>
   
         <!-- Right Column (Sidebar) -->
@@ -281,6 +285,7 @@ Enroll 50 out of school children back 2 school.
 
 
         </div>
+
     </div>
 
 
