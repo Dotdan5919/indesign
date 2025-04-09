@@ -177,6 +177,9 @@
                             <h6 class="collapse-header">Other Pages:</h6>
                             <a class="collapse-item" href="404.html">404 Page</a>
                             <a class="collapse-item" href="blank.html">Blank Page</a>
+                       
+                       
+                       
                         </div>
                     </div>
                 </li>
@@ -184,9 +187,20 @@
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
                     <a class="nav-link" href="charts.html">
-                        <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></a>
+                        <i class="fas fa-fw fa-rocket"></i>
+                        <span>Causes</span></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="charts.html">
+                        <i class="fas fa-fw fa-calendar"></i>
+                        <span>Events</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="charts.html">
+                        <i class="fas fa-fw fa-blog"></i>
+                        <span>Blogs</span></a>
+                </li>
+
     
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
@@ -460,6 +474,17 @@ $(document).ready(function() {
      <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1njTZm3x/zqr1nrRQLtFIB/Gx/nRmIxDVdoYZu206Jdj9cUYmHYWMLmWwnATZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.en-GB.min.js" integrity="sha512-rGC3X+k3zYnxjbfQ/DRy6gWuDCcve6UYwy2mXJ/UvR9/CNNN/c6P9Q0jHJ12j64JZ0zQFOTmjpXdRi8P5yJu1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/datatables-demo.js"></script>
+
+
 
      <!-- Include the Quill library -->
 <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>

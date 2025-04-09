@@ -99,6 +99,7 @@ function convertToAmPm(string $time24): ?string
 
             </div> --}}
              
+
         @foreach ($all_events as $event)
         <div class="col-md-4 mb-4 eventcard" *ngFor="let event of events"> 
             <div class="card shadow-sm border-0 rounded">
@@ -114,9 +115,27 @@ function convertToAmPm(string $time24): ?string
             </div>
         </div>
 
+      
             
         @endforeach
         
+       
+      
+        @if ($all_events->isEmpty())
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+              <div class="col-md-8 text-center">
+                <div class="alert alert-info" role="alert">
+                  <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                  <strong>No Events Yet!</strong>
+                  <p class="mb-0">Stay tuned, we're working on bringing you exciting events soon.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+            
+          
+        @endif
 
 
         

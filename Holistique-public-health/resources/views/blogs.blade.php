@@ -81,7 +81,21 @@
 
         @endforeach
 
-
+        @if ($all_blogs->isEmpty())
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+              <div class="col-md-8 text-center">
+                <div class="alert alert-info" role="alert">
+                  <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                  <strong>No Blogs Yet!</strong>
+                  <p class="mb-0">Stay tuned, we're working on bringing you exciting blogs soon.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+            
+          
+        @endif
         
       <!-- Row 2: Two Blog Items -->
       <div class="row g-4 mt-4">

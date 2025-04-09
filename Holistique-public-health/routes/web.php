@@ -87,3 +87,9 @@ Route::post('/upload-event',[App\Http\Controllers\AdminController::class, 'index
 Route::post('/upload-cause',[App\Http\Controllers\AdminController::class, 'submit'])->name('upload-cause');
 Route::post('/create-blog',[App\Http\Controllers\AdminController::class, 'create'])->name('create-blog');
 
+
+Route::get('/admin-event',[App\Http\Controllers\HomeController::class, 'event'])->name('admin-event');
+Route::get('/admin-blog',[App\Http\Controllers\HomeController::class, 'blog'])->name('admin-blog');
+Route::get('/admin-cause',[App\Http\Controllers\HomeController::class, 'cause'])->name('admin-cause');
+
+

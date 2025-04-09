@@ -78,7 +78,7 @@ class AdminController extends Controller
             if(count($event)<1)
             {
     
-                $converted_date= $this->formatDateYMDText( request('event_date'));
+                // $converted_date= $this->formatDateYMDText( request('event_date'));
                
               
 
@@ -86,7 +86,7 @@ class AdminController extends Controller
                 $NewEvent->image=$filename;
                  $NewEvent->event_name=request('event_name');
                 $NewEvent->description=request('description');
-                 $NewEvent->event_date=$converted_date;
+                 $NewEvent->event_date= request('event_date');
                  $NewEvent->start_time=request('start_time');
                  $NewEvent->address=request('address');
                  $NewEvent->save();
@@ -250,4 +250,8 @@ class AdminController extends Controller
        
 
     }
+
+
+
+    
 }
