@@ -95,7 +95,7 @@
                           <i class="bi bi-eye-fill"></i> View Details 
                         </button>
                         
-                        <a href="/edit-blog/{{$blog->id}}" class="btn btn-sm btn-warning me-2">
+                        <a href="/edit-blog?id={{$blog->id}}" class="btn btn-sm btn-warning me-2">
                           <i class="bi bi-pencil-square"></i> Edit
                         </a>
                         <button class="btn btn-sm btn-danger" onclick="confirmDelete({{ $blog->id }})">

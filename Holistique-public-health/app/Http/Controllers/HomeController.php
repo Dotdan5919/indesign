@@ -114,10 +114,13 @@ class HomeController extends Controller
     }
     
     
-    public function editBlog($id)
+    public function editBlog()
     {
+
+        $id=request('id');
         
         $blog=blog::where("id","=",$id)->get();
+
         
         
         return view('adminedit')->with('blog',$blog);

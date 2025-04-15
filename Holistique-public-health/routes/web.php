@@ -99,8 +99,15 @@ Route::get('/admin-cause',[App\Http\Controllers\HomeController::class, 'cause'])
 
 
 Route::get('/edit-event/{id}',[App\Http\Controllers\HomeController::class, 'editEvent']);
-Route::get('/edit-blog/{id}',[App\Http\Controllers\HomeController::class, 'editBlog']);
+Route::get('/edit-blog',[App\Http\Controllers\HomeController::class, 'editBlog']);
 Route::get('/edit-cause/{id}',[App\Http\Controllers\HomeController::class, 'editCause']);   
 
+
+
+
+// update admin routes
+
+
+Route::post('/updateBlog',[App\Http\Controllers\UpdateController::class, 'updateBlog'])->name('updateBlog');
 
 
