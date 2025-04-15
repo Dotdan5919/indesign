@@ -18,7 +18,9 @@
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
 
     {{-- dashboar links --}}
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
 
  <!-- Custom fonts for this template-->
  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -101,12 +103,16 @@
     
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
-    
+                <li class="nav-item active">
+                    <a class="nav-link" href={{route('home')}}>
+                        <i class="fas fa-fw fa-home"></i>
+                        <span>Dashboard</span></a>
+                </li>
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
                     <a class="nav-link" href={{route('index')}}>
-                        <i class="fas fa-fw fa-home"></i>
-                        <span>Home page</span></a>
+                        <i class="fas fa-fw fa-arrow-left"></i>
+                        <span>Landing page</span></a>
                 </li>
     
                 <!-- Divider -->
@@ -186,17 +192,17 @@
     
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
-                    <a class="nav-link" href="charts.html">
+                    <a class="nav-link" href={{route('admin-cause')}}>
                         <i class="fas fa-fw fa-rocket"></i>
                         <span>Causes</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="charts.html">
+                    <a class="nav-link" href={{route('admin-event')}}>
                         <i class="fas fa-fw fa-calendar"></i>
                         <span>Events</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="charts.html">
+                    <a class="nav-link" href={{route('admin-blog')}}>
                         <i class="fas fa-fw fa-blog"></i>
                         <span>Blogs</span></a>
                 </li>
@@ -485,6 +491,12 @@ $(document).ready(function() {
   <script src="js/demo/datatables-demo.js"></script>
 
 
+{{--  --}}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhG5cmL+nSWv06U7RkXKaKlu9Aj/gC" crossorigin="anonymous"></script>
+{{--  --}}
+
+
 
      <!-- Include the Quill library -->
 <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
@@ -547,7 +559,30 @@ const blog=document.querySelector('.hidden_blog');
   });
 
 
+  function confirmDelete(blogId) {
+    if (confirm('Are you sure you want to delete this blog?')) {
+      // You would typically submit a form or make an AJAX request here
+      // to your delete route (e.g., route('admin.blogs.destroy', blogId))
+      console.log('Deleting blog with ID:', blogId);
+      // Example using a simple form (you might want to use AJAX for better UX)
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = `/admin/blogs/${blogId}`; // Adjust your delete route
+      const methodInput = document.createElement('input');
+      methodInput.type = 'hidden';
+      methodInput.name = '_method';
+      methodInput.value = 'DELETE';
+      const csrfInput = document.createElement('input');
+      csrfInput.type = 'hidden';
+      csrfInput.name = '_token';
+      csrfInput.value = '{{ csrf_token() }}'; // Ensure CSRF token is available
 
+      form.appendChild(methodInput);
+      form.appendChild(csrfInput);
+      document.body.appendChild(form);
+      form.submit();
+    }
+  }
   
 
 </script>

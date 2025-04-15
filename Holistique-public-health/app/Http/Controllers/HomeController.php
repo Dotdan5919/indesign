@@ -60,7 +60,7 @@ class HomeController extends Controller
 
 
 
-        return view('');
+        return view('adminevent');
 
 
     }
@@ -68,6 +68,12 @@ class HomeController extends Controller
 
     public function blog()
     {
+
+
+
+        $blogs=blog::all();
+
+        return view('adminblog')->with('all_blogs',$blogs);
 
 
 
@@ -79,6 +85,41 @@ class HomeController extends Controller
 
 
 
+        return view('admincause');
 
+
+
+    }
+
+
+    public function editCause($id)
+    {
+
+        $cause=cause::where("id","=",$id)->get();
+        
+        
+        return view('adminedit')->with("cause",$cause);
+        
+    }
+    
+    
+    public function editEvent($id)
+    {
+        $event=event::where("id","=",$id)->get();
+        
+        
+        return view('adminedit')->with("event","=",$event);
+        
+        
+    }
+    
+    
+    public function editBlog($id)
+    {
+        
+        $blog=blog::where("id","=",$id)->get();
+        
+        
+        return view('adminedit')->with('blog',$blog);
     }
 }

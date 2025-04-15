@@ -93,3 +93,14 @@ Route::get('/admin-blog',[App\Http\Controllers\HomeController::class, 'blog'])->
 Route::get('/admin-cause',[App\Http\Controllers\HomeController::class, 'cause'])->name('admin-cause');
 
 
+
+// edit routes
+
+
+
+Route::get('/edit-event/{id}',[App\Http\Controllers\HomeController::class, 'editEvent']);
+Route::get('/edit-blog/{id}',[App\Http\Controllers\HomeController::class, 'editBlog']);
+Route::get('/edit-cause/{id}',[App\Http\Controllers\HomeController::class, 'editCause']);   
+
+
+
