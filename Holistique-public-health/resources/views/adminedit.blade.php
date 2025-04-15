@@ -12,7 +12,7 @@
                
     @csrf
 
-    <input type="text" class="" value="{{$blog[0]->id}}" name="id" display="d-none">
+    <input type="text" class="d-none" value="{{$blog[0]->id}}" name="id" >
     <div class="mb-3">
       <img src="storage/uploads/{{$blog[0]->blog_image}}" alt="" srcset=""> <br>
      <label for="formFileAllowed fw-bold" class="form-label py-2">Change Image</label>

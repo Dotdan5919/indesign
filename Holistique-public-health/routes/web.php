@@ -81,13 +81,17 @@ Route::get('/admin-login', function () {
     return view('admin-login');
 })->name('admin-login');
 
+// home route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+// upload routes
 Route::post('/upload-event',[App\Http\Controllers\AdminController::class, 'index'])->name('upload-event');
 Route::post('/upload-cause',[App\Http\Controllers\AdminController::class, 'submit'])->name('upload-cause');
 Route::post('/create-blog',[App\Http\Controllers\AdminController::class, 'create'])->name('create-blog');
 
 
+// admin routes
 Route::get('/admin-event',[App\Http\Controllers\HomeController::class, 'event'])->name('admin-event');
 Route::get('/admin-blog',[App\Http\Controllers\HomeController::class, 'blog'])->name('admin-blog');
 Route::get('/admin-cause',[App\Http\Controllers\HomeController::class, 'cause'])->name('admin-cause');
@@ -95,9 +99,6 @@ Route::get('/admin-cause',[App\Http\Controllers\HomeController::class, 'cause'])
 
 
 // edit routes
-
-
-
 Route::get('/edit-event/{id}',[App\Http\Controllers\HomeController::class, 'editEvent']);
 Route::get('/edit-blog',[App\Http\Controllers\HomeController::class, 'editBlog']);
 Route::get('/edit-cause/{id}',[App\Http\Controllers\HomeController::class, 'editCause']);   
