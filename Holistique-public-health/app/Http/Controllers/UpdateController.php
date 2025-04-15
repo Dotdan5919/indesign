@@ -39,19 +39,20 @@ class UpdateController extends Controller
 
      public function deleteFileFromStorage($filename)
 {
-    $path = 'storage/uploads' . $filename; // Path relative to your storage disk root
+    $path = 'uploads/' . $filename;
+    
 
-    if (Storage::exists($path)) {
-        if (Storage::delete($path)) {
-            echo "he work";
+    if (Storage::disk('public')->exists($path)) {
+        if (Storage::disk('public')->delete($path)) {
+          
             return 'File deleted successfully from storage.';
         } else {
-            echo "he no work";
+            
 
             return Redirect::back()->with('error','Error deleting file from storage.') ;
         }
     } else {
-        echo "file no dey";
+      
 
         return Redirect::back()->with('error','File not found in storage.') ;
     }
@@ -93,38 +94,43 @@ else{
             return redirect()->back()
                              ->withErrors($validator)
                              ->withInput();
-        }
 
-        else{
-        $message = $this->deleteFileFromStorage($blog->blog_image);
-    //  $image = request('image');
-    // $filename = time() . '_' . $image->getClientOriginalName();
-    // $path = $image->storeAs('uploads', $filename, 'public');
-    
-    // $blog->blog_title=request('blog_title');
-    // $blog->blog_subtitle=request('blog_subtitle');
-    // $blog->blog_content=request('blog_content');
-    // $blog->special_quote=request('special_quote');
-    // $blog->blog_image=$filename;
-
-    // $blog->update();
+           
+                            }
+                            
+                            else{
+                                $message = $this->deleteFileFromStorage($blog->blog_image);
+                                $image = request('image');
+                                $filename = time() . '_' . $image->getClientOriginalName();
+                                $path = $image->storeAs('uploads', $filename, 'public');
+                                
+                                $blog->blog_title=request('blog_title');
+                                $blog->blog_subtitle=request('blog_subtitle');
+                                $blog->blog_content=request('blog_content');
+                                $blog->special_quote=request('special_quote');
+                                $blog->blog_image=$filename;
+                                
+                                $blog->update();
+                                return Redirect::back()->with('success','Updated');
+                                
 
 }
 
 }
 else{
 
-    $message = $this->deleteFileFromStorage($blog->blog_image);
+       $message = $this->deleteFileFromStorage($blog->blog_image);
+   
 
-    // $blog->blog_title=request('blog_title');
-    // $blog->blog_subtitle=request('blog_subtitle');
-    // $blog->blog_content=request('blog_content');
-    // $blog->special_quote=request('special_quote');
-    // $blog->blog_image=request('blog_image');
+    $blog->blog_title=request('blog_title');
+    $blog->blog_subtitle=request('blog_subtitle');
+    $blog->blog_content=request('blog_content');
+    $blog->special_quote=request('special_quote');
+    
 
-    // $blog->update();
-echo "i dey here";
-echo "see file " . $blog->blog_image;
+    $blog->update();
+    return Redirect::back()->with('success','Updated');
+
 
 
 }

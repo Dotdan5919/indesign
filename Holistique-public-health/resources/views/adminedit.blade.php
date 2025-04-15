@@ -16,7 +16,7 @@
     <div class="mb-3">
       <img src="storage/uploads/{{$blog[0]->blog_image}}" alt="" srcset=""> <br>
      <label for="formFileAllowed fw-bold" class="form-label py-2">Change Image</label>
-     <input name="blog_image" class="form-control" type="file" id="formFileAllowed" title="only these formats are accepted (jpg, png, gif)" accept="image/png, image/jpeg, image/gif">
+     <input name="image" class="form-control" type="file" id="formFileAllowed" title="only these formats are accepted (jpg, png, gif)" accept="image/png, image/jpeg, image/gif">
  </div>
 
      <div class="mb-3">
@@ -31,7 +31,7 @@
 
      <div class="mb-3">
          <label for="eventDescription" class="form-label">Blog Content</label>
-         <textarea class="form-control hidden-area d-none "  name="blog_content"  id="eventDescription" rows="3" placeholder="Enter Blog Content" ></textarea>
+         <textarea class="form-control hidden-area d-none "  name="blog_content"  id="eventDescription" rows="3"  > {{$blog[0]->blog_content}}</textarea>
    
          <div id="editor">{!!$blog[0]->blog_content!!}</div>
      </div>

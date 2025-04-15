@@ -17,7 +17,7 @@
         
                <div class="mb-3">
                 <label for="formFileAllowed" class="form-label">Blog Image</label>
-                <input name="blog_image" class="form-control" type="file" id="formFileAllowed" title="only these formats are accepted (jpg, png, gif)" accept="image/png, image/jpeg, image/gif">
+                <input name="blog_image" class="form-control" type="file" id="formFileAllowed" title="only these formats are accepted (jpg, png, gif)" accept="image/png, image/jpeg, image/gif" required>
             </div>
         
                 <div class="mb-3">
@@ -108,7 +108,7 @@
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="modal-header bg-light">
-                            <h5 class="modal-title" id="blogDetailsModalLabel{{ $blog->id }}">{{ $blog->blog_title }} - Details</h5>
+                            <h5 class="modal-title" id="blogDetailsModalLabel{{ $blog->id }}">{{ $blog->blog_title }}</h5>
                             <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
