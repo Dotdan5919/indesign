@@ -16,7 +16,17 @@
 
 
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-            
+            {{-- fonts --}}
+
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+           
+<script src={{ asset('node_modules/aos/dist/aos.js') }} ></script>
+<script>
+    AOS.init();
+</script>
+
         </head>
         <body class="">
 
@@ -67,7 +77,7 @@
         
             <!-- footer -->
         
-            <footer class="py-4 bg-white border-top">
+            <footer class=" bg-white border-top">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-4 text-center text-md-start">
@@ -107,9 +117,6 @@
             
         
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-            <script src={{ asset('node_modules/aos/dist/aos.js') }} ></script>
-    <script>
-        AOS.init();
-    </script>
+         
         </body>
         </html>

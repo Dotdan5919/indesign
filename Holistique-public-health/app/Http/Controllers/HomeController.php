@@ -58,9 +58,9 @@ class HomeController extends Controller
     public function event()
     {
 
+        $events=event::all();
 
-
-        return view('adminevent');
+        return view('adminevent')->with('all_events',$events);
 
 
     }
@@ -84,17 +84,20 @@ class HomeController extends Controller
     {
 
 
+        $causes=cause::all();
 
-        return view('admincause');
+        return view('admincause')->with('all_causes',$causes);
 
 
 
     }
 
 
-    public function editCause($id)
+    public function editCause()
     {
 
+
+        $id=request('id');
         $cause=cause::where("id","=",$id)->get();
         
         
@@ -103,12 +106,14 @@ class HomeController extends Controller
     }
     
     
-    public function editEvent($id)
+    public function editEvent()
     {
+
+        $id=request('id');
         $event=event::where("id","=",$id)->get();
         
         
-        return view('adminedit')->with("event","=",$event);
+        return view('adminedit')->with("event",$event);
         
         
     }

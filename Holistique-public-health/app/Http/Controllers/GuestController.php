@@ -8,6 +8,7 @@ use App\Models\message;
 use App\Models\event;
 use App\Models\cause;
 use App\Models\blog;
+use Carbon\Carbon;
 
 
 use Illuminate\Support\Facades\Redirect;
@@ -167,4 +168,20 @@ return view('blogsexpanded')->with('blog',$blog);
 
 
 }
+
+
+
+public function welcome ()
+{
+
+    $today = Carbon::now()->startOfDay();
+
+
+    $events=event::where("event_date",">",$today)->limit(2)->get();
+
+    return view('welcome')->with('events',$events);
+
+}
+
+
 }

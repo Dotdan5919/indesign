@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // user routes
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+Route::get('/',[App\Http\Controllers\GuestController::class, 'welcome'])->name('index');
 
 
 
@@ -99,16 +97,33 @@ Route::get('/admin-cause',[App\Http\Controllers\HomeController::class, 'cause'])
 
 
 // edit routes
-Route::get('/edit-event/{id}',[App\Http\Controllers\HomeController::class, 'editEvent']);
+Route::get('/edit-event',[App\Http\Controllers\HomeController::class, 'editEvent']);
 Route::get('/edit-blog',[App\Http\Controllers\HomeController::class, 'editBlog']);
-Route::get('/edit-cause/{id}',[App\Http\Controllers\HomeController::class, 'editCause']);   
+Route::get('/edit-cause',[App\Http\Controllers\HomeController::class, 'editCause']);   
 
 
 
 
-// update admin routes
+//  admin update routes
 
 
 Route::post('/updateBlog',[App\Http\Controllers\UpdateController::class, 'updateBlog'])->name('updateBlog');
+Route::post('/updateEvent',[App\Http\Controllers\UpdateController::class, 'updateEvent'])->name('updateEvent');
+Route::post('/updateCause',[App\Http\Controllers\UpdateController::class, 'updateCause'])->name('updateCause');
+
+
+
+
+
+
+
+
+// admin delete routes
+
+Route::delete('/deleteBlog/{id}',[App\Http\Controllers\DeleteController::class, 'deleteBlog']);
+Route::delete('/deleteEvent/{id}',[App\Http\Controllers\DeleteController::class, 'deleteEvent']);
+Route::delete('/deleteCause/{id}',[App\Http\Controllers\DeleteController::class, 'deleteCause']);
+
+
 
 

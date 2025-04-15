@@ -5,6 +5,7 @@
 @section('content')
         
         <div class="container home position-relative mt-7 ">
+            
           <!-- logo positioned absolutely -->
           <div class="position-absolute top-0 start-5 translate-middle bg-white rounded-pill d-none d-md-block"> <a class="navbar-brand " href="#"><img src="images/logo.png" alt="Logo" width="100"></a>
           </div>
@@ -17,14 +18,14 @@
             <!-- home text  -->
             <div class="row  ">
                
-                <div data-aos="fade-up" class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5 mt-5 hero-heading text-center text-md-start text-sm-center " >
+                <div data-aos="fade-up" class="col-md-7 col-lg-7 col-sm-12 col-xm-12  hero-heading text-center text-md-start text-sm-center " >
         
                     <p data-aos="fade-up" class=""> Welcome to </p>
                     <h1 data-aos="fade-up" class="fs-1 fw-bold">
                         Holistique <br>
                         Public Health
                     </h1>
-                    <p data-aos="fade-up" >We are dedicated to improving the health of vulnerable and underserved populations through public health initiatives.</p>
+                    <p data-aos="fade-up" >We are dedicated to improving the health of vulnerable and<br> underserved populations through public health initiatives.</p>
                     <a data-aos="fade-up" href="#" class="btn btn-second">  Explore Our Donations  <div class="rounded-circle d-flex justify-content-center align-items-center" style="width: 30px; height: 30px; "><i class="bi bi-send-fill"></i></div> </a>
         
                 </div>
@@ -157,30 +158,30 @@
 
             
         <!-- volunteer  section -->
-            <section class="volunteer-section py-5 " data-aos="fade-up">
+            <section class="volunteer-section  " data-aos="fade-up">
                 <div class="container">
                     <div class="row align-items-center">
                         <!-- Form Section -->
                         <div class="col-md-6 position-relative">
                             <div class="bg-danger rounded   position-absolute top-0 start-0 w-75 h-75"></div>
-                            <div class="p-4 join mt-5 ms-5 bg-white shadow rounded position-relative">
+                            <div class="p-4 join mt-5 ms-5 bg-white volunteer-form shadow rounded position-relative">
                                 {{-- <h3 class="mb-4">Join Us</h3> --}}
                                 <form  method="POST" action={{route('joinus')}} >
                                     @csrf
                                     <div class="mb-3">
-                                        <label class="form-label">Full Name</label>
+                                        <label class="form-label fw-bold">Full Name</label>
                                         <input type="text" name="fullname" class="form-control" placeholder="Enter name">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Location</label>
+                                        <label class="form-label fw-bold">Location</label>
                                         <input type="text" name="location" class="form-control" placeholder="Address">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Phone</label>
+                                        <label class="form-label fw-bold">Phone</label>
                                         <input type="tel" name="phone_no" class="form-control" placeholder="Phone number">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Email</label>
+                                        <label class="form-label fw-bold">Email</label>
                                         <input type="email" name="email" class="form-control" placeholder="Email">
                                     </div>
                                     <button name="submit" class="btn btn-danger w-100">Join us now</button>
@@ -339,7 +340,7 @@
             <!-- upcoming events  -->
         
             <section class="container py-5  px-2">
-                <div class="row align-items-center">
+                <div class="row align-items-center upcoming-events">
                     <!-- Left Content -->
                     <div class="col-lg-5">
                         <span class="text-danger fw-bold">Join Us</span>
@@ -348,36 +349,49 @@
                     </div>
                     
                     <!-- Right Event Cards -->
+                    
                     <div class="col-lg-7 d-flex flex-wrap gap-3">
+
+                              
+                        @if (!empty($events[0]))
+                            
                         <div class="card  shadow mt-5" style="width: 19rem;">
-                            <img src="/images/up.png" class="card-img-top border-bottom border-danger border-5" alt="event">
+                            <div class="img-holder">
+                            <img src="/storage/uploads/{{$events[0]->image}}" class="card-img-top border-bottom border-danger border-5" alt="event">
+                        </div>
                             <div class="card-body">
-                                <span class="text-danger fw-bold ">June 8, 2023</span>
+                                <span class="text-danger fw-bold "> {{ \Carbon\Carbon::parse($events[0]->event_date)->format('F j, Y') }}</span>
                                 
-                                <p class="card-text"><small class="text-body-secondary">4:00 AM - 7:00 AM | Hamilton</small></p>
-                                <h5 class="fw-bold">Community Health Fair</h5>
-                                <span class="text-danger fw-bold">Read More</span>
+                                <p class="card-text"><small class="text-body-secondary"> {{ \Carbon\Carbon::parse($events[0]->start_time)->format('h:i A') }} | {{$events[0]->address}}</small></p>
+                                <h5 class="fw-bold">{{$events[0]->event_name}}</h5>
+                                <a href="#" class="text-danger fw-bold">Read More</a>
                             </div>
                         </div>
-        
+                        @endif
+                        @if (empty($event[1]))
         
                         <div class="card  shadow mb-5" style="width: 19rem;">
-                            <img src="/images/up.png" class="card-img-top border-bottom border-danger border-5" alt="event">
-                            <div class="card-body ">
-                                <span class="text-danger fw-bold">June 8, 2023</span>
-                                <p class="card-text"><small class="text-body-secondary">4:00 AM - 7:00 AM | Hamilton</small></p>
-                                <h5 class="fw-bold">Community Health Fair</h5>
-                                <span class="text-danger fw-bold">Read More</span>
+                            <div class="img-holder">
+                                <img src="/storage/uploads/{{$events[1]->image}}" class="card-img-top border-bottom border-danger border-5" alt="event">
                             </div>
-                        </div>
+                                <div class="card-body">
+                                    <span class="text-danger fw-bold "> {{ \Carbon\Carbon::parse($events[1]->event_date)->format('F j, Y') }}</span>
+                                    
+                                    <p class="card-text"><small class="text-body-secondary"> {{ \Carbon\Carbon::parse($events[1]->start_time)->format('h:i A') }} | {{$events[1]->address}}</small></p>
+                                    <h5 class="fw-bold">{{$events[1]->event_name}}</h5>
+                                    <a href="#" class="text-danger fw-bold">Read More</a>
+                                </div>
+                        </div> 
                     </div>
                 </div>
+                @endif
+              
             </section>
             
         
             <!-- faqs -->
         
-            <section class="faq-section py-5 " style="background-color: #F8E9E9;">
+            <section class="faq-section  " style="background-color: #F8E9E9;">
                 <div class="container text-center">
                     <h6 class="text-uppercase">FAQ</h6>
                     <h2 class="fw-bold">Frequently Asked Questions</h2>
@@ -386,7 +400,7 @@
                             <div class="accordion mt-4" id="faqAccordion">
                                 <div class="accordion-item border-0">
                                     <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button collapsed bg-danger bg-opacity-10" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        <button class="accordion-button collapsed bg-danger bg-opacity-10 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                             How Do I Become a Volunteer Leader?
                                         </button>
                                     </h2>
@@ -398,7 +412,7 @@
                                 </div>
                                 <div class="accordion-item border-0">
                                     <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed bg-danger bg-opacity-10" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <button class="accordion-button collapsed bg-danger bg-opacity-10 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                             How Do I Become a Volunteer Leader?
                                         </button>
                                     </h2>
@@ -410,7 +424,7 @@
                                 </div>
                                 <div class="accordion-item border-0">
                                     <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed bg-danger bg-opacity-10" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <button class="accordion-button collapsed bg-danger bg-opacity-10 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                             How Do I Become a Volunteer Leader?
                                         </button>
                                     </h2>
@@ -422,7 +436,7 @@
                                 </div>
                                 <div class="accordion-item border-0">
                                     <h2 class="accordion-header" id="headingFour">
-                                        <button class="accordion-button collapsed bg-danger bg-opacity-10" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        <button class="accordion-button collapsed bg-danger bg-opacity-10 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                             How Do I Become a Volunteer Leader?
                                         </button>
                                     </h2>

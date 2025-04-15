@@ -559,7 +559,7 @@ const blog=document.querySelector('.hidden_blog');
   });
 
 
-  function confirmDelete(blogId) {
+  function confirmDeleteBlog(blogId) {
     if (confirm('Are you sure you want to delete this blog?')) {
       // You would typically submit a form or make an AJAX request here
       // to your delete route (e.g., route('admin.blogs.destroy', blogId))
@@ -567,7 +567,7 @@ const blog=document.querySelector('.hidden_blog');
       // Example using a simple form (you might want to use AJAX for better UX)
       const form = document.createElement('form');
       form.method = 'POST';
-      form.action = `/admin/blogs/${blogId}`; // Adjust your delete route
+      form.action = `/deleteBlog/${blogId}`; // Adjust your delete route
       const methodInput = document.createElement('input');
       methodInput.type = 'hidden';
       methodInput.name = '_method';
@@ -584,6 +584,56 @@ const blog=document.querySelector('.hidden_blog');
     }
   }
   
+
+  function confirmDeleteEvent(eventId) {
+    if (confirm('Are you sure you want to delete this event?')) {
+      // You would typically submit a form or make an AJAX request here
+      // to your delete route (e.g., route('admin.blogs.destroy', eventId))
+      console.log('Deleting blog with ID:', eventId);
+      // Example using a simple form (you might want to use AJAX for better UX)
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = `/deleteEvent/${eventId}`; // Adjust your delete route
+      const methodInput = document.createElement('input');
+      methodInput.type = 'hidden';
+      methodInput.name = '_method';
+      methodInput.value = 'DELETE';
+      const csrfInput = document.createElement('input');
+      csrfInput.type = 'hidden';
+      csrfInput.name = '_token';
+      csrfInput.value = '{{ csrf_token() }}'; // Ensure CSRF token is available
+
+      form.appendChild(methodInput);
+      form.appendChild(csrfInput);
+      document.body.appendChild(form);
+      form.submit();
+    }
+  }
+
+  function confirmDeleteCause(causeId) {
+    if (confirm('Are you sure you want to delete this event?')) {
+      // You would typically submit a form or make an AJAX request here
+      // to your delete route (e.g., route('admin.blogs.destroy', causeId))
+      console.log('Deleting blog with ID:', causeId);
+      // Example using a simple form (you might want to use AJAX for better UX)
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = `/deleteCause/${causeId}`; // Adjust your delete route
+      const methodInput = document.createElement('input');
+      methodInput.type = 'hidden';
+      methodInput.name = '_method';
+      methodInput.value = 'DELETE';
+      const csrfInput = document.createElement('input');
+      csrfInput.type = 'hidden';
+      csrfInput.name = '_token';
+      csrfInput.value = '{{ csrf_token() }}'; // Ensure CSRF token is available
+
+      form.appendChild(methodInput);
+      form.appendChild(csrfInput);
+      document.body.appendChild(form);
+      form.submit();
+    }
+  }
 
 </script>
     </body>

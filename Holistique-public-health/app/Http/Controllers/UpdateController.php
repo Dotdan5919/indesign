@@ -119,7 +119,7 @@ else{
 }
 else{
 
-       $message = $this->deleteFileFromStorage($blog->blog_image);
+       
    
 
     $blog->blog_title=request('blog_title');
@@ -145,6 +145,189 @@ else{
 
 
 
+
+public function updateEvent()
+{
+
+
+
+    $id=request('id');
+    
+$event=event::where('id','=',request('id'))->first();
+
+if(empty($event))
+{
+
+
+    return Redirect::back()->with('error','error');
+}
+else{
+
+   
+   
+
+    if (request()->hasFile('image')) {
+    
+        $validator = Validator::make(request()->all(), [
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust validation rules as needed
+        ]);
+    
+    
+    
+       
+    
+        if ($validator->fails()) {
+            return redirect()->back()
+                             ->withErrors($validator)
+                             ->withInput();
+
+           
+                            }
+                            
+                            else{
+                                $message = $this->deleteFileFromStorage($event->image);
+                                $image = request('image');
+                                $filename = time() . '_' . $image->getClientOriginalName();
+                                $path = $image->storeAs('uploads', $filename, 'public');
+                                
+                                
+                                $event->event_name=request('event_name');
+                                
+                                $event->description=request('description');
+                                $event->event_date=request('event_date');
+                                $event->start_time=request('start_time');
+                                $event->address=request('address');
+
+                                $event->image=$filename;
+                                
+                                $event->update();
+                                return Redirect::back()->with('success','Updated');
+                                
+
+}
+
+}
+else{
+
+  
+   
+
+       $event->event_name=request('event_name');
+                                
+       $event->description=request('description');
+       $event->event_date=request('event_date');
+       $event->start_time=request('start_time');
+       $event->address=request('address');
+
+     
+       
+       $event->update();
+    return Redirect::back()->with('success','Updated');
+
+
+
+}
+
+}
+
+
+
+
+
+}
+
+
+public function updateCause()
+{
+
+
+
+    $id=request('id');
+    
+$cause=cause::where('id','=',request('id'))->first();
+
+if(empty($cause))
+{
+
+
+    return Redirect::back()->with('error','error');
+}
+else{
+
+   
+   
+
+    if (request()->hasFile('image')) {
+    
+        $validator = Validator::make(request()->all(), [
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust validation rules as needed
+        ]);
+    
+    
+    
+       
+    
+        if ($validator->fails()) {
+            return redirect()->back()
+                             ->withErrors($validator)
+                             ->withInput();
+
+           
+                            }
+                            
+                            else{
+                                $message = $this->deleteFileFromStorage($cause->image);
+                                $image = request('image');
+                                $filename = time() . '_' . $image->getClientOriginalName();
+                                $path = $image->storeAs('uploads', $filename, 'public');
+                                
+                                
+                                $cause->cause_name=request('cause_name');
+                                
+                                $cause->cause_description=request('cause_description');
+                                $cause->target=request('target');
+                                
+
+                                $cause->image=$filename;
+                                
+                                $cause->update();
+                                return Redirect::back()->with('success','Updated');
+                                
+
+}
+
+}
+else{
+
+     
+   
+
+       $cause->cause_name=request('cause_name');
+                                
+       $cause->cause_description=request('cause_description');
+       $cause->target=request('target');
+       
+
+    
+       
+       $cause->update();
+
+     
+       
+       $cause->update();
+    return Redirect::back()->with('success','Updated');
+
+
+
+}
+
+}
+
+
+
+
+
+}
 
 
 
