@@ -22,10 +22,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
            
-<script src={{ asset('node_modules/aos/dist/aos.js') }} ></script>
-<script>
-    AOS.init();
-</script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+
 
         </head>
         <body class="">
@@ -46,20 +46,20 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item p-2 "><a class="nav-link font-parag" href={{route('index')}}>Home</a></li>
-                        <li class="nav-item p-2 "><a class="nav-link font-parag" href={{route('aboutus')}}>About Us</a></li>
-                        <li class="nav-item p-2 "><a class="nav-link font-parag" href={{route('events')}}>Events</a></li>
-                        <li class="nav-item p-2 "><a class="nav-link font-parag" href={{route('causes')}}>Causes</a></li>
-                        <li class="nav-item p-2 "><a class="nav-link font-parag" href={{route('blogs')}}>Blog</a></li>
+                    <ul class="navbar-nav ms-auto fw-bold">
+                        <li class="nav-item p-3 "><a class="nav-link font-parag" href={{route('index')}}>Home</a></li>
+                        <li class="nav-item p-3 "><a class="nav-link font-parag" href={{route('aboutus')}}>About Us</a></li>
+                        <li class="nav-item p-3 "><a class="nav-link font-parag" href={{route('events')}}>Events</a></li>
+                        <li class="nav-item p-3 "><a class="nav-link font-parag" href={{route('causes')}}>Causes</a></li>
+                        <li class="nav-item p-3 "><a class="nav-link font-parag" href={{route('blogs')}}>Blog</a></li>
                         @auth
-                        <li class="nav-item p-2 "><a class="nav-link font-parag" href={{route('home')}}>Admin Dashboard</a></li>
+                        <li class="nav-item p-3 "><a class="nav-link font-parag" href={{route('home')}}>Admin Dashboard</a></li>
                        
                      
                         @else   
             
                         @endauth
-                        <li class="nav-item p-2 "><a class="btn font-parag btn-use" href="#">Donate Now</a></li>
+                        <li class="nav-item p-3 "><a class="btn font-parag btn-use" href="#">Donate Now</a></li>
                     </ul>
                 </div>
             </div>
@@ -80,15 +80,15 @@
             <footer class=" bg-white border-top">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-md-4 text-center text-md-start">
+                        <div class="col-md-4 text-start text-md-start my-2 p-5">
                             <img src="/images/logo.png" alt="Logo" class="mb-3" style="width: 80px;">
-                            <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                            <div class="d-flex justify-content-start justify-content-md-start gap-3">
                                 <a href="#" class="text-dark"><i class="bi bi-x-lg"></i></a>
                                 <a href="#" class="text-dark"><i class="bi bi-envelope"></i></a>
                                 <a href="#" class="text-dark"><i class="bi bi-gear"></i></a>
                             </div>
                         </div>
-                        <div class="col-md-4 text-center text-md-start">
+                        <div class="col-md-4 col-sm-6 text-start text-md-start my-2 p-5">
                             <h6 class="fw-bold">Useful Links</h6>
                             <ul class="list-unstyled ">
                                 <li><a href="#" class="text-dark text-decoration-none">About Us</a></li>
@@ -98,7 +98,7 @@
                                 <li><a href="#" class="text-dark text-decoration-none">Gallery</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-4 text-center text-md-start">
+                        <div class="col-md-4 col-sm-6 text-start text-md-start  my-2 p-5">
                             <h6 class="fw-bold">Support</h6>
                             <ul class="list-unstyled">
                                 <li><a href="#" class="text-dark text-decoration-none">FAQ</a></li>
@@ -117,6 +117,9 @@
             
         
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-         
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script>
+                AOS.init();
+              </script>
         </body>
         </html>

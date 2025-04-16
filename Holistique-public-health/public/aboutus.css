@@ -145,6 +145,25 @@
     font-size: 14px;
 }
 
+
+.hero-heading2
+{
+
+padding-top: 75px;
+padding-left: 135px;
+
+
+}
+
+
+.about-body
+{
+
+    padding:130px;
+
+
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .team-card {

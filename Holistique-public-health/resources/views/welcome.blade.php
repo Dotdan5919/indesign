@@ -18,23 +18,23 @@
             <!-- home text  -->
             <div class="row  ">
                
-                <div data-aos="fade-up" class="col-md-7 col-lg-7 col-sm-12 col-xm-12  hero-heading text-center text-md-start text-sm-center " >
+                <div data-aos="fade-down" data-aos-duration="2000" class="col-md-7 col-lg-7 col-sm-12 col-xm-12  hero-heading text-center text-md-start text-sm-center " >
         
-                    <p data-aos="fade-up" class=""> Welcome to </p>
-                    <h1 data-aos="fade-up" class="fs-1 fw-bold">
+                    <p  class=""> Welcome to </p>
+                    <h1  class="fs-1 fw-bold">
                         Holistique <br>
                         Public Health
                     </h1>
-                    <p data-aos="fade-up" >We are dedicated to improving the health of vulnerable and<br> underserved populations through public health initiatives.</p>
-                    <a data-aos="fade-up" href="#" class="btn btn-second">  Explore Our Donations  <div class="rounded-circle d-flex justify-content-center align-items-center" style="width: 30px; height: 30px; "><i class="bi bi-send-fill"></i></div> </a>
+                    <p  >We are dedicated to improving the health of vulnerable and<br> underserved populations through public health initiatives.</p>
+                    <a  href="/causes" class="btn btn-second">  Explore Our Donations  <div class="rounded-circle d-flex justify-content-center align-items-center" style="width: 30px; height: 30px; "><i class="bi bi-send-fill"></i></div> </a>
         
                 </div>
             </div>
         
           <!-- Statistics Section -->
-          <section class="py-5 text-white text-center position-absolute top-100 start-50 translate-middle stats py-3 ">
+          <section class="py-5 text-white text-center position-absolute top-100 start-50 translate-middle stats py-3  ">
             <div class="container px-5">
-                <div class="row">
+                <div class="row ">
                     <div class="col-md-3 d-flex   ">
                         <img src="/images/dona.png" alt="" srcset="" width="70" height="70">
                         
@@ -91,16 +91,16 @@
             <!-- About Section -->
             <section class="py-5 text-center linking-bg">
                 <div class="container mt-5">
-        <div class="row justify-content-center mb-5">
-            <div class="col-8 ">
+        <div class="row justify-content-center mb-5 pt-5">
+            <div class="col-8 " data-aos="fade-up" data-aos-duration="2000">
                 <p style="color: #991824;">About Us </p>
                     <h2>We Can Change The World</h2>
                     <p>Our goals align with the United Nations' Sustainable Development Goals to improve global health and humanitarian interventions.</p>
             </div>
         </div>
                     <!-- about us cards are here  -->
-                    <div class="row mt-5 grid gap-3">
-                        <div class="col-md ">
+                    <div class="row mt-5 grid gap-3" >
+                        <div class="col-md mt-5 " data-aos="zoom-in" data-aos-duration="3000">
                             <div class="card1 mt-4 shadow-sm p-4 border-0 position-relative">
                                 <div class="position-absolute top-0 start-50 translate-middle card-inner rounded-pill  d-flex justify-content-center align-items-center"> <a class="navbar-brand " href="#"><img src="images/hugeicons_vision.png" alt="Logo" width="70"></a>
                                 </div>
@@ -110,7 +110,7 @@
                         </div>
         
         
-                        <div class="col-md-5 ">
+                        <div class="col-md-5 mt-5" data-aos="zoom-in" data-aos-duration="3000">
                             <div class="card card2 shadow-sm p-4 border-0 card2-color text-white position-relative">
         
                                 <div class="position-absolute top-0 start-50 translate-middle card-inner rounded-pill  d-flex justify-content-center align-items-center"> <a class="navbar-brand " href="#"><img src="images/donate.png" alt="Logo" width="70"></a>
@@ -129,7 +129,7 @@
                                <p> 5. Food Security Initiatives</p></p>
                             </div>
                         </div>
-                        <div class="col-md ">
+                        <div class="col-md mt-5 " data-aos="zoom-in" data-aos-duration="3000">
                             <div class="card1 mt-4 shadow-sm p-4 border-0 position-relative">
         
                                 <div class="position-absolute top-0 start-50 translate-middle card-inner rounded-pill  d-flex justify-content-center align-items-center"> <a class="navbar-brand " href="#"><img src="images/vision.png" alt="Logo" width="70"></a>
@@ -143,9 +143,9 @@
         
                     <div class="row justify-content-center mt-5">
                         <col-8>
-                    <p>
+                    <a href="/aboutus">
                         Read more
-                    </p>
+                    </a>
                     </col-8>
                     </div>
                 </div>
@@ -158,7 +158,7 @@
 
             
         <!-- volunteer  section -->
-            <section class="volunteer-section  " data-aos="fade-up">
+            <section class="volunteer-section " id="joinus" data-aos="fade-up" data-aos-duration="3000">
                 <div class="container">
                     <div class="row align-items-center">
                         <!-- Form Section -->
@@ -205,7 +205,7 @@
         
                         </div>
                         <!-- Text and Image Section -->
-                        <div class="col-md-5 text-center text-md-start">
+                        <div class="col-md-5 text-center text-md-start pt-5" data-aos="zoom-in" data-aos-duration="500">
                             <p class="text-danger">Join Us</p>
                             <h2 class="fw-bold">Become a Volunteer</h2>
                             <p>There will be no Holistique Public Health without our volunteers. The strength of our organization lies in the commitment and services provided by our dedicated volunteers.</p>
@@ -220,19 +220,19 @@
                 <div class="container py-5 px-5">
                     <div class="row g-4">
                         <!-- Transparent Box -->
-                        <div class="  col-md-4 d-flex align-items-center">
+                        <div class="  col-md-4 d-flex align-items-center" data-aos="zoom-in-up" data-aos-duration="2000">
                             <h2 class="fw-bold text-dark">You Can <br> Help Now</h2>
                         </div>
             
                         <!-- Image Card -->
                         <div class="col-md-4">
-                            <div class=" help card border-0">
+                            <div class=" help card border-0" data-aos="zoom-in-up" data-aos-duration="2000">
                                 <img src="images/help1.png" class="card-img-top object-fit-cover   rounded overflow-hidden" alt="Help Image">
                             </div>
                         </div>
             
                         <!-- Join Us Card -->
-                        <div class="col-md-4">
+                        <div class="col-md-4"  data-aos="zoom-in-up" data-aos-duration="2000">
                             <div class="card help p-4 text-white" style="background-color: #C94F4F;">
                                 <div class="card-body">
         
@@ -249,7 +249,7 @@
                     <div class="row g-4 mt-3">
                         <!-- Support Us Card -->
                         <div class="col-md-4">
-                            <div class="card help p-4 text-white" style="background-color: #1D2A4D;">
+                            <div class="card help p-4 text-white" style="background-color: #1D2A4D;" data-aos="zoom-in-up" data-aos-duration="2000">
                                 <div class="card-body">
         
                                     <img src="/images/supportus.png" alt="" srcset="">
@@ -263,7 +263,7 @@
             
                         <!-- Follow Us Card -->
                         <div class="col-md-4">
-                            <div class="card help p-4 text-white" style="background-color: #A33F4F;">
+                            <div class="card help p-4 text-white" style="background-color: #A33F4F;" data-aos="zoom-in-up" data-aos-duration="2000">
                                 <div class="card-body">
                                     <img src="/images/followus.png" alt="" srcset="">
                                     <h3 class="card-title fw-bold"><i class="bi bi-person-fill"></i> Follow Us</h3>
@@ -275,7 +275,7 @@
                         </div>
             
                         <!-- Image Card -->
-                        <div class="col-md-4">
+                        <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="2000">
                             <div class="card border-0 help">
                                 <img src="images/help2.png" class="card-img-top object-fit-cover   rounded overflow-hidden" alt="Help Image">
                             </div>
@@ -287,7 +287,7 @@
            
             <!-- contact form section -->
             <section class="contact-section py-5 g-padding">
-                <div class="container">
+                <div class="container text-start">
                     <div class="row align-items-center ">
                         <div class="col-md-4 text-white">
                             <h2 class="fw-bold fs-2 mb-3">Get in <br> Touch!</h2>
@@ -339,7 +339,7 @@
             
             <!-- upcoming events  -->
         
-            <section class="container py-5  px-2">
+            <section class="container py-5  px-2" data-aos="fade-right" data-aos-duration="2000">
                 <div class="row align-items-center upcoming-events">
                     <!-- Left Content -->
                     <div class="col-lg-5">

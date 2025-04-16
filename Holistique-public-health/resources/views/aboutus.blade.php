@@ -19,12 +19,14 @@
     <!-- about text  -->
     <div class="row ">
        
-        <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5 mt-5 hero-heading text-center text-md-start text-sm-center " >
+        <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5  hero-heading2 text-center text-md-start text-sm-center " >
 
             
-            <h1 class="fs-1 fw-bold text-white">
+            <h1 class="fs-1 fw-bold text-white pb-5" data-aos="fade-right" data-aos-duration="1000">
                About Us 
+               <hr class="border border-white border-2 w-25">    
             </h1>
+            
            
 
         </div>
@@ -40,7 +42,7 @@
 
 <!-- about us  -->
 
-<div class="container py-5">
+<div class="container py-5 about-body">
     <div class="row align-items-center">
         <!-- Image Section -->
         <div class="col-md-4 custom-image-container">

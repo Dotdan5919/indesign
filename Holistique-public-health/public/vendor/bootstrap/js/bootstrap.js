@@ -4429,4 +4429,8 @@
   Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
+
+window.AOS = require('AOS');
+AOS.init();
+
 //# sourceMappingURL=bootstrap.js.map

@@ -33,6 +33,32 @@ body {
     padding-left:113px ;
     padding-top: 130px;
 }
+@media screen and (max-width: 768px) {
+
+
+
+.hero-heading{
+
+text-align: center;
+padding: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+  
+}
+.icons-list{
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row; 
+}
+
+
+
+}
 .hero-heading h1 {
     font-size: 4rem !important ;/* Or any other desired size */
     color:aliceblue
@@ -85,6 +111,12 @@ padding-bottom:98px;
 }
 .join{
     border-radius: 10%!important;
+}
+
+.join form {
+
+
+  text-align: left;
 }
 
 .help-now {
