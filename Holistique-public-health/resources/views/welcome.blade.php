@@ -32,39 +32,39 @@
             </div>
         
           <!-- Statistics Section -->
-          <section class="py-5 text-white text-center position-absolute top-100 start-50 translate-middle stats py-3  ">
-            <div class="container px-5">
+          <section class="py-5 text-white text-center position-absolute top-100 start-50 translate-middle stats py-3  " >
+            <div class="container px-5" >
                 <div class="row ">
-                    <div class="col-md-3 d-flex   ">
+                    <div class="col-md-3 d-flex   " data-aos="fade-down" data-aos-duration="1200">
                         <img src="/images/dona.png" alt="" srcset="" width="70" height="70">
                         
                         <div class="">
-                             <h1 class="fw-bold">10</h1>  <p>Donations</p>
+                             <h1 class="fw-bold">50 +</h1>  <p>Donations</p>
                         </div>
                         
                       
                     </div>
         
-                    <div class="col-md-3 d-flex  ">
+                    <div class="col-md-3 d-flex  " data-aos="fade-down" data-aos-duration="1000">
                         <img src="/images/volunteer.png" alt="" srcset="" width="70" height="70">
                         
                         <div class="">
-                             <h1 class="fw-bold">50</h1>  <p>volunteers</p>
+                             <h1 class="fw-bold">100+</h1>  <p>volunteers</p>
                         </div>
                         
                       
                     </div>
-                    <div class="col-md-3 d-flex  ">
+                    <div class="col-md-3 d-flex  " data-aos="fade-down" data-aos-duration="800">
                         <img src="/images/projects.png" alt="" srcset="" width="70" height="70">
                         
                         <div class="">
-                             <h1 class="fw-bold">20</h1>  <p>projects</p>
+                             <h1 class="fw-bold">100+</h1>  <p>projects</p>
                         </div>
                         
                       
                     </div>
         
-                    <div class="col-md-3 d-flex  ">
+                    <div class="col-md-3 d-flex  " data-aos="fade-down" data-aos-duration="600">
                         <img src="/images/mission.png" alt="" srcset="" width="70" height="70">
                         
                         <div class="">

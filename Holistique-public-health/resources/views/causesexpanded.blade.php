@@ -16,11 +16,13 @@
 <!-- CAUSES text  -->
 <div class="row ">
    
-    <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5 mt-5 hero-heading text-center text-md-start text-sm-center " >
+    <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5 mt-5 hero-heading2 text-center text-md-start text-sm-center " >
 
         
-        <h1 class="fs-1 fw-bold text-white">
+        
+      <h1 class="fs-1 fw-bold text-white pb-5 d-md-block d-flex justify-content-center align-items-center flex-column" data-aos="fade-right" data-aos-duration="1000">
         Causes
+        <hr class="border border-white border-2 w-25"> 
         </h1>
        
 
@@ -37,7 +39,7 @@
 
 
 <!-- Top Section -->
-<section class="py-5 text-center">
+<section class="py-5 text-center" data-aos="fade-up" data-aos-duration="3000">
     <div class="container">
       <h6 class="text-danger">Our Causes</h6>
       <h2 class="fw-bold">You Can Help lots of People by Donating Little</h2>

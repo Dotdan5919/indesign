@@ -22,7 +22,7 @@
         <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5  hero-heading2 text-center text-md-start text-sm-center " >
 
             
-            <h1 class="fs-1 fw-bold text-white pb-5" data-aos="fade-right" data-aos-duration="1000">
+            <h1 class="fs-1 fw-bold text-white pb-5 d-md-block d-flex justify-content-center align-items-center flex-column" data-aos="fade-right" data-aos-duration="1000">
                About Us 
                <hr class="border border-white border-2 w-25">    
             </h1>
@@ -45,18 +45,18 @@
 <div class="container py-5 about-body">
     <div class="row align-items-center">
         <!-- Image Section -->
-        <div class="col-md-4 custom-image-container">
+        <div class="col-lg-4 custom-image-container" data-aos="zoom-in" data-aos-duration="1000">
            
                 <img src="images/about2.png" alt="Healthcare Support" class="img-fluid object-fit-cover" width="300">
             
         </div>
 <!-- ignore this div :) -->
 
-<div class="col-md-1">
+<div class="col-lg-1 d-xl-block d-none">
 
 </div>
         <!-- Text Section -->
-        <div class="col-md-7 ">
+        <div class="col-lg-7 " data-aos="fade-left" data-aos-duration="1000" >
             <h2 class="fw-bold">About Us</h2>
             <p>
                Holistique Public Health is a strong innovative leader in health services that is committed to improving the health and well-being of underserved and vulnerable populations. Currently, our team is based across and provides services to - Canada, Kenya, and Nigeria - communities.
@@ -72,12 +72,12 @@
     </div>
 </div>
 
-<div class="container py-5">
+<div class="container py-5 mission-section">
     <div class="row g-4">
         <!-- Left Section: Mission & Vision -->
         <div class="col-md-6 ">
             <!-- Mission Card -->
-            <div class="about-card mission-card p-4 d-flex gap-4">
+            <div class="about-card mission-card p-4 d-flex gap-4 flex-lg-row  flex-column justify-content-center align-items-center" data-aos="flip-left" data-aos-duration="1000">
                 <div class="">
                     <div class=" icon-left rounded-pill  d-flex justify-content-center align-items-center"> <a class="navbar-brand " href="#"><img src="images/hugeicons_vision.png" alt="Logo" width="70"></a>
                     </div>
@@ -91,7 +91,7 @@
             </div>
 
             <!-- Vision Card -->
-            <div class="about-card vision-card p-4 mt-4 d-flex gap-4">
+            <div class="about-card vision-card p-4 mt-4 d-flex gap-4 flex-lg-row  flex-column justify-content-center align-items-center" data-aos="flip-left" data-aos-duration="1000">
                 <div class="">
                     <div class=" icon-left rounded-pill  d-flex justify-content-center align-items-center"> <a class="navbar-brand " href="#"><img src="images/hugeicons_vision.png" alt="Logo" width="70"></a>
                     </div>
@@ -105,7 +105,7 @@
         </div>
 
         <!-- Right Section: Core Values -->
-        <div class="col-md-6">
+        <div class="col-md-6" data-aos="flip-up" data-aos-duration="1000">
             <div class="core-values p-4 ">
                 
                    <div class="d-flex text-center justify-content-center gap-4">
@@ -119,7 +119,7 @@
 <!-- one of  -->
                    
                 <div class="values-list">
-                    <div class="d-flex  gap-5">
+                    <div class="d-flex  flex-column flex-lg-row  gap-lg-5">
 
                         <p><img src="images/on.png" alt="Logo" width="70">Empower</p>
 
@@ -127,7 +127,7 @@
                     </div>
 
 
-                   <div class="d-flex gap-5">
+                   <div class="d-flex flex-column flex-lg-row gap-lg-5">
 
                     <p><img src="images/Frame.png" alt="Logo" width="70"> Equity</p>
 
@@ -136,7 +136,7 @@
                    </div>
 
 
-                   <div class="d-flex gap-5">
+                   <div class="d-flex flex-column flex-lg-row gap-lg-5">
 
                     <p><img src="images/Frame2.png" alt="Logo" width="70">Collaboration</p>
 
@@ -156,7 +156,7 @@
 
 <!-- team -->
 
-<div class="container text-center py-5">
+{{-- <div class="container text-center py-5">
     <h2 class="fw-bold">Our Dedicated Team</h2>
     <div class="row g-4 mt-4">
         <!-- Team Member 1 -->
@@ -225,7 +225,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 @endsection

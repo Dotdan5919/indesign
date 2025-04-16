@@ -96,6 +96,14 @@
     font-size: 20px;
 }
 
+
+.values-list {
+
+display: flex;
+flex-direction: column;
+
+
+}
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .core-values {
@@ -159,11 +167,16 @@ padding-left: 135px;
 .about-body
 {
 
-    padding:130px;
+    padding:70px;
 
 
 }
+.mission-section{
 
+
+    padding:70px;
+
+}
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .team-card {

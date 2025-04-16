@@ -19,11 +19,12 @@
 <!-- CAUSES text  -->
 <div class="row ">
    
-    <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5 mt-5 hero-heading text-center text-md-start text-sm-center " >
+    <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5  hero-heading2 text-center text-md-start text-sm-center " >
 
         
-        <h1 class="fs-1 fw-bold text-white">
+        <h1 class="fs-1 fw-bold text-white pb-5 d-md-block d-flex justify-content-center align-items-center flex-column" data-aos="fade-right" data-aos-duration="1000">
         Causes
+        <hr class="border border-white border-2 w-25"> 
         </h1>
        
 
@@ -41,15 +42,15 @@
 
     <!-- donation -->
     <div class="container py-5">
-        <P class="text-center text-danger">Our Causes</P>
-        <h2 class="text-center fw-bold">You Can Help lots of People by Donating Little</h2>
+        <P class="text-center text-danger" data-aos="fade-up" data-aos-duration="1000">Our Causes</P>
+        <h2 class="text-center fw-bold" data-aos="fade-up" data-aos-duration="2000">You Can Help lots of People by Donating Little</h2>
         <div class="row mt-4">
 
             @foreach ($all_causes as $cause)
                 
            
              <!-- Campaign Card -->
-             <div class="col-md-4 mb-4">
+             <div class="col-md-4 mb-4" data-aos="fade-left" data-aos-duration="{{1000*$loop->iteration}}">
                 <div class="card">
                     <img src="/storage/uploads/{{$cause->image}}" class="card-img-top" alt="Campaign Image">
                     <div class="card-body">
@@ -59,7 +60,7 @@
                         <div class="progress">
                             <div class="progress-bar bg-danger" style="width: 10%"></div>
                         </div>
-                       <a href="/causes/{{$cause->id}}"> <button class="btn btn-donate w-100 mt-3 hover-me">Donate Now</button></a>
+                       <a href="/cause?id={{$cause->id}}"> <button class="btn btn-donate w-100 mt-3 hover-me">Donate Now</button></a>
                     </div>
                 </div>
             </div>
@@ -94,21 +95,37 @@
         <h2 class="gallery-title">Our Gallery</h2>
         <div class="slider-container">
             <div class="slider-track">
-                <div class="slider-item"><img src="/images/Gallery1.png" alt="1"></div>
-                <div class="slider-item"><img src="/images/Gallery2.png" alt="1"></div>
-                <div class="slider-item"><img src="/images/Gallery3.png" alt="1"></div>
-                <div class="slider-item"><img src="/images/Gallery1.png" alt="1"></div>
-                <div class="slider-item"><img src="/images/Gallery2.png" alt="1"></div>
-                <div class="slider-item"><img src="/images/Gallery3.png" alt="1"></div>
-                <div class="slider-item"><img src="/images/Gallery1.png" alt="1"></div>
-                <div class="slider-item"><img src="/images/Gallery2.png" alt="1"></div>
-                <div class="slider-item"><img src="/images/Gallery3.png" alt="1"></div>
+                <a href="/images/Gallery1.png" data-toggle="lightbox" data-size="lg" data-gallery="mygallery" class="slider-item"><img src="/images/Gallery1.png" alt="1"></a>
+                <a href="/images/Gallery2.png" data-toggle="lightbox" data-size="lg" data-gallery="mygallery" class="slider-item"><img src="/images/Gallery2.png" alt="1"></a>
+                <a href="/images/Gallery3.png" data-toggle="lightbox" data-size="lg" data-gallery="mygallery" class="slider-item"><img src="/images/Gallery3.png" alt="1"></a>
+                <a href="/images/Gallery1.png" data-toggle="lightbox" data-size="lg" data-gallery="mygallery" class="slider-item"><img src="/images/Gallery1.png" alt="1"></a>
+                <a href="/images/Gallery2.png" data-toggle="lightbox" data-size="lg" data-gallery="mygallery" class="slider-item"><img src="/images/Gallery2.png" alt="1"></a>
+                <a href="/images/Gallery3.png" data-toggle="lightbox" data-size="lg" data-gallery="mygallery" class="slider-item"><img src="/images/Gallery3.png" alt="1"></a>
+                <a href="/images/Gallery1.png" data-toggle="lightbox" data-size="lg" data-gallery="mygallery" class="slider-item"><img src="/images/Gallery1.png" alt="1"></a>
+                <a href="/images/Gallery2.png" data-toggle="lightbox" data-size="lg" data-gallery="mygallery" class="slider-item"><img src="/images/Gallery2.png" alt="1"></a>
+                <a href="/images/Gallery3.png" data-toggle="lightbox" data-size="lg" data-gallery="mygallery" class="slider-item"><img src="/images/Gallery3.png" alt="1"></a>
             </div>
             <button class="slider-btn prev">&#10094;</button>
             <button class="slider-btn next">&#10095;</button>
         </div>
     </section>
 
+{{-- test --}}
 
+
+@push('scripts')
+    <script>
+     const options = {
+	keyboard: true,
+	size: 'fullscreen'
+};
+
+document.querySelectorAll('.my-lightbox-toggle').forEach((el) => el.addEventListener('click', (e) => {
+	e.preventDefault();
+	const lightbox = new Lightbox(el, options);
+	lightbox.show();
+}));
+    </script>
+@endpush
   
 @endsection

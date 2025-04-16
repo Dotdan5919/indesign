@@ -4,29 +4,33 @@
 
 @section('content')
 
+
 <div class="container eventhome position-relative mt-4 ">
-<!-- logo positioned absolutely -->
-<div class="position-absolute top-0 start-0 translate-middle bg-white rounded-pill d-none d-md-block"> <a class="navbar-brand " href="#"><img src="/images/logo.png" alt="Logo" width="150"></a>
-</div>
-
-
-<div class="row mb-5">
-
-</div>
-
-<!-- events text  -->
-<div class="row ">
-   
-  <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5 mt-5 hero-heading text-center text-md-start text-sm-center eventhome " >
-
-        
-    <h1 class="fs-1 fw-bold text-white">
-    Events
-    </h1>
-   
-
-</div>
-</div>
+  <!-- logo positioned absolutely -->
+  <div class="position-absolute top-0 start-0 translate-middle bg-white rounded-pill d-none d-md-block"> <a class="navbar-brand " href="#"><img src="images/logo.png" alt="Logo" width="150"></a>
+  </div>
+  
+  
+  <div class="row mb-5">
+  
+  </div>
+  
+  <!-- events text  -->
+  <div class="row ">
+     
+      <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5  hero-heading2 text-center text-md-start text-sm-center " >
+  
+          
+          <h1 class="fs-1 fw-bold text-white pb-5 d-md-block d-flex justify-content-center align-items-center flex-column" data-aos="fade-right" data-aos-duration="1000">
+          Events
+          <hr class="border border-white border-2 w-25">    
+             
+          </h1>
+         
+  
+      </div>
+  </div>
+  
 <div class=" position-absolute bottom-0 end-0 p-3" >
 <div class="me-4 noted align-items-center" >
 
@@ -86,11 +90,11 @@
     </div>
   </section> --}}
 
-  <section class="event-details py-5 tester ">
-    <div class="container">
+  <section class="event-details py-5 px-5 tester ">
+    <div class="container px-5">
       <div class="row">
         <!-- Left Column: Event Content -->
-        <div class="col-md-6 mx-auto single_event_image ">
+        <div class="col-md-6 col-12 mx-auto single_event_image " data-aos="zoom-in" data-aos-duration="3000">
 
           <img 
             src="/storage/uploads/{{$event[0]->image}}" 
@@ -101,7 +105,7 @@
         
         </div>
 
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-6 mx-auto" data-aos="fade-left" data-aos-duration="3000">
 
               <!-- Event Title & Description -->
           <h3 class="fw-bold">{{$event[0]->event_name}}</h3>
@@ -114,7 +118,7 @@
           </p> --}}
   
           <!-- Event Info: Date, Time, Location, Button -->
-          <div class="d-flex flex-wrap align-items-center mt-4 gap-3">
+          <div class="d-flex flex-wrap align-items-center mt-4 gap-3 justify-content-md-start justify-content-center">
             <span class="text-muted">
               <i class="bi bi-calendar-event"></i> {{$event[0]->event_date}}
             </span>
@@ -129,17 +133,21 @@
             </button>
           </div>
         </div>
+
+        
       </div>
     </div>
   </section>
   
   <!-- Donate Section -->
   <section 
-    class="donate-section py-5 text-white mb-5" 
+    class="donate-section py-5 text-white mb-5 mt-5" 
     style="background-color: #1D2A4D;"
+
+    data-aos="fade-up" data-aos-duration="3000"
   >
     <div class="container">
-      <div class="row align-items-center">
+      <div class="row align-items-center position-relative">
         <!-- Left Column: Text -->
         <div class="col-md-8">
           <h3 class="fw-bold">
@@ -154,7 +162,7 @@
         </div>
   
         <!-- Right Column: Image (Optional) -->
-        <div class="col-md-4 text-center mt-4 mt-md-0">
+        <div class="col-md-4 text-center mt-4 mt-md-0  position-absolute  bottom-0 end-0 d-none d-md-flex ">
           <img 
             src="/images/round.png" 
             alt="Donate Image" 

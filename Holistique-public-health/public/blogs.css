@@ -54,3 +54,24 @@
    
 
   }
+
+  .blog-img {
+
+
+height: 300px;
+background-color: red;
+overflow: hidden;  
+border-radius: 30px;
+width: 200px;
+/* object-position: center; */
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+  }
+  .blog-img img {
+
+
+    width: 300px;
+  }

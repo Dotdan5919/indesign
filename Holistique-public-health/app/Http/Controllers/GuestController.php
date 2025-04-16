@@ -110,10 +110,10 @@ class GuestController extends Controller
     }
 
 // show specific events
-public function eventquery($id)
+public function eventquery()
 {
 
-
+    $id=request('id');
 
 
     $event=event::where("id","=",$id)->get();
@@ -133,8 +133,10 @@ public function showCause(){
 }
 
 
-public function singleCause($id)
+public function singleCause()
 {
+
+    $id=request('id');
 
     $cause=cause::where("id","=",$id)->get();
 
@@ -158,9 +160,9 @@ return view('blogs')->with('all_blogs',$blogs);
 
 
 
-public function singleBlog($id)
+public function singleBlog()
 {
-
+    $id=request('id');
 
     $blog=blog::where("id","=",$id)->get();
 

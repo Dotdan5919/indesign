@@ -58,11 +58,13 @@ function convertToAmPm(string $time24): ?string
 <!-- events text  -->
 <div class="row ">
    
-    <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5 mt-5 hero-heading text-center text-md-start text-sm-center " >
+    <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5  hero-heading2 text-center text-md-start text-sm-center " >
 
         
-        <h1 class="fs-1 fw-bold text-white">
+        <h1 class="fs-1 fw-bold text-white pb-5 d-md-block d-flex justify-content-center align-items-center flex-column" data-aos="fade-right" data-aos-duration="1000">
         Events
+        <hr class="border border-white border-2 w-25">    
+           
         </h1>
        
 
@@ -82,7 +84,7 @@ function convertToAmPm(string $time24): ?string
     <div class="container">
         <P class="text-center text-danger">Our Events</P>
         <h2 class="text-center mb-4 fw-bold">Upcoming Events</h2>
-        <div class="row">
+        <div class="row py-5">
             <!-- Event Card -->
             {{-- <div class="col-md-4 mb-4" *ngFor="let event of events"> 
                 <div class="card shadow-sm border-0 rounded">
@@ -101,7 +103,7 @@ function convertToAmPm(string $time24): ?string
              
 
         @foreach ($all_events as $event)
-        <div class="col-md-4 mb-4 eventcard" *ngFor="let event of events"> 
+        <div class="col-md-4 mb-5 eventcard" *ngFor="let event of events" data-aos="fade-left" data-aos-duration="{{1000*$loop->iteration}}"> 
             <div class="card shadow-sm border-0 rounded">
                 <div class="div-img"> 
                 <img src="/storage/uploads/{{$event->image}}" class="card-img-top border-bottom border-4 border-danger" alt="Event Image">
@@ -110,7 +112,7 @@ function convertToAmPm(string $time24): ?string
                     <span class="badge bg-danger mb-2">{{$event->event_date}}</span>
                     <p class="small text-muted">{{convertToAmPm($event->start_time)}} | {{$event->address}}</p>
                     <h5 class="card-title fw-bold">{{$event->event_name}}</h5>
-                    <a href="/events/{{$event->id}} " class="text-danger">Read More &raquo;</a>
+                    <a href="/event?id={{$event->id}} " class="text-danger">Read More &raquo;</a>
                 </div>
             </div>
         </div>
@@ -146,8 +148,8 @@ function convertToAmPm(string $time24): ?string
 </section>
 
 <!-- Newsletter Section -->
-<section class="newsletter-section py-4">
-    <div class="container text-center">
+<section class="newsletter-section py-5">
+    <div class="container text-center py-5">
         <h5 class="text-white">Subscribe to our Newsletter</h5>
         <div class="d-flex justify-content-center">
             <input type="email" class="form-control w-25" placeholder="Email">

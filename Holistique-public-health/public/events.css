@@ -6,7 +6,7 @@ body {
 
 
 .eventhome{
-    background-image: url('images/Subtract.png') ;
+    background-image: url('images/event.png') ;
      height: 40vh;
      border-radius: 50px;
      /* background-color: rgb(236, 33, 33); */
@@ -57,3 +57,22 @@ align-items: center;
 
 }
 
+.tester {
+
+
+
+    
+}
+
+.donate-section {
+
+
+width: 80%;
+border-radius: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: auto auto;
+padding: 49px;
+
+}

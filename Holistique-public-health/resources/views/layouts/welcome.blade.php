@@ -59,7 +59,7 @@
                         @else   
             
                         @endauth
-                        <li class="nav-item p-3 "><a class="btn font-parag btn-use" href="#">Donate Now</a></li>
+                        <li class="nav-item p-3 "><a class="btn font-parag btn-use" h\f="#">Donate Now</a></li>
                     </ul>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                                 <a href="#" class="text-dark"><i class="bi bi-gear"></i></a>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 text-start text-md-start my-2 p-5">
+                        <div class="col-md-4 col-6 text-start text-md-start my-2 p-5">
                             <h6 class="fw-bold">Useful Links</h6>
                             <ul class="list-unstyled ">
                                 <li><a href="#" class="text-dark text-decoration-none">About Us</a></li>
@@ -98,7 +98,7 @@
                                 <li><a href="#" class="text-dark text-decoration-none">Gallery</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-4 col-sm-6 text-start text-md-start  my-2 p-5">
+                        <div class="col-md-4 col-6 text-start text-md-start  my-2 p-5">
                             <h6 class="fw-bold">Support</h6>
                             <ul class="list-unstyled">
                                 <li><a href="#" class="text-dark text-decoration-none">FAQ</a></li>
