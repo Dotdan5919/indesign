@@ -139,8 +139,9 @@ public function singleCause()
     $id=request('id');
 
     $cause=cause::where("id","=",$id)->get();
+    $relatedCauses = cause::where('id', '!=', $id)->inRandomOrder()->limit(3)->get();
 
-    return view('causesexpanded')->with('cause',$cause);
+    return view('causesexpanded')->with('cause',$cause)->with('all_cause',$relatedCauses);
 
 
 }
@@ -165,8 +166,8 @@ public function singleBlog()
     $id=request('id');
 
     $blog=blog::where("id","=",$id)->get();
-
-return view('blogsexpanded')->with('blog',$blog);
+    $relatedBlogs = blog::where('id', '!=', $id)->inRandomOrder()->limit(3)->get();
+return view('blogsexpanded')->with('blog',$blog)->with('all_blogs',$relatedBlogs);
 
 
 }

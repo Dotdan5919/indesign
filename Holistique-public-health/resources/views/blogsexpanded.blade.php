@@ -19,15 +19,17 @@
 <!-- blogs text  -->
 <div class="row ">
    
-    <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5 mt-5 hero-heading text-center text-md-start text-sm-center " >
+  <div class="col-md-7 col-lg-7 col-sm-12 col-xm-12 px-5  hero-heading2 text-center text-md-start text-sm-center " >
 
         
-        <h1 class="fs-1 fw-bold text-white">
-        Blogs
-        </h1>
+    <h1 class="fs-1 fw-bold text-white pb-5 d-md-block d-flex justify-content-center align-items-center flex-column" data-aos="fade-right" data-aos-duration="1000">
+    Blogs
+    <hr class="border border-white border-2 w-25">    
        
+    </h1>
+   
 
-    </div>
+</div>
 </div>
 <div class=" position-absolute bottom-0 end-0 p-3" >
 <div class="me-4 noted align-items-center" >
@@ -46,13 +48,13 @@
         <!-- Left Column: Main Article -->
         <div class="col-md-8">
           <!-- Featured Image & Title -->
-          <div class="mb-4">
+          <div class="mb-4 blog-img-holder" data-aos="fade-up" data-aos-duration="2000">
             <img
               src="/storage/uploads/{{$blog[0]->blog_image}}"
               alt="Featured Blog"
-              class="img-fluid rounded mb-3"
+              class=" "
             />
-            <h2 class="fw-bold">
+            <h2 class="fw-bold text-white">
             {{$blog[0]->blog_title}} </h2>
           </div>
 
@@ -71,9 +73,16 @@
         <!-- Right Column: Sidebar -->
         <div class="col-md-4">
           <!-- Recent Posts Section -->
+
+          @if (count($all_blogs)>1)
+            
+         
           <div class="mb-4">
             <h4 class="fw-bold"><span class="border-bottom border-danger border-3">Recent</span> Post</h4>
 
+            @foreach ($all_blogs as $blog )
+              
+            
             <!-- Recent Post 1 -->
             <div class="d-flex mb-3">
               <img
@@ -82,43 +91,23 @@
                 class="rounded me-3"
               />
               <div>
-                <h6 class="mb-1 fw-bold">Self Care is Public Health</h6>
+                <h6 class="mb-1 fw-bold">{{$blogs->blog_title}}</h6>
                 <p class="small text-muted mb-0">
-                    Sickle Cell Disease (SCD) is a genetic disorder characterized by abnormal red blood cells, ........
+                  {!!$blog->blog_content!!}
+                
+                <p>....... </p>
                 </p>
               </div>
             </div>
+            @endforeach
 
             <!-- Recent Post 2 -->
-            <div class="d-flex mb-3">
-              <img
-              src="/images/recent2.png"
-                alt="Post 2"
-                class="rounded me-3"
-              />
-              <div>
-                <h6 class="mb-1 fw-bold">Seniors' Day Programs</h6>
-                <p class="small text-muted mb-0">
-                    Sickle Cell Disease (SCD) is a genetic disorder characterized by abnormal red blood cells, ........
-                </p>
-              </div>
-            </div>
+            
 
             <!-- Recent Post 3 -->
-            <div class="d-flex mb-3">
-              <img
-              src="/images/recent1.png"
-                alt="Post 3"
-                class="rounded me-3"
-              />
-              <div>
-                <h6 class="mb-1 fw-bold">Mini Fundraiser</h6>
-                <p class="small text-muted mb-0">
-                    Sickle Cell Disease (SCD) is a genetic disorder characterized by abnormal red blood cells, ........
-                </p>
-              </div>
-            </div>
+           
           </div>
+          @endif
 
 
           <div class="p-4 rounded text-white mb-5" style="background-color: #BE3144;">

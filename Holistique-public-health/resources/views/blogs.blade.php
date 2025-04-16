@@ -73,7 +73,7 @@
               {!!$blog->blog_content!!}
               </div>
               <p>....... </p>
-              <a href="/blog?id{{$blog->id}}" class="text-danger fw-bold">
+              <a href="/blog?id={{$blog->id}}" class="text-danger fw-bold">
                 Read More &raquo;
               </a>
             </div>

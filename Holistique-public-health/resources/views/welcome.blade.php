@@ -364,7 +364,7 @@
                                 
                                 <p class="card-text"><small class="text-body-secondary"> {{ \Carbon\Carbon::parse($events[0]->start_time)->format('h:i A') }} | {{$events[0]->address}}</small></p>
                                 <h5 class="fw-bold">{{$events[0]->event_name}}</h5>
-                                <a href="#" class="text-danger fw-bold">Read More</a>
+                                <a href="/event?id={{$events[0]->id}}" class="text-danger fw-bold">Read More</a>
                             </div>
                         </div>
                         @endif
@@ -379,7 +379,7 @@
                                     
                                     <p class="card-text"><small class="text-body-secondary"> {{ \Carbon\Carbon::parse($events[1]->start_time)->format('h:i A') }} | {{$events[1]->address}}</small></p>
                                     <h5 class="fw-bold">{{$events[1]->event_name}}</h5>
-                                    <a href="#" class="text-danger fw-bold">Read More</a>
+                                    <a href="/event?id={{$events[1]->id}}" class="text-danger fw-bold">Read More</a>
                                 </div>
                         </div> 
                     </div>

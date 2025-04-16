@@ -140,7 +140,7 @@
                 @else   
     
                 @endauth
-                <li class="nav-item p-3 "><a class="btn font-parag btn-use" href="#">Donate Now</a></li>
+                <li class="nav-item p-3 "><a class="btn font-parag btn-use" href="/causes">Donate Now</a></li>
             
                
             
