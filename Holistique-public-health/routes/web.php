@@ -127,3 +127,11 @@ Route::delete('/deleteCause/{id}',[App\Http\Controllers\DeleteController::class,
 
 
 
+// calendar routes
+
+
+Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'showCalendar'])->name('calendar.show');
+Route::get('/connect-calendar', [App\Http\Controllers\CalendarController::class, 'connectCalendar'])->name('google.connect');
+Route::get('/google-calendar/callback', [App\Http\Controllers\CalendarController::class, 'handleGoogleCallback'])->name('google.callback');
+
+

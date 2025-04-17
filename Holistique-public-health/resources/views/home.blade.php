@@ -177,19 +177,20 @@
                   <li class="list-group-item d-flex justify-content-between align-items-center text-danger">
                   
                         <div class="d-flex flex-row gap-3 ">
+                            
                         <img src="storage/uploads/{{$event->image}}" class="rounded-circle img-fluid" style="width: 100px; height: 100px; object-fit: cover;" />
-                      
+                   
                         <a href="#" class="m-2">
                             <h6 class="mb-1">{{ $event->event_name }}</h6>
                               <small class="text-muted">
                                 <i class="bi bi-calendar-date me-1"></i>
-                                {{ \Carbon\Carbon::parse($event->event_date)->format('F j, Y') }}
+                                {{ \Carbon\Carbon::parse($event->event_date)->format('F j, Y') }} <br>
                                 @if ($event->start_time)
                                   <i class="bi bi-clock ms-2 me-1"></i>
                                   {{ \Carbon\Carbon::parse($event->start_time)->format('h:i A') }}
                                 @endif
                               </small>
-                          
+                          <br>
                             
                               <span class="badge bg-secondary rounded-pill text-white">
                                 <i class="bi bi-geo-alt-fill me-1 "></i> {{ $event->address}}

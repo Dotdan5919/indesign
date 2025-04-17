@@ -128,9 +128,9 @@
             <span class="text-muted">
               <i class="bi bi-geo-alt"></i> {{$event[0]->address}}
             </span>
-            <button class="btn btn-outline-secondary">
+            <a  href="/calendar" class="btn btn-outline-secondary">
               Add to Calendar
-            </button>
+            </a>
           </div>
         </div>
 

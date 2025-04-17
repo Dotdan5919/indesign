@@ -234,14 +234,16 @@
                         <!-- Join Us Card -->
                         <div class="col-md-4"  data-aos="zoom-in-up" data-aos-duration="2000">
                             <div class="card help p-4 text-white" style="background-color: #C94F4F;">
+                                
                                 <div class="card-body">
         
                                     <img src="/images/joinus.png" alt="" srcset="">
                                     <h3 class="card-title fw-bold"><i class="bi bi-share-fill"></i> Join Us</h3>
                                     <p>Interested in joining our team or volunteering your skills? 
                                         Please sign up using the form on the contacts page.</p>
-                                    <a href="#" class="text-white"><div class="rounded-circle d-flex justify-content-center align-items-center pt-2" style="width: 40px; height: 40px;background-color:white;color:#872341 "><i class="bi bi-send-fill"></i></div></a>
+                                    <a href="#joinus" class="text-white"><div class="rounded-circle d-flex justify-content-center align-items-center pt-2" style="width: 40px; height: 40px;background-color:white;color:#872341 "><i class="bi bi-send-fill"></i></div></a>
                                 </div>
+                            
                             </div>
                         </div>
                     </div>
@@ -249,16 +251,20 @@
                     <div class="row g-4 mt-3">
                         <!-- Support Us Card -->
                         <div class="col-md-4">
+                            
                             <div class="card help p-4 text-white" style="background-color: #1D2A4D;" data-aos="zoom-in-up" data-aos-duration="2000">
+                               
                                 <div class="card-body">
         
                                     <img src="/images/supportus.png" alt="" srcset="">
                                     <h3 class="card-title fw-bold"><i class="bi bi-currency-dollar"></i> Support Us</h3>
                                     <p>Our work is due to the generosity of grants and support from the community. Please consider donating to support our projects.</p>
-                                    <a href="#" class="text-white">     <a href="#" class="text-white"><div class="rounded-circle d-flex justify-content-center align-items-center pt-2" style="width: 40px; height: 40px;background-color:white;color:#872341 "><i class="bi bi-send-fill"></i></div></a>
+                                    <a href="#" class="text-white">     <a href="/causes" class="text-white"><div class="rounded-circle d-flex justify-content-center align-items-center pt-2" style="width: 40px; height: 40px;background-color:white;color:#872341 "><i class="bi bi-send-fill"></i></div></a>
                                 </a>
                                 </div>
+                          
                             </div>
+                        
                         </div>
             
                         <!-- Follow Us Card -->

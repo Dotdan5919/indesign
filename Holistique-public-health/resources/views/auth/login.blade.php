@@ -100,7 +100,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-danger">
 
     <div class="container">
 
