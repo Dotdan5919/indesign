@@ -149,7 +149,7 @@
     </div>
 </nav>
 
-test
+
         @yield('content')
 
 
