@@ -359,7 +359,7 @@
                     <div class="col-lg-7 d-flex flex-wrap gap-3">
 
                               
-                        @if (!empty($events[0]))
+                        @if (count($events)>0)
                             
                         <div class="card  shadow mt-5" style="width: 19rem;">
                             <div class="img-holder">
@@ -374,7 +374,7 @@
                             </div>
                         </div>
                         @endif
-                        @if (empty($event[1]))
+                        @if (count($events)>1)
         
                         <div class="card  shadow mb-5" style="width: 19rem;">
                             <div class="img-holder">

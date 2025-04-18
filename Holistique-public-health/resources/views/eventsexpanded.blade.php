@@ -1,6 +1,9 @@
 @extends('layouts.welcome');
            
-        
+    @php
+        // session()->flush();
+
+    @endphp
 
 @section('content')
 
@@ -128,17 +131,39 @@
             <span class="text-muted">
               <i class="bi bi-geo-alt"></i> {{$event[0]->address}}
             </span>
-            <a  href="/calendar" class="btn btn-outline-secondary">
-              Add to Calendar
+            @if(session('google_calendar_token'))
+            <a  href="/calendar/add-event?id={{$event[0]->id}}" class="btn btn-outline-secondary">
+              Add to  Calendar
             </a>
-          </div>
-        </div>
 
+            @else
+            <a  href="/connect-calendar?id={{$event[0]->id}}" class="btn btn-outline-secondary">
+              Connect to  Calendar
+            </a>
+            @endif
+          </div>
+          @if(session('success'))
+
+          <div class="alert alert-success mt-5" role="alert">
+           <a href="{{session('success')}}">  Event Created (Click to View) </a>
+          </div>
+          @endif
+          @if(session('connected'))
+
+          <div class="alert alert-warning mt-5" role="alert">
+            Succesfully Connected to calendar
+          </div>
+          @endif
+          
+        </div>
+      
         
       </div>
     </div>
   </section>
   
+
+
   <!-- Donate Section -->
   <section 
     class="donate-section py-5 text-white mb-5 mt-5" 

@@ -94,7 +94,7 @@
         </div>
 
         <!-- Pending Requests Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
+        {{-- <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 {{-- volunteers --}}
 <div class="row">
@@ -180,7 +180,7 @@
                             
                         <img src="storage/uploads/{{$event->image}}" class="rounded-circle img-fluid" style="width: 100px; height: 100px; object-fit: cover;" />
                    
-                        <a href="#" class="m-2">
+                        <a href="/edit-event?id={{$event->id}}" class="m-2">
                             <h6 class="mb-1">{{ $event->event_name }}</h6>
                               <small class="text-muted">
                                 <i class="bi bi-calendar-date me-1"></i>
