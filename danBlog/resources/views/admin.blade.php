@@ -214,10 +214,12 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
 
 {{-- form --}}
 
-
+<div class="grid grid-cols-1 gap-[24px] lg:grid-cols-2" >
 <div class="  p-8 shadow-sm rounded-sm bg-white dark:bg-darkblack-600">
 
-    <form action="" class="space-y-6">
+    <form action={{route('upload_blog')}} method="POST" enctype="multipart/form-data" class="space-y-6">
+
+      @csrf
         <div class="w-full">
             <label
               for="fname"
@@ -235,6 +237,8 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
               >Title</label
             >
             <input
+
+            name="title"
               type="text"
               class="h-10 w-full rounded-lg border border-bgray-300 px-4 py-3 focus:border focus:border-success-300 focus:ring-0 dark:border-darkblack-400 dark:bg-darkblack-600 text-bgray-500 dark:text-bgray-50"
             />
@@ -248,7 +252,7 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
               for="fname"
               class="mb-2.5 w-full block text-left text-sm text-bgray-500 dark:text-bgray-50"
               >Upload</label>
-            <input type="file" name="" class="w-full rounded-lg border border-bgray-300 px-4 py-3 focus:border focus:border-success-300 focus:ring-0 dark:border-darkblack-400 dark:bg-darkblack-600 text-bgray-500 dark:text-bgray-50 ">
+            <input type="file" name="image" class="w-full rounded-lg border border-bgray-300 px-4 py-3 focus:border focus:border-success-300 focus:ring-0 dark:border-darkblack-400 dark:bg-darkblack-600 text-bgray-500 dark:text-bgray-50 ">
         
         </div>
 
@@ -261,6 +265,7 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
             >Content</label
           >
           <textarea
+          name="content"
             class="h-36 w-full resize-none rounded-lg border border-bgray-300 px-4 py-3 focus:border focus:border-success-300 focus:ring-0 dark:border-darkblack-400 dark:bg-darkblack-600 text-bgray-500 
             dark:text-bgray-50 text-bgray-500 dark:text-bgray-50 hidden-area hidden"
           >
@@ -277,7 +282,7 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
             >
            
   
-            <select name="categories" class=" w-full rounded-lg border border-bgray-300 px-4 py-3 focus:border focus:border-success-300 focus:ring-0 dark:border-darkblack-400 dark:bg-darkblack-600 text-bgray-500 dark:text-bgray-50 ">
+            <select name="category" class=" w-full rounded-lg border border-bgray-300 px-4 py-3 focus:border focus:border-success-300 focus:ring-0 dark:border-darkblack-400 dark:bg-darkblack-600 text-bgray-500 dark:text-bgray-50 ">
               <option>Entertainment </option>    
               <option>Nature </option>    
               <option>Gaming </option>    
@@ -297,11 +302,44 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
           <button
             class="rounded-lg bg-success-300 px-6 py-3 text-base font-medium text-white hover:bg-success-400"
           >
-            Submit Blog
+            Create Blog
           </button>
         </div>
+        @if (session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mt-2" role="alert">
+            <strong>{{ session('success') }}</strong>
+        </div>
+        @endif
+        @if (session('error'))
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-2" role="alert">
+            <strong>{{ session('error') }}</strong>
+        </div>
+        @endif
+        @if ($errors->any())
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-2">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
       </form>
 
     </div>
+
+
+    <div class="bg-white dark:bg-darkblack-600 flex p-6">
+
+      <a href="#" class="flex bg-red-100 ">
+        <h4 class="heading2">Revolutionizing the Future: The Latest Breakthroughs in Technology</h4>
+        <img src="images/post12.jpg" alt="" class="rounded-full">
+    </a>
+
+
+
+
+    </div>
+  </div>
     
 @endsection

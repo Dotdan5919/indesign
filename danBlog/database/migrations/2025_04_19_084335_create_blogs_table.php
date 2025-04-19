@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('blog', function (Blueprint $table) {
-            $table->id();
+        Schema::create('blogs', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->autoIncrement()->primary();
             $table->timestamps();
             $table->string('title');
             $table->string('image');
             $table->text('content');
             $table->text('category');
+            $table->text('author_id');
             $table->text('author');
           
 
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog');
+        Schema::dropIfExists('blogs');
     }
 };

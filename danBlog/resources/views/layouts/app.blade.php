@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="./assets/css/output.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+    @vite('resources/css/app.css')
   </head>
   <body>
     <!-- layout start -->
