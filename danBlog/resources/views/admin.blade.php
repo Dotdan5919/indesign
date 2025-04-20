@@ -329,16 +329,208 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
     </div>
 
 
-    <div class="bg-white dark:bg-darkblack-600 flex p-6">
+    <div class="bg-white dark:bg-darkblack-600  text-bgray-900 dark:text-white  flex flex-col gap-5  p-6 h-fit ">
 
-      <a href="#" class="flex bg-red-100 ">
-        <h4 class="heading2">Revolutionizing the Future: The Latest Breakthroughs in Technology</h4>
-        <img src="images/post12.jpg" alt="" class="rounded-full">
+      <div class="header flex justify-between items-center"> 
+      <h1 class="font-bold">All Blogs</h1>
+      <div class="filters">
+        
+        <select name="category" id="category" class="  rounded-lg border border-bgray-300 px-4 py-3 focus:border focus:border-success-300 focus:ring-0 dark:border-darkblack-400 dark:bg-darkblack-600 text-bgray-500 dark:text-bgray-50 ">
+          <option value="All" >All</option>
+          <option value="Entertainment">Entertainment </option> 
+          
+          <option value="Nature">Nature </option>    
+          <option value="Gaming">Gaming </option>    
+          <option value="Business">Business </option>    
+          <option value="Science">Science </option>    
+          <option value="Education">Education </option>    
+          <option value="Sport">Sport  </option> 
+          <option value="Travel">Travel </option>
+           
+
+
+          
+      </select>
+    
+       
+      
+        <button id="filterButton">Apply Filters</button>
+      </div>
+    </div> 
+
+    <script>
+
+      // function to display blog array
+function displayBlogs(blogs) {
+  const blogContainer = document.getElementById('blog-card-container'); // Assuming this is your container element
+  blogContainer.innerHTML = ''; // Clear any existing content
+
+  blogs.forEach(blog => {
+    const blogLink = document.createElement('a');
+    blogLink.href = '#'; // Or your actual blog link
+    blogLink.className = 'flex gap-2 justify-between items-center';
+
+    const textDiv = document.createElement('div');
+    textDiv.style.width = '60%';
+
+    const titleHeading = document.createElement('h4');
+    titleHeading.className = 'heading2';
+    titleHeading.textContent = blog.title; // Assuming your blog object has a 'title' property
+
+    const authorSmall = document.createElement('small');
+    authorSmall.textContent = blog.author; // Assuming your blog object has an 'author' property
+
+    textDiv.appendChild(titleHeading);
+    textDiv.appendChild(authorSmall);
+
+    const imageDiv = document.createElement('div');
+    imageDiv.className = 'rounded-full w-24 h-24 overflow-hidden flex justify-center items-center m-5';
+
+    const image = document.createElement('img');
+    image.src = `storage/uploads/${blog.image}`; // Assuming your blog object has an 'image' property
+    image.alt = '';
+    image.className = '';
+
+    imageDiv.appendChild(image);
+
+    blogLink.appendChild(textDiv);
+    blogLink.appendChild(imageDiv);
+
+    const hr = document.createElement('hr');
+
+    blogContainer.appendChild(blogLink);
+    blogContainer.appendChild(hr);
+  });
+}
+
+
+// when you click filters
+
+document.getElementById("filterButton").addEventListener("click", function() {
+
+var value=document.getElementById('category').value;
+
+
+console.log("i dey here");
+
+fetch('/admin-blog/'+value)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json(); // Or response.text() for plain text, etc.
+  })
+  .then(data => {
+    console.log('Data received:', data);
+    // Update your web page with the received data
+     displayBlogs(data);
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+    // Handle errors appropriately (e.g., display an error message)
+  });
+
+
+});
+
+
+
+      </script>
+  <div id="blog-card-container">
+      @foreach ($blogs as  $blog)
+        
+      <a href="#" class="flex gap-2 justify-between  items-center  ">
+        <div  style="width: 60%"> 
+        <h4 class="heading2  " >{{$blog->title}}</h4>
+        <small>{{$blog->author}} </small>
+      </div>
+      <div class="rounded-full w-24 h-24 h- overflow-hidden flex justify-center items-center m-5  " style=""> 
+        <img src="storage/uploads/{{$blog->image}} " alt="" class="">
+      </div>
+        
     </a>
 
+    <hr>
 
+    
+    @endforeach
 
+    
+    
+  </div>
+  <div class="pagination-content w-full">
+    <div
+      class="flex w-full items-center justify-center lg:justify-between"
+    >
+     
+      <div
+        class="flex items-center space-x-5 sm:space-x-[35px]"
+      >
+        <button type="button">
+          <span>
+            <svg
+              width="21"
+              height="21"
+              viewBox="0 0 21 21"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.7217 5.03271L7.72168 10.0327L12.7217 15.0327"
+                stroke="#A0AEC0"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </button>
+        <div class="flex items-center">
+          <button
+            type="button"
+            class="rounded-lg  px-4 py-1.5 text-xs font-bold text-bgray-500 text-success-300 bg-success-50 dark:bg-darkblack-500 dark:text-bgray-50 lg:px-6 lg:py-2.5 lg:text-sm hover:bg-success-50 hover:text-success-300"
+            onclick=""
+            >
+            1
+          </button>
+          <button
+            type="button"
+            class="rounded-lg px-4 py-1.5 text-xs font-bold text-bgray-500 transition duration-300 ease-in-out hover:bg-success-50 hover:text-success-300 dark:hover:bg-darkblack-500 lg:px-6 lg:py-2.5 lg:text-sm"
+          >
+            2
+          </button>
 
+          <span class="text-sm text-bgray-500">. . . .</span>
+          <button
+            type="button"
+            class="rounded-lg px-4 py-1.5 text-xs font-bold text-bgray-500 transition duration-300 ease-in-out hover:bg-success-50 hover:text-success-300 dark:hover:bg-darkblack-500 lg:px-6 lg:py-2.5 lg:text-sm"
+          >
+            20
+          </button>
+        </div>
+        <button type="button">
+          <span>
+            <svg
+              width="21"
+              height="21"
+              viewBox="0 0 21 21"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.72168 5.03271L12.7217 10.0327L7.72168 15.0327"
+                stroke="#A0AEC0"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
     </div>
   </div>
     

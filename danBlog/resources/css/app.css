@@ -1,2 +1,15 @@
-@import "tailwindcss";
-@source "../views";
+/* @import "tailwindcss";
+@source "../views"; */
+
+/* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+
+
+
+.m-5{
+
+    margin:20px;
+}

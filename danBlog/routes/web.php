@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\AdminController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -38,11 +39,12 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('/admin', function () {
-    return view('admin');
-})->middleware(['auth', 'verified'])->name('admin');
+Route::get('/admin',[AdminController::class,'index'])->middleware(['auth', 'verified'])->name('admin');
+Route::get('/admin-blog/{category}',[AdminController::class,'wildcard'])->middleware(['auth', 'verified']);
+Route::get('/admin-blog',[AdminController::class,'query'])->middleware(['auth', 'verified']);
 
 
 
+    
 
 Route::post('/upload-blog', [BlogController::class, 'upload'])->name('upload_blog');
