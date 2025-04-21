@@ -14,7 +14,7 @@ class AdminController extends Controller
 public function index()
 {
 
-$blog=blog::all();
+$blog=blog::paginate(4);
 
 
 
@@ -35,14 +35,14 @@ public function wildcard($category)
     if($category=="All")
     {
 
-        $blog=blog::all();
+        $blog=blog::paginate(4);
         return response()->json($blog);
 
     }
 
     else{
 
-    $blog=blog::where("category","=",$category)->get();
+    $blog=blog::where("category","=",$category)->paginate(4);
 
 }
 
@@ -56,33 +56,25 @@ return response()->json($blog);
 }
 
 
-public function query()
-{
+// public function query()
+// {
 
-    $limit=request('limit');
+//     $limit=request('limit');
 
-    if($category=="All")
-    {
+  
 
-        $blog=blog::pagination($limit);
-        return response()->json($blog);
+//         $blog=blog::paginate(4);
+//         return response()->json($blog);
 
-    }
-
-    else{
-
-    $blog=blog::where("category","=",$category)->get();
-
-}
+    
 
 
-
-return response()->json($blog);
+// return response()->json($blog);
 
 
 
 
-}
+// }
 
 
 

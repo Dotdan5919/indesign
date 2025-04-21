@@ -359,11 +359,45 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
     </div> 
 
     <script>
+// fetch data
+function init ()
+{
+  
+  var value=document.getElementById('category').value;
 
+
+
+
+fetch('/admin-blog/'+value)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json(); // Or response.text() for plain text, etc.
+  })
+  .then(data => {
+    console.log('Data received:', data);
+    // Update your web page with the received data
+     displayBlogs(data.data);
+     displayPagination(data.links);
+     
+
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+    // Handle errors appropriately (e.g., display an error message)
+  });
+
+
+}
       // function to display blog array
 function displayBlogs(blogs) {
   const blogContainer = document.getElementById('blog-card-container'); // Assuming this is your container element
   blogContainer.innerHTML = ''; // Clear any existing content
+
+
+
 
   blogs.forEach(blog => {
     const blogLink = document.createElement('a');
@@ -397,45 +431,120 @@ function displayBlogs(blogs) {
     blogLink.appendChild(imageDiv);
 
     const hr = document.createElement('hr');
-
+    
+    
     blogContainer.appendChild(blogLink);
     blogContainer.appendChild(hr);
+    
+    
   });
 }
 
+// display pagination
+
+function displayPagination(link)
+{
+  
+  
+  const blogPagination=document.getElementById('blog-pagination');
+  blogPagination.innerHTML=''; // Clear any existing content
+  
+  link.forEach(element => {
+    
+    const btn = document.createElement('button');
+    
+    if (element.active===true)
+    {
+      btn.className="rounded-lg  px-4 py-1.5 text-xs font-bold    dark:text-bgray-50 lg:px-6 lg:py-2.5 lg:text-sm text-success-300 bg-success-50 ";
+      
+   
+    }
+    
+    else{
+      
+      btn.className="rounded-lg  px-4 py-1.5 text-xs font-bold text-bgray-500  dark:bg-darkblack-500 dark:text-bgray-50 lg:px-6 lg:py-2.5 lg:text-sm  ";
+
+
+  }
+
+
+  btn.addEventListener('click',()=>{changePage(element.url)});
+  if(element.label==="&laquo; Previous")
+  {
+btn.innerHTML="&laquo; ";
+}
+
+
+else if ( element.label==="Next &raquo;")
+{
+  
+  btn.innerHTML="&raquo;";
+
+
+  }
+  else{
+
+    btn.textContent=element.label;
+  }
+
+  blogPagination.appendChild(btn);
+
+
+  
+});
+
+
+
+
+
+}
+
+//change to next 
+function changePage(url){
+
+  console.log("i was clicked");
+
+fetch(url)
+.then(response=>{
+  if(!response.ok)
+{
+  throw new Error(`HTTP error! status: ${response.status}`);
+}
+
+return response.json();
+
+ }) .then ( data=>{
+
+
+  console.log('Data received:', data);
+    // Update your web page with the received data
+     displayBlogs(data.data);
+     displayPagination(data.links)
+    console.log(data);
+
+ } )
+ .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+    // Handle errors appropriately (e.g., display an error message)
+  })
+
+
+
+
+
+}
 
 // when you click filters
 
 document.getElementById("filterButton").addEventListener("click", function() {
 
-var value=document.getElementById('category').value;
-
-
-console.log("i dey here");
-
-fetch('/admin-blog/'+value)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json(); // Or response.text() for plain text, etc.
-  })
-  .then(data => {
-    console.log('Data received:', data);
-    // Update your web page with the received data
-     displayBlogs(data);
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
-    // Handle errors appropriately (e.g., display an error message)
-  });
-
+init();
 
 });
 
 
-
+// initail fetch
+init();
       </script>
   <div id="blog-card-container">
       @foreach ($blogs as  $blog)
@@ -454,8 +563,8 @@ fetch('/admin-blog/'+value)
     <hr>
 
     
+    
     @endforeach
-
     
     
   </div>
@@ -465,73 +574,31 @@ fetch('/admin-blog/'+value)
     >
      
       <div
-        class="flex items-center space-x-5 sm:space-x-[35px]"
+        class="flex items-center space-x-5 sm:space-x-[35px]" 
       >
-        <button type="button">
-          <span>
-            <svg
-              width="21"
-              height="21"
-              viewBox="0 0 21 21"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.7217 5.03271L7.72168 10.0327L12.7217 15.0327"
-                stroke="#A0AEC0"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </span>
-        </button>
-        <div class="flex items-center">
+       
+       
+        <div class="flex items-center" id="blog-pagination">
           <button
             type="button"
-            class="rounded-lg  px-4 py-1.5 text-xs font-bold text-bgray-500 text-success-300 bg-success-50 dark:bg-darkblack-500 dark:text-bgray-50 lg:px-6 lg:py-2.5 lg:text-sm hover:bg-success-50 hover:text-success-300"
-            onclick=""
+            class="rounded-lg  px-4 py-1.5 text-xs font-bold text-bgray-500  dark:bg-darkblack-500 dark:text-bgray-50 lg:px-6 lg:py-2.5 lg:text-sm focus:bg-success-50 focus:text-success-300 active:bg-success-50 active:text-success-300 hover:bg-success-50 hover:text-success-300"
+            
+            id="btn-1" onclick="changePage(2)"
             >
             1
           </button>
-          <button
-            type="button"
-            class="rounded-lg px-4 py-1.5 text-xs font-bold text-bgray-500 transition duration-300 ease-in-out hover:bg-success-50 hover:text-success-300 dark:hover:bg-darkblack-500 lg:px-6 lg:py-2.5 lg:text-sm"
-          >
-            2
-          </button>
-
-          <span class="text-sm text-bgray-500">. . . .</span>
-          <button
-            type="button"
-            class="rounded-lg px-4 py-1.5 text-xs font-bold text-bgray-500 transition duration-300 ease-in-out hover:bg-success-50 hover:text-success-300 dark:hover:bg-darkblack-500 lg:px-6 lg:py-2.5 lg:text-sm"
-          >
-            20
-          </button>
+          
         </div>
-        <button type="button">
-          <span>
-            <svg
-              width="21"
-              height="21"
-              viewBox="0 0 21 21"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.72168 5.03271L12.7217 10.0327L7.72168 15.0327"
-                stroke="#A0AEC0"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </span>
-        </button>
+     
       </div>
     </div>
   </div>
     </div>
   </div>
     
+  <script>
+    
+
+
+    </script>
 @endsection
