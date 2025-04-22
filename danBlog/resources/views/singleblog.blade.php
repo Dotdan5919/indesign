@@ -106,8 +106,8 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
 
     </div>
   
-    <hr>
-    <div class="post-comment-item flex gap-2  " style="margin-left: 45px">
+    <hr class="mt-2">
+    <div class="post-comment-item flex gap-2  " style="margin-left: 45px; margin-top:50px">
         <div class="post-comment-author" style=""><img src="/assets/images/avatar/aj.png" alt="" class="post-author-image" /></div>
         <div class="post-comment-description flex flex-col">
             <div class="upper-description flex text-xl">
@@ -128,6 +128,12 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
     </div>
 
 
+<form class="w-full flex flex-col   items-end mt-5" >
+    @csrf
+    <textarea name="Message" rows="7" cols="10" id="Message" placeholder="message" class="input-style input-style-single textarea w-full  rounded-md"></textarea>
+
+    <input type="submit" name="submit" value="Submit" class="rounded-lg bg-success-300 px-6 py-3 text-base font-medium text-white hover:bg-success-400 mt-5" />
+</form>
 
 </div>
     
