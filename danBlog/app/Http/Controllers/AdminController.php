@@ -56,25 +56,26 @@ return response()->json($blog);
 }
 
 
-// public function query()
-// {
+public function query()
+{
 
-//     $limit=request('limit');
+    $id=request('id');
 
   
 
-//         $blog=blog::paginate(4);
-//         return response()->json($blog);
+        $blog=blog::where("id","=",$id)->first();
+
+        return view('singleblog')->with('blog',$blog);
 
     
 
 
-// return response()->json($blog);
 
 
 
 
-// }
+
+}
 
 
 

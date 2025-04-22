@@ -26,7 +26,7 @@
           <div
             class="sidebar-header relative z-30 flex h-[108px] w-full items-center border-b border-r border-b-[#F7F7F7] border-r-[#F7F7F7] pl-[50px] dark:border-darkblack-400"
           >
-            <a href="index.html">
+            <a href="/admin">
               <img
                 src="./assets/images/logo/logo-color.svg"
                 class="block dark:hidden"
@@ -2254,7 +2254,7 @@
                           <li
                             class="border-b border-bgray-200 px-7 py-6 hover:bg-bgray-100 dark:border-darkblack-400 dark:hover:bg-darkblack-500"
                           >
-                            <a href="#">
+                            <a href="/admin">
                               <div class="flex space-x-3">
                                 <div
                                   class="relative h-[48px] w-[48px] rounded-full"

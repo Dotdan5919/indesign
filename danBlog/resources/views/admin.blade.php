@@ -401,7 +401,7 @@ function displayBlogs(blogs) {
 
   blogs.forEach(blog => {
     const blogLink = document.createElement('a');
-    blogLink.href = '#'; // Or your actual blog link
+    blogLink.href = '/admin-blog?id=' +blog.id; // Or your actual blog link
     blogLink.className = 'flex gap-2 justify-between items-center';
 
     const textDiv = document.createElement('div');
@@ -455,7 +455,7 @@ function displayPagination(link)
     
     if (element.active===true)
     {
-      btn.className="rounded-lg  px-4 py-1.5 text-xs font-bold    dark:text-bgray-50 lg:px-6 lg:py-2.5 lg:text-sm text-success-300 bg-success-50 ";
+      btn.className="rounded-lg  px-4 py-1.5 text-xs font-bold    dark:text-bgray-500 lg:px-6 lg:py-2.5 lg:text-sm text-success-300 bg-success-50 ";
       
    
     }
