@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminCommentController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -45,6 +46,8 @@ Route::get('/admin-blog',[AdminController::class,'query'])->middleware(['auth', 
 
 
 
-    
+
 
 Route::post('/upload-blog', [BlogController::class, 'upload'])->name('upload_blog');
+
+Route::post('/admin-comment', [AdminCommentController::class, 'index'])->name('admin-comment');
