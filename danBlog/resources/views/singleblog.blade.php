@@ -147,7 +147,7 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
             <div class="upper-description flex text-xl">
                 <h5 class="comment-author-name font-bold ">{{$comment->user_name}}</h5>
                 <div class="post-author-time">-   {{hours_left($comment->updated_at)}} hour ago</div>
-            </div>
+            </div> s
             <div class="flex justify-start  ">
             <p class="post-comment-paragraph w-full ">{{$comment->body}}</p>
             <span  class="post-reply w-button p-3 border border-solid hover:text-green-400 rounded-lg cursor-pointer " style="margin-top:10px" onclick="commentToggle({{$comment->id}})" >reply</span>
