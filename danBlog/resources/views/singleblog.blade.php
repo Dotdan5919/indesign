@@ -21,18 +21,19 @@ if (!function_exists('hours_left')) {
         $now = Carbon::now();
 
         // 3. Calculate the difference in hours between the target time and now.
-        $hoursDifference = $now->diffInHours($targetTime, false); //false for absolute value
+      // 3. Calculate the difference using Carbon's diffForHumans().
+    //   $difference = $targetTime->diffForHumans($now);
+      $difference= $now->diffForHumans($targetTime);
+    //   $difference = $targetTime->diffForHumans($now);
 
-        // 4. Handle pluralization and negative values.
-        if ($hoursDifference <= 0) {
-            return "Expired"; // Or "0 hours left", or "Less than an hour left"
-        }
-
-        $hoursText = ($hoursDifference == 1) ? '1 hour left' : $hoursDifference . ' hours left';
-
-        return $hoursText;
+// 4. Return the human-readable difference.
+return $difference;
     }
 }
+
+echo Carbon::now()->subMinutes(2)->diffForHumans();
+// echo hours_left("2025-04-19 10:14:02");
+
 
 @endphp
 
