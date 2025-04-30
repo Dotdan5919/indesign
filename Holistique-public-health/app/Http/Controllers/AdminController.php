@@ -58,7 +58,7 @@ class AdminController extends Controller
 
 
         if ($validator->fails()) {
-            return redirect()->route('home')
+            return redirect()->back()
                              ->withErrors($validator)
                              ->withInput();
         }
@@ -194,7 +194,7 @@ class AdminController extends Controller
 
 
         if ($validator->fails()) {
-            return redirect()->route('home')
+            return redirect()->back()
                              ->withErrors($validator)
                              ->withInput();
         }

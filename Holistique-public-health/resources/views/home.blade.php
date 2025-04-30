@@ -134,7 +134,7 @@
                         <th>Full Name</th>
                         <th>Location</th>
                         <th>Phone Number</th>
-                        <th>Email</th>
+                        <th>Email</th>w
                         
                     </tr>
                 </tfoot> --}}
@@ -145,7 +145,7 @@
                         <td>{{$member->location}}</td>
                         <td>{{$member->phone_no}}</td>
                         <td>{{$member->email}}</td>
-                        
+                            
                     </tr>
                     @endforeach
 
