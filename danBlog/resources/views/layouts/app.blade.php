@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./assets/css/slick.css" />
     <link rel="stylesheet" href="./assets/css/aos.css" />
     <link rel="stylesheet" href="./assets/css/output.css" />
+    
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" />

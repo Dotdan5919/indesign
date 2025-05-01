@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\blog;
 use App\Models\Comment;
 
+use Illuminate\Support\Facades\Redirect;
+
 class AdminController extends Controller
 {
     //
@@ -82,7 +84,24 @@ public function query()
 
 
 
+public function deletePost()
+{
 
+
+    $id=request('id');
+    $blogs=blog::where('id','=',$id)->delete();
+    $comments=Comment::where('commentable_id','=',$id)->delete();
+   
+    
+    $blog=blog::paginate(4);
+
+
+
+
+
+    return view('admin')->with('blogs',$blog);
+
+}
 
 
 

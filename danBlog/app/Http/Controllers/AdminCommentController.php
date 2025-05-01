@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\blog;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 
 
@@ -42,7 +43,21 @@ $post_id=request('post_id');
 
 
     // echo $nested_comments;
-     return view('singleblog')->with('blog',$blog)->with('comments',$comments)->with('nested',$nested_comments);
+    //  return view('singleblog')->with('blog',$blog)->with('comments',$comments)->with('nested',$nested_comments);
+    return Redirect::back();
+}
+
+
+public function deleteComment()
+{
+
+$id=request('id');
+$comments=Comment::where('id','=',$id)->delete();
+$comments=Comment::where('parent_id','=',$id)->delete();
+
+
+return Redirect::back();
+
 
 }
 

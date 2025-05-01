@@ -4,6 +4,7 @@
 
 
 use Carbon\Carbon;
+use Carbon\CarbonInterface;
 
 if (!function_exists('hours_left')) {
     /**
@@ -23,16 +24,17 @@ if (!function_exists('hours_left')) {
         // 3. Calculate the difference in hours between the target time and now.
       // 3. Calculate the difference using Carbon's diffForHumans().
     //   $difference = $targetTime->diffForHumans($now);
-      $difference= $now->diffForHumans($targetTime);
+      $difference= $now->diffForHumans($targetTime,[
+    'syntax' => CarbonInterface::DIFF_ABSOLUTE,
+]);
     //   $difference = $targetTime->diffForHumans($now);
 
 // 4. Return the human-readable difference.
+
 return $difference;
     }
 }
 
-echo Carbon::now()->subMinutes(2)->diffForHumans();
-// echo hours_left("2025-04-19 10:14:02");
 
 
 @endphp
@@ -135,24 +137,31 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
     @endif
     </h4>
    
-    <div class="flex flex-col" >
+    <div class="flex flex-col "  >
         @foreach ($comments as $comment )
         <div class="flex flex-col">
         @if($comment->parent_id==null)
         
-    <div class="post-comment-item flex flex-col gap-2">
+    <div class="post-comment-item flex flex-col gap-2" style="margin-top: 20px">
         <div class="flex flex-row gap-3">
         <div class="post-comment-author" style="">
             <img src="/assets/images/avatar/aj.png" alt="" class="post-author-image" /></div>
         <div class="post-comment-description flex flex-col">
             <div class="upper-description flex text-xl">
                 <h5 class="comment-author-name font-bold ">{{$comment->user_name}}</h5>
-                <div class="post-author-time">-   {{hours_left($comment->updated_at)}} hour ago</div>
+                <div class="post-author-time text-sm    ">-   {{hours_left($comment->updated_at)}} ago</div>
             </div> 
             <div class="flex justify-start  ">
             <p class="post-comment-paragraph w-full ">{{$comment->body}}</p>
-            <span  class="post-reply w-button p-3 border border-solid hover:text-green-400 rounded-lg cursor-pointer " style="margin-top:10px" onclick="commentToggle({{$comment->id}})" >reply</span>
-       
+            <div class="flex flex-row gap-2 justify-center items-center text-sm ml-4">
+            <span  class="post-reply w-button p-3 border border-solid hover:text-green-400 rounded-lg cursor-pointer " style="" onclick="commentToggle({{$comment->id}})" >reply</span>
+               
+                <form class="" method="POST"  action="{{route('delete-comment')}}" onsubmit="return toogleDelete()"> 
+@csrf
+                    <input type="text" name="id" value="{{$comment->id}}" class="hidden" >
+            <button class=" text-red-600 hover:text-red-900  cursor-pointer  " type="submit"> Delete </button>
+        </form>
+            </div>
         </div> 
     </div>
 
@@ -161,11 +170,12 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
 
 
 
+
     
-    <hr class="mt-2">
+    <hr class="mt-1">
 
    
-    <div class="post-comment-item flex flex-col gap-2 w-full " style="margin-left: 45px; margin-top:50px; ">
+    <div class="post-comment-item flex flex-col gap-2 w-full " style="margin-left: 45px; margin-top:10px; ">
         
    @foreach ($nested as $nested_comment)
  
@@ -176,10 +186,19 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
    <div class="post-comment-description flex flex-col ml">
        <div class="upper-description flex text-xl">
            <h5 class="comment-author-name ">{{$nested_comment->user_name}}</h5>
-           <div class="post-author-time">-   {{hours_left($nested_comment->updated_at)}} hour ago</div>
+           <div class="post-author-time text-sm">-   {{hours_left($nested_comment->updated_at)}}  ago</div>
        </div>
        <div class="flex justify-start ">
        <p class="post-comment-paragraph w-full">{{$nested_comment->body}}</p>
+       <div class="flex flex-row gap-2 justify-center items-center text-sm ml-4">
+
+       
+       <form class="" method="POST"  action="{{route('delete-comment')}}" onsubmit="return toogleDelete()"> 
+        @csrf
+                            <input type="text" name="id" value="{{$nested_comment->id}}" class="hidden" >
+                    <button class=" text-red-600 hover:text-red-900  cursor-pointer  " type="submit"> Delete </button>
+                </form>
+    </div>
    </div> 
 </div>
 
@@ -234,11 +253,18 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
 
 
 
-    
+<form action="{{route('delete-post')}}" method="POST" onsubmit="return toogleDelete()">
 
+    @csrf
 
+    <input type="text" name="id" value="{{$blog->id}}" class="hidden">
+<button href="" class=" mt-5 text-red-800" style="font-size: small" type="submit">Delete Blog</button>
 
+</form>
 </div>
+
+
+
 
 </main>
 
@@ -281,6 +307,28 @@ else
 
 </script>
 
+<script>
+
+    function toogleDelete()
+    {
+
+        const confirmation = confirm("Are you sure you want to delete?");
+
+        if(confirmation)
+    {
+
+
+        return true;
+    }
+
+    else{
+        return false;
+    }
+
+
+    }
+
+    </script>
 
 
 @endsection

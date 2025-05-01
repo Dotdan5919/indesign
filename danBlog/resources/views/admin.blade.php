@@ -546,7 +546,7 @@ init();
 // initail fetch
 init();
       </script>
-  <div id="blog-card-container">
+  <div id="blog-card-container" class="flex flex-col gap-5" >
       @foreach ($blogs as  $blog)
         
       <a href="#" class="flex gap-2 justify-between  items-center  ">
@@ -554,7 +554,7 @@ init();
         <h4 class="heading2  " >{{$blog->title}}</h4>
         <small>{{$blog->author}} </small>
       </div>
-      <div class="rounded-full w-24 h-24 h- overflow-hidden flex justify-center items-center m-5  " style=""> 
+      <div class="rounded-full w-24 h-24  overflow-hidden flex justify-center items-center m-5  " style=""> 
         <img src="storage/uploads/{{$blog->image}} " alt="" class="">
       </div>
         

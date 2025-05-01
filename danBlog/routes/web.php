@@ -51,3 +51,6 @@ Route::get('/admin-blog',[AdminController::class,'query'])->middleware(['auth', 
 Route::post('/upload-blog', [BlogController::class, 'upload'])->name('upload_blog');
 
 Route::post('/admin-comment', [AdminCommentController::class, 'index'])->name('admin-comment');
+
+Route::post('/delete-comment', [AdminCommentController::class,'deleteComment'])->name('delete-comment');
+Route::post('/delete-post', [AdminController::class,'deletePost'])->name('delete-post');
