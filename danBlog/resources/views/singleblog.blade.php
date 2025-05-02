@@ -51,31 +51,96 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
 >
 <div class="rounded-sm p-5 w-full m-10  bg-white dark:bg-darkblack-600 flex flex-col gap-2">
 
-<div class="  flex justify-content items-center  overflow-hidden  " style="height: 709px" >
-
+<div class="  flex flex-col    "  >
+<div class="flex justify-center items-center overflow-hidden" style="height: 709px">
 <img src="storage/uploads/{{$blog->image}}"  class="w-full" style=""/>
+</div>
+<div class=" flex-col justify-between gap-4 hidden" id="updateImage" >
+        <form method="POST" action="{{route('update-blog')}}" enctype="multipart/form-data" >
+            @csrf    
+
+            <input type="text" name="id" value="{{$blog->id}}" class="hidden">
+    <label
+      for="fname"
+      class="mb-2.5 w-full block text-left text-sm text-bgray-500 dark:text-bgray-50 mt-2">Update Image</label>
+    <input type="file" name="image" class="w-full rounded-lg border border-bgray-300 px-4 py-3 focus:border focus:border-success-300 focus:ring-0 dark:border-darkblack-400 dark:bg-darkblack-600 text-bgray-500 dark:text-bgray-50 ">
 
 </div>
 
-<h1 class="item-text  font-bold dark:text-white " style="font-size: 40px">{{$blog->title}}</h1>
+</div>
+
+<h1 class="item-text  font-bold dark:text-white " style="font-size: 40px" id="oldTitle">{{$blog->title}}</h1>
+<input
+
+name="title"
+  type="text"
+  class="h-10 w-full rounded-lg border border-bgray-300 px-4 py-3 focus:border focus:border-success-300 focus:ring-0 dark:border-darkblack-400 dark:bg-darkblack-600 text-bgray-500 dark:text-bgray-50 hidden"
+value="{{$blog->title}}" id="updateTitle"
+  />
 
 
 
 
-<h3 class="dark:text-white text-black item-text"> {!!$blog->content!!} </h3>
+<h3 class="dark:text-white text-black item-text" id="oldContent"> {!!$blog->content!!} </h3>
+
+
+
+
+<div id="updateContent" class="hidden">
+  
+  <textarea
+  name="content"
+    class="h-36 w-full resize-none rounded-lg border border-bgray-300 px-4 py-3 focus:border focus:border-success-300 focus:ring-0 dark:border-darkblack-400 dark:bg-darkblack-600 text-bgray-500 
+    dark:text-bgray-50 text-bgray-500 dark:text-bgray-50 hidden-area hidden"
+  >{{{$blog->content}}}
+  </textarea>
+ 
+  <div id="quillEditor" >{!!$blog->content!!}</div>
+</div>
 
 
 
 <hr>
 
 <div class="flex  justify-start items-center gap-4 dark:text-white">
-    <label
-      for="lname"
-      class=" block  text-sm text-bgray-500 dark:text-bgray-50"
-      >Category</label
-    >
+   
 
-    <p class="p-3 border border-solid  border-green-400 w-fit rounded-lg">{{$blog->category}}</p>
+    <p class="p-3 border border-solid  border-green-400 w-fit rounded-lg" id="oldCategory">{{$blog->category}}</p>
+  
+    @php
+        
+    $categories=['Entertainment',
+'Nature',
+'Gaming',
+'Business',
+'Science',
+'Education',
+'Sport',
+'Travel'];
+
+
+@endphp
+
+    <select name="category" class=" p-3 border border-solid  border-green-400 w-fit rounded-lg focus:border focus:border-success-300 focus:ring-0 dark:border-darkblack-400 dark:bg-darkblack-600 text-bgray-500 dark:text-bgray-50 hidden" id="updateCategory">
+       
+        @foreach ($categories as $category )
+
+        @if($blog->category==$category)
+        <option selected>{{$category}} </option>
+        
+        @else
+        <option >{{$category}} </option>
+  @endif
+  
+        @endforeach 
+
+
+        
+    </select>
+
+    <button type="submit" id="update" class=" rounded-lg bg-success-300 p-2 text-base font-medium text-white hover:bg-success-400  hidden" >Update</button>
+
+</form>
     <div class="flex items-center justify-center gap-2">
     <p class=" block text-sm text-bgray-500 dark:text-bgray-50">Author</p>
 
@@ -102,16 +167,7 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
           
 
 
-      @foreach ($categories as $category )
-
-      @if($blog->category==$category)
-      <option selected>{{$category}} </option>
-      
-      @else
-      <option >{{$category}} </option>
-@endif
-
-      @endforeach
+     
       
 
 
@@ -251,16 +307,21 @@ class="w-full px-6 pb-6  xl:px-12 xl:pb-12"
 
 
 
+<div class="flex gap-2 items-center " >
+
+<button class=" mt-5" style="font-size: small" onclick="toggleInput()">Update Blog</button>
 
 
 <form action="{{route('delete-post')}}" method="POST" onsubmit="return toogleDelete()">
 
     @csrf
 
-    <input type="text" name="id" value="{{$blog->id}}" class="hidden">
-<button href="" class=" mt-5 text-red-800" style="font-size: small" type="submit">Delete Blog</button>
+    <input type="text" name="id" value="{{$blog->id}}" class="hidden" >
+<button href="" class=" mt-5 text-red-800" style="font-size: small" type="submit" >Delete Blog</button>
 
 </form>
+
+</div>
 </div>
 
 
@@ -300,6 +361,72 @@ else
 
 
 
+
+
+}
+// toggle update interface
+
+function toggleInput()
+{
+
+
+    var updateTitle=document.getElementById('updateTitle');
+    var updateCategory=document.getElementById('updateCategory');
+    var updateContent=document.getElementById('updateContent');
+    var updateBtn=document.getElementById('update');
+
+    var updateImage=document.getElementById('updateImage');
+    var quillEditor=document.getElementById('quillEditor');
+    var oldCategory=document.getElementById('oldCategory');
+    var oldContent=document.getElementById('oldContent');
+    var oldTitle=document.getElementById('oldTitle');
+   
+    
+
+
+
+
+    if(updateTitle.style.display==="flex")
+{
+
+   
+
+    updateTitle.style.display="none";
+
+   
+    updateCategory.style.display="none";
+
+    updateImage.style.display="none";
+   updateContent.style.display="none";
+   
+    updateBtn.style.display="none";
+
+     oldContent.style.display="flex";
+      oldTitle.style.display="flex";
+      oldContent.style.display="flex";
+      oldCategory.style.display="flex";
+
+
+}
+
+else{
+
+    
+    updateTitle.style.display="flex";
+    updateCategory.style.display="flex";
+
+    updateImage.style.display="flex";
+    updateContent.style.display="block";
+    updateBtn.style.display="block";
+
+    oldContent.style.display="none";
+      oldTitle.style.display="none";
+      oldContent.style.display="none";
+      oldCategory.style.display="none";
+
+
+
+}
 
 
 }

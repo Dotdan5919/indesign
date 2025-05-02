@@ -54,3 +54,6 @@ Route::post('/admin-comment', [AdminCommentController::class, 'index'])->name('a
 
 Route::post('/delete-comment', [AdminCommentController::class,'deleteComment'])->name('delete-comment');
 Route::post('/delete-post', [AdminController::class,'deletePost'])->name('delete-post');
+
+
+Route::post('/update-blog', [AdminController::class,'updateBlog'])->name('update-blog');
