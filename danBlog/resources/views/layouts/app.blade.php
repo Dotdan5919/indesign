@@ -8,11 +8,11 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>BanCo - Dashboard</title>
-    <link rel="stylesheet" href="./assets/css/slick.css" />
-    <link rel="stylesheet" href="./assets/css/aos.css" />
-    <link rel="stylesheet" href="./assets/css/output.css" />
+    <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/aos.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/output.css')}}" />
     
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
     <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
     @vite('resources/css/app.css')
@@ -131,35 +131,35 @@
                     >
                       <li>
                         <a
-                          href="index.html"
+                          href="#"
                           class="text-md inline-block py-1.5 font-medium text-bgray-600 transition-all hover:text-bgray-800 dark:text-bgray-50 hover:dark:text-success-300"
                           >Dashboard Default</a
                         >
                       </li>
                       <li>
                         <a
-                          href="index-2.html"
+                          href="#"
                           class="text-md inline-block py-1.5 font-medium text-bgray-600 transition-all hover:text-bgray-800 dark:text-bgray-50 hover:dark:text-success-300"
                           >Dashboard Two</a
                         >
                       </li>
                       <li>
                         <a
-                          href="statistics.html"
+                          href="#"
                           class="text-md inline-block py-1.5 font-medium text-bgray-600 transition-all hover:text-bgray-800 dark:text-bgray-50 hover:dark:text-success-300"
                           >Statistics</a
                         >
                       </li>
                       <li>
                         <a
-                          href="analytics.html"
+                          href="#"
                           class="text-md inline-block py-1.5 font-medium text-bgray-600 transition-all hover:text-bgray-800 dark:text-bgray-50 hover:dark:text-success-300"
                           >Analytics</a
                         >
                       </li>
                       <li>
                         <a
-                          href="home.html"
+                          href="#"
                           class="text-md inline-block py-1.5 font-medium text-bgray-600 transition-all hover:text-bgray-800 dark:text-bgray-50 hover:dark:text-success-300"
                           >Home</a
                         >
