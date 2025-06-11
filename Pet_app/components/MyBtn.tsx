@@ -12,6 +12,7 @@ import '../app/global.css';
     const router= useRouter();
     const handlePress = () => {
 
+     
         router.push(page);
     }
     

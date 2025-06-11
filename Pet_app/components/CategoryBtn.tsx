@@ -1,16 +1,16 @@
 import pets from '@/app/pet';
 import React, { useState } from 'react';
-import { Touchable, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import SmallBtn from './SmallBtn';
 
 export default function CategoryBtn() {
 
     const [category, setCategory]=useState();
 
-    const handlePress=(x)=>{
+    const handlePress=(e)=>{
 
-setCategory(x.type);
-console.log("pressed");
+setCategory(e.type);
+
 
     }
 
@@ -26,9 +26,9 @@ console.log("pressed");
 
 e.key
 return(
-<Touchable  onPress={console.log("pressed")}  >
+<TouchableOpacity  onPress={()=>handlePress(e)}  >
 <SmallBtn name={e.type} id={e.id} act={category}  />
-</Touchable >
+</TouchableOpacity >
 
 
 )
