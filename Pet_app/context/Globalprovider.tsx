@@ -1,12 +1,26 @@
-// context/Globalprovider.tsx
+import React, { createContext, useContext, useState } from 'react';
 
-// Your context setup here
 
-export default function Globalprovider({ children }) { // <-- THIS IS CRUCIAL
-  // Your provider logic
+
+const GlobalContext = createContext();
+
+export const useGlobalContext=()=> useContext(GlobalContext);
+
+
+
+export default function Globalprovider({children}) {
+
+
+  const [category,setCategory]=useState("All");
+  const [favourite,setFavourite]=useState([]);
+
+
+
   return (
-    // ...
-    {children}
-    // ...
-  );
+    <GlobalContext.Provider value={{category,setCategory,favourite,setFavourite}}>
+
+      {children}
+
+      </GlobalContext.Provider>
+  )
 }

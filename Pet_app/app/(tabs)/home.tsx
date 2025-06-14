@@ -3,18 +3,41 @@ import icons from '@/constants/icons'
 import images from '@/constants/images'
 
 import React from 'react'
-import { Image, Text, View } from 'react-native'
+import { Image, ScrollView, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
+import Card from '@/components/Card'
 import CategoryBtn from '@/components/CategoryBtn'
 import SearchInput from '@/components/SearchInput'
 import MyBtnWhite from '@/components/myBtnWhite'
 
+import { useGlobalContext } from '@/context/Globalprovider'
+import { useRouter } from 'expo-router'
+import Pets from '../pet'
+
 export default function home() {
+const {category,setCategory}=useGlobalContext();
+
+
+const route= useRouter();
+
+const handlePress=()=>{
+
+
+
+  route.push("/id");
+}
+
+// const {sortedPets,setSortedPets}=useState();
+
+const sortedPets=category==="All"? Pets : Pets.filter(Pet=>Pet.type===category);
+
+
   return (
 
     <SafeAreaView className='w-full h-full flex justify-center items-center'>
 
+<ScrollView>
 <View className='w-full h-full flex gap-6 p-4'>
 
 <View className='w-full flex flex-row items-center justify-between'> 
@@ -58,22 +81,45 @@ export default function home() {
 </View>
 
 
-<View><Text className='font-bold'>Category</Text>
+<View className='mb-5'><Text className='font-bold text-[20px]'>Category</Text>
 
-<View>
+<View className='mt-5'>
 
 <CategoryBtn/>
 
 
 </View>
 
+
+<ScrollView horizontal showsHorizontalScrollIndicator={false} >
+
+<View className="flex-row gap-4 px-4"> 
+{
+  sortedPets.map((e)=>{
+
+
+    return (
+    <Card  key={e.id} name={e.name} img={e.image} location={e.location} isActive={false} id={e.id} />
+)
+
+  
+  })
+
+}
+
+</View>
+</ScrollView>
+
  </View>
+
+
 
 
 
 
 </View>
 
+</ScrollView>
 
     </SafeAreaView>
   )

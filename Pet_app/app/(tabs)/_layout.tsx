@@ -47,7 +47,7 @@ export default function TabLayout() {
     <Tabs
 
     screenOptions={{
-tabBarActiveTintColor:"#fc4828",
+tabBarActiveTintColor:"brown",
 tabBarShowLabel:false,
 tabBarStyle:{ 
     backgroundColor:'white',
@@ -128,15 +128,15 @@ tabBarStyle:{
         }}
         />
 
-          <Tabs.Screen name="chat"
+          <Tabs.Screen name="notification"
            options={{
-            title:'Chat',
+            title:'Notification',
             headerShown:false,
          tabBarIcon:({color,focused})=>(
 
                 <TabIcon 
-                name="Chat"
-                icon={icons.chat}
+                name="Notification"
+                icon={icons.notification_fill}
                 color={color}
                 focused={focused}
                 

@@ -8,8 +8,7 @@ export default function Index() {
 
     <SafeAreaView  className='bg-red-200 '>
     <View
-      className="flex   items-center justify-center gap-2  pt-52 "
-    >
+      className="flex   items-center justify-center gap-2  pt-52 " >
 
     <View className='flex  items-center justify-center h-[400px]  '> 
       <Image source={vector.vector} resizeMode='contain' className='w-[500px]  ' />
