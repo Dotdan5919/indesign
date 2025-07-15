@@ -108,11 +108,11 @@ beautiful solutions and we are glad that you, our customers
 
 
 <div className="grid grid-rows-1 grid-flow-col lg:w-[850px] w-[420px] gap-4 overflow-hidden z-0" ref={divRef}>
-<ImgSliderContainer2 img={Img1}  name="Living Room" projects={59}  />
-<ImgSliderContainer2 img={Img2}  name="Kitchen" projects={75}   />
-<ImgSliderContainer2 img={Img3}  name="Commercial" projects={49}  />
-<ImgSliderContainer2 img={Img5}  name="Studio" projects={29}  />
-<ImgSliderContainer2 img={Img4}   name="Work Station" projects={59} />
+<ImgSliderContainer2 img={Img1}  name="Living Room" subtitle={"59 projects"}  />
+<ImgSliderContainer2 img={Img2}  name="Kitchen" subtitle={"75 projects"}   />
+<ImgSliderContainer2 img={Img3}  name="Commercial" subtitle={"49 projects"}  />
+<ImgSliderContainer2 img={Img5}  name="Studio" subtitle={"29 projects"}  />
+<ImgSliderContainer2 img={Img4}   name="Work Station" subtitle={"59 projects"} />
 
 </div>
 
