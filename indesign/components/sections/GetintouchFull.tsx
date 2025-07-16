@@ -16,7 +16,7 @@ export default function GetintouchFull() {
 
 <input type="text" className=' px-8 py-4 w-1/2 bg-white  shadow-xl ' placeholder='text' />
 
-<Btn name="Call back" />
+<Btn name="Call back" icon='arrow' />
 
 
 </div>

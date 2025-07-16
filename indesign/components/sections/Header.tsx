@@ -5,15 +5,18 @@ import React from 'react'
 interface Proptype{
 title:string,
 subtitle:string,
-img?:StaticImageData
+img?:StaticImageData,
+previous?:string
 
 }
-export default function Header({title,subtitle,img}:Proptype) {
+export default function Header({title,subtitle,img,previous}:Proptype) {
   return (
     <div className="flex flex-row justify-between">
  <div className="flex flex-col gap-5">
 
-<div className='flex flex-row gap-3'>Home / <p className='text-prim'>{title}</p></div>
+
+<div className='flex flex-row gap-3'>Home /
+  {previous ?( <> {previous} / <p className='text-prim'>{title}</p></>):( <p className='text-prim'>{title}</p>) }</div>
 
 <h1 className='font-bold text-[45px]'>{title}</h1>
 

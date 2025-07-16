@@ -28,7 +28,7 @@ export default function Heroleft() {
 <motion.p className='font-light text-[16px]'>We are tending to the thousand of details it takes <br/> to create a custom home tailored to your lifestyle</motion.p>  
 
 
-<Btn name="TO ORDER" />
+<Btn name="TO ORDER" icon='arrow' />
 
 <motion.div className="flex flex-row gap-15 relative h-fit">
 
