@@ -12,6 +12,7 @@ import img_3 from '@/images/3.jpg'
 import ImgSliderContainer2 from '@/components/ImgSliderContainer2'
 import Footer from '@/components/sections/Footer'
 import Btn from '@/components/Btn'
+import CatalogRightHand from '@/components/sections/CatalogRightHand'
 
 
 export default function page() {
@@ -49,6 +50,8 @@ export default function page() {
 {/* left hand side */}
 <CatalogLeftHand/>
 
+
+<CatalogRightHand/>
 
 
 

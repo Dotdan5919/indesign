@@ -31,7 +31,7 @@ export default function ShopLeftHand() {
 }
 
   return (
-  <div className="flex w-[30%] flex-col gap-8 ">
+  <div className="flex w-[30%] flex-col gap-8 pt-20">
   
     <div className="flex flex-row">
   <input type="text" className=' px-8 py-4 w-full  bg-white  shadow-xl ' placeholder='Search for prices' />
