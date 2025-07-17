@@ -4,6 +4,8 @@ import React from 'react'
 import CartegoriesChip from '../CartegoriesChip'
 import Btn from '../Btn'
 import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import chair_1 from '@/images/chairs/chair_1.png'
 
 export default function CatalogRightHand() {
   return (
@@ -24,8 +26,8 @@ export default function CatalogRightHand() {
 
 
 
-
 </div>
+<Image src={chair_1} alt='chair' />
 
 
 
@@ -63,6 +65,8 @@ $243
 
 
 </div>
+
+
 
 
 
