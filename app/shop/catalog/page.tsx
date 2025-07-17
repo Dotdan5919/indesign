@@ -44,7 +44,7 @@ export default function page() {
 <hr className='w-20  border-prim border-2' />
 
 
-<div className="flex w-full h-fit">
+<div className="flex w-full h-fit gap-8">
 
 
 {/* left hand side */}

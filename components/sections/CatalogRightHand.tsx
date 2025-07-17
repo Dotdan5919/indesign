@@ -6,10 +6,14 @@ import Btn from '../Btn'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import chair_1 from '@/images/chairs/chair_1.png'
+import chair_2 from '@/images/chairs/1@0.33x.png'
+import chair_3 from '@/images/chairs/3@0.33x.png'
+import chair_4 from '@/images/chairs/4.png'
+import ShopCard from '../ShopCard'
 
 export default function CatalogRightHand() {
   return (
-    <div className='flex flex-col gap-8'>
+    <div className='flex flex-col gap-8 '>
       
 <div className="flex w-full gap-2 px-4">
 
@@ -17,55 +21,17 @@ export default function CatalogRightHand() {
    <CartegoriesChip title='Discounted'/>
 </div>
    
-<div className="flex flex-col shadow-md rounded-md w-80 p-9">
-
-<div className="flex w-full justify-between items-center">
-
-<FontAwesomeIcon icon={faHeart}/>
-<div className="flex bg-prim px-3  py-2 text-white">New</div>
-
-
-
-</div>
-<Image src={chair_1} alt='chair' />
-
-
-
-
-
-
-
-
-
-
-
-
-<div className="flex bg-gray-200 p-5 justify-between items-center rounded-2xl">
-
-view details
-
-
-
-
-<div className="flex items-center justify-center  relative">
-    <p className='pr-2 '>
-$243
-
-</p>
-
-<div className="flex p-2 bg-white text-prim shadow-sm rounded-full absolute left-12 hover:scale-110 transition-all duration-100 ">
-
-<FontAwesomeIcon icon={faArrowRight} />
-</div>
-
-</div>
-</div>
-
+<div className="grid grid-cols-3 gap-10">
+<ShopCard newproduct={true} price={234}  img={chair_1} title='Modern white chair' category='Chairs'/>
+<ShopCard newproduct={true} price={234}  img={chair_2} title='Modern white chair' category='Chairs'/>
+<ShopCard newproduct={true} price={234}  img={chair_3} title='Modern white chair' category='Chairs'/>
+<ShopCard newproduct={true} price={234}  img={chair_4} title='Modern white chair' category='Chairs'/>
+<ShopCard newproduct={true} price={234}  img={chair_1} title='Modern white chair' category='Chairs'/>
+<ShopCard newproduct={true} price={234}  img={chair_1} title='Modern white chair' category='Chairs'/>
 
 
 
 </div>
-
 
 
 
