@@ -26,7 +26,7 @@ export default function ShopCard({newproduct,price,img,title,category}:Proptype)
 
 <FontAwesomeIcon icon={faHeart}/>
 
-{newproduct===true && (<div className="flex bg-prim px-3  py-2 text-white">New</div>)}
+{newproduct===true && (<div className="flex bg-prim px-3 text-xs py-2 text-white">New</div>)}
 
 
 

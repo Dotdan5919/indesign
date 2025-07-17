@@ -12,6 +12,28 @@ import chair_4 from '@/images/chairs/4.png'
 import ShopCard from '../ShopCard'
 
 export default function CatalogRightHand() {
+
+
+    const allProducts=[
+
+{price:100,img:chair_1,title:"Modern Chair",categories:"Chairs"},
+{price:200,img:chair_2,title:"Modern Chair",categories:"Chairs"},
+{price:400,img:chair_4,title:"Modern Chair",categories:"Chairs"},
+{price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs"},
+
+
+
+
+    ]
+
+
+
+
+
+   
+
+
+
   return (
     <div className='flex flex-col gap-8 '>
       
@@ -22,14 +44,19 @@ export default function CatalogRightHand() {
 </div>
    
 <div className="grid grid-cols-3 gap-10">
-<ShopCard newproduct={true} price={234}  img={chair_1} title='Modern white chair' category='Chairs'/>
-<ShopCard newproduct={true} price={234}  img={chair_2} title='Modern white chair' category='Chairs'/>
-<ShopCard newproduct={true} price={234}  img={chair_3} title='Modern white chair' category='Chairs'/>
-<ShopCard newproduct={true} price={234}  img={chair_4} title='Modern white chair' category='Chairs'/>
-<ShopCard newproduct={true} price={234}  img={chair_1} title='Modern white chair' category='Chairs'/>
-<ShopCard newproduct={true} price={234}  img={chair_1} title='Modern white chair' category='Chairs'/>
 
 
+{allProducts.map((product,index)=>{
+
+return(
+
+
+<ShopCard key={index} newproduct={true} price={product.price}  img={product.img} title={product.title} category={product.categories}/>
+
+)
+
+
+})}
 
 </div>
 
