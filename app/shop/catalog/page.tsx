@@ -13,11 +13,14 @@ import ImgSliderContainer2 from '@/components/ImgSliderContainer2'
 import Footer from '@/components/sections/Footer'
 import Btn from '@/components/Btn'
 import CatalogRightHand from '@/components/sections/CatalogRightHand'
+import useShop from '@/hooks/useShop'
+import  ShoppingProvider from '@/contexts/ShoppingContext'
 
 
 export default function page() {
 
   
+
 
 
 
@@ -46,14 +49,14 @@ export default function page() {
 
 <div className="flex w-full h-fit gap-8 pb-32">
 
-
+<ShoppingProvider>
 {/* left hand side */}
 <CatalogLeftHand/>
 
 
 <CatalogRightHand/>
 
-
+</ShoppingProvider>
 
 
 

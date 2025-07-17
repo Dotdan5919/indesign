@@ -3,13 +3,15 @@ import React, { useState } from 'react'
 import Btn from '../Btn'
 import { DualRangeSlider } from '../ui/DropRangeSlider';
 import { Switch } from '@/components/ui/switch';
+import useShop from '@/hooks/useShop';
 
 
 
 export default function ShopLeftHand() {
 
-    const [activeCategories,setActiveCategory]=useState(0);
-    const [values, setValues] = useState([0, 100]);
+    const {activeCategories,setActiveCategory,priceRange,setPriceRange, setNovelties,setDiscounted,Discounted,Novelties}=useShop();
+   
+    // const [values, setValues] = useState([0, 100]);
 
     
     const categories=[{name:"Chairs",number:25},
@@ -22,13 +24,25 @@ export default function ShopLeftHand() {
     ];
 
 
-    const handlePress=(index:number)=>{
+    const handlePress=(cartegory:string)=>{
 
 
-  setActiveCategory(index);
+  setActiveCategory(cartegory);
 
 
 }
+
+const handleCheckedD=(checked:boolean)=>{
+setDiscounted(checked)
+
+}
+const handleCheckedN=(checked:boolean)=>{
+setNovelties(checked)
+
+}
+
+
+
 
   return (
   <div className="flex w-[22%] flex-col gap-8 pt-20">
@@ -48,9 +62,9 @@ export default function ShopLeftHand() {
   {categories.map((e,index)=>{
   
   return(
-    <ul key={index} className={`${index===activeCategories && ('text-prim')} hover:text-prim  flex w-full items-center  justify-between`} onClick={()=>handlePress(index)} >
+    <ul key={index} className={`${e.name===activeCategories && ('text-prim')} hover:text-prim  flex w-full items-center  justify-between`} onClick={()=>handlePress(e.name)} >
       <div className="flex w-fit items-center gap-1">
-      {index===activeCategories && (<hr className='bg-prim h-[2px] w-2'/>)}
+      {e.name===activeCategories && (<hr className='bg-prim h-[2px] w-2'/>)}
   <li>{e.name}</li>
   </div>
   <li>({e.number})</li>
@@ -76,8 +90,8 @@ export default function ShopLeftHand() {
   
     <DualRangeSlider
         label={(value) => <span>${value}</span>}
-        value={values}
-        onValueChange={setValues}
+        value={priceRange}
+        onValueChange={setPriceRange}
         min={0}
         max={100}
         step={1}
@@ -85,7 +99,7 @@ export default function ShopLeftHand() {
 
 <div className="flex w-full justify-between">
 <label htmlFor="novelties" >Novelties</label >
-  <Switch id='novelties' />
+  <Switch id='novelties' checked={Novelties} onCheckedChange={handleCheckedN} />
   
 
 
@@ -93,7 +107,7 @@ export default function ShopLeftHand() {
 
 <div className="flex w-full justify-between">
 <label htmlFor="discounted">Discounted <br/> products</label>
-  <Switch id='discounted' />
+  <Switch id='discounted' checked={Discounted} onCheckedChange={handleCheckedD} />
   
 
 
