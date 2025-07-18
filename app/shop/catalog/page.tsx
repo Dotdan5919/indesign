@@ -15,6 +15,7 @@ import Btn from '@/components/Btn'
 import CatalogRightHand from '@/components/sections/CatalogRightHand'
 import useShop from '@/hooks/useShop'
 import  ShoppingProvider from '@/contexts/ShoppingContext'
+import FavouriteProvider from '@/contexts/FavouriteContext'
 
 
 
@@ -48,15 +49,15 @@ export default function page() {
 <hr className='w-20  border-prim border-2' />
 
 
-<div className="flex w-full h-fit gap-8 pb-32">
+<div className="flex sm:flex-row flex-col w-full h-fit gap-8 pb-32">
 
 <ShoppingProvider>
 {/* left hand side */}
 <CatalogLeftHand/>
 
-
+<FavouriteProvider>
 <CatalogRightHand/>
-
+</FavouriteProvider>
 </ShoppingProvider>
 
 

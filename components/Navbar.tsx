@@ -1,5 +1,6 @@
 'use client';
 
+import FavouriteProvider from '@/contexts/FavouriteContext';
 import {
   faBars,
   faHeart,
@@ -33,7 +34,9 @@ export default function Navbar() {
       {/* Desktop Icons */}
       <div className="xl:flex hidden flex-row items-center gap-5">
         <FontAwesomeIcon icon={faSearch} />
+        <FavouriteProvider>
         <FontAwesomeIcon icon={faHeart} />
+        </FavouriteProvider>
         <div className="flex relative">
           <FontAwesomeIcon icon={faStore} />
           <span className="absolute bg-prim w-4 h-4 rounded-full flex items-center justify-center -top-2 left-3 text-white text-[10px]">
@@ -64,7 +67,7 @@ export default function Navbar() {
             <Link href="/" className="hover:text-prim">Home</Link>
         <Link href="/about" className="hover:text-prim">About us</Link>
         <Link href="/" className="hover:text-prim">Service</Link>
-        <Link href="/" className="hover:text-prim">PortfoLinko</Link>
+        <Link href="/" className="hover:text-prim">PortfoLio</Link>
         <Link href="/" className="hover:text-prim">Shop</Link>
         <Link href="/" className="hover:text-prim">Contact</Link>
           </ul>
@@ -72,7 +75,9 @@ export default function Navbar() {
 
       <div className="xl:hidden flex flex-row items-center gap-5 pt-8">
         <FontAwesomeIcon icon={faSearch} />
+        <FavouriteProvider>
         <FontAwesomeIcon icon={faHeart} />
+        </FavouriteProvider>
         <div className="flex relative">
           <FontAwesomeIcon icon={faStore} />
           <span className="absolute bg-prim w-4 h-4 rounded-full flex items-center justify-center -top-2 left-3 text-white text-[10px]">

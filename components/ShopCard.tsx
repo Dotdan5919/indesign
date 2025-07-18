@@ -19,7 +19,7 @@ category:string
 export default function ShopCard({newproduct,price,img,title,category}:Proptype) {
   return (
 
-    <div className="flex flex-col gap-7">
+    <div className="flex flex-col gap-7 scale-95">
     <div className="flex flex-col shadow-lg rounded-md w-80 p-8">
 
 <div className="flex w-full justify-between items-center">

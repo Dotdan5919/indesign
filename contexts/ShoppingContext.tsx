@@ -40,12 +40,23 @@ type PriceRange=[number,number];
 type DiscountedType=boolean;
 type NoveltiesType=boolean;
 type categoriesType=string;
+type SearchType=string;
 
 interface ShopProviderProps {
   children: ReactNode;
 }
 
+interface Product {
 
+    price:number,
+    img:StaticImageData,
+    title:string,
+    categories:string,
+    novelties:boolean,
+    discounted:boolean
+
+
+}
 
 
 
@@ -56,14 +67,75 @@ export default function ShoppingProvider   ({children}:ShopProviderProps) {
     const[Novelties,setNovelties]=useState<NoveltiesType>(false);
     const[Discounted,setDiscounted]=useState<DiscountedType>(false);
 
-   
+   const [inputVal,setInputVal]=useState<SearchType>("");
 
 
 
+const allProducts:Product[]=[
+
+{price:100,img:chair_1,title:"Modern Chair",categories:"Chairs",novelties:false,discounted:false},
+{price:200,img:chair_2,title:"Modern Chair",categories:"Chairs",novelties:false,discounted:false},
+{price:400,img:recliner_1,title:"Modern Chair",categories:"Recliners",novelties:false,discounted:true},
+{price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:true,discounted:false},
+{price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:false},
+{price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:false},
+{price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:true},
+{price:230,img:chair_3,title:"Modern Shoe",categories:"Tables",novelties:true,discounted:false},
+
+
+    ]
+
+
+     const [shownProducts, setShownProducts] = useState<Product[]>(allProducts); 
 
 
 
+ useEffect(()=>{
+        let shownProduct=allProducts;
 
+ if(activeCategories!=null){
+
+        shownProduct=shownProduct.filter(item=>item.categories===activeCategories);
+      
+    }
+
+    if(Novelties===true){
+
+        shownProduct=shownProduct.filter(items=>items.novelties===true);
+        
+
+    }
+    if(Discounted===true)
+    {
+
+        shownProduct=shownProduct.filter(items=>items.discounted===true);
+        
+        
+        
+    }
+    
+    if(priceRange && (priceRange[0]>0 || priceRange[1]<100)){
+        
+        
+        shownProduct=shownProduct.filter(product => product.price >= priceRange[0] && product.price <= priceRange[1])
+        
+    }
+    if(inputVal!="")
+        {
+            
+             const lowerCaseSearchTerm = inputVal.toLowerCase();
+      shownProduct = shownProduct.filter(product =>
+        product.title.toLowerCase().includes(lowerCaseSearchTerm) ||
+        product.categories.toLowerCase().includes(lowerCaseSearchTerm) // Example: search by ID too
+      );
+
+   }
+
+
+setShownProducts(shownProduct);
+
+
+    },[activeCategories,Novelties,priceRange,Discounted,inputVal])
     
 
 
@@ -77,6 +149,12 @@ export default function ShoppingProvider   ({children}:ShopProviderProps) {
         setNovelties,
         Discounted,
         setDiscounted,
+        shownProducts, 
+        setShownProducts,
+        shownProducts, 
+        setShownProducts,
+        inputVal,
+        setInputVal
        
 
 

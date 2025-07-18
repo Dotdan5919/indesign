@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Btn from '../Btn'
 import { DualRangeSlider } from '../ui/DropRangeSlider';
 import { Switch } from '@/components/ui/switch';
@@ -9,9 +9,12 @@ import useShop from '@/hooks/useShop';
 
 export default function ShopLeftHand() {
 
-    const {activeCategories,setActiveCategory,priceRange,setPriceRange, setNovelties,setDiscounted,Discounted,Novelties,setShownProducts,shownProducts}=useShop();
+    const {activeCategories,setActiveCategory,priceRange,setPriceRange, setNovelties,setDiscounted,Discounted,Novelties,setShownProducts,shownProducts,inputVal,setInputVal}=useShop();
    
     // const [values, setValues] = useState([0, 100]);
+      
+
+    const inputRef=useRef(null);
 
     
     const categories=[{name:"Chairs",number:25},
@@ -41,16 +44,22 @@ const handleCheckedN=(checked:boolean)=>{
 setNovelties(checked)
 
 }
+const handleSearch=()=>{
+setInputVal(inputRef.current.value);
+
+
+
+}
 
 
 
 
   return (
-  <div className="flex w-[22%] flex-col gap-8 pt-20">
+  <div className="flex sm:w-[40%] md:w-[22%] w-full flex-col gap-8 pt-20">
   
     <div className="flex flex-row">
-  <input type="text" className=' px-8 py-4 w-full  bg-white  shadow-xl ' placeholder='Search for prices' />
-  <Btn icon='search' />
+  <input type="text" className=' px-8 py-4 w-full  bg-white  shadow-xl ' placeholder='Search for prices' ref={inputRef}  />
+  <Btn icon='search' click={handleSearch} />
   
   </div>  
   
@@ -94,7 +103,7 @@ setNovelties(checked)
         value={priceRange}
         onValueChange={setPriceRange}
         min={0}
-        max={100}
+        max={700}
         step={1}
       />
 

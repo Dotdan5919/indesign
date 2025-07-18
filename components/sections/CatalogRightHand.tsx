@@ -28,65 +28,16 @@ interface Product {
 }
 export default function CatalogRightHand() {
 
-        const {activeCategories,setActiveCategory,priceRange,setPriceRange, Novelties,Discounted}=useShop();
+        const { Novelties,Discounted,shownProducts}=useShop();
 
 
-    const allProducts:Product[]=[
 
-{price:100,img:chair_1,title:"Modern Chair",categories:"Chairs",novelties:false,discounted:false},
-{price:200,img:chair_2,title:"Modern Chair",categories:"Chairs",novelties:false,discounted:false},
-{price:400,img:recliner_1,title:"Modern Chair",categories:"Recliners",novelties:false,discounted:true},
-{price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:true,discounted:false},
-{price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:false},
-{price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:false},
-{price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:true},
-{price:230,img:chair_3,title:"Modern Shoe",categories:"Table",novelties:true,discounted:false},
-
-
-    ]
-
-
-     const [shownProducts, setShownProducts] = useState<Product[]>(allProducts); 
+    
     
      
     
      
-     useEffect(()=>{
-        let shownProduct=allProducts;
-
- if(activeCategories!=null){
-
-        shownProduct=shownProduct.filter(item=>item.categories===activeCategories);
-      
-    }
-
-    if(Novelties===true){
-
-        shownProduct=shownProduct.filter(items=>items.novelties===true);
-        
-
-    }
-    if(Discounted===true)
-    {
-
-        shownProduct=shownProduct.filter(items=>items.discounted===true);
-       
-
-    }
-
-    if(priceRange && (priceRange[0]>0 || priceRange[1]<100)){
-
-
-        shownProduct=shownProduct.filter(product => product.price >= priceRange[0] && product.price <= priceRange[1])
-        
-    }
-   
-
-
-setShownProducts(shownProduct);
-
-
-    },[activeCategories,Novelties,priceRange,Discounted])
+    
     
 
 
@@ -106,7 +57,7 @@ setShownProducts(shownProduct);
    
 </div>
    
-<div className="grid grid-cols-3 gap-10">
+<div className="grid xl:grid-cols-3 grid-cols-1 lg:grid-cols-2 gap-10">
 
 
 {shownProducts.length>0 ? (shownProducts.map((product,index)=>{
@@ -119,7 +70,7 @@ return(
 )
 
 
-})):( <div className="col-span-full text-center text-gray-500">
+})):( <div className="col-span-full text-center text-gray-500 h-44 p-8 flex items-center justify-center">
             No products found matching your criteria.
           </div>)}
 
