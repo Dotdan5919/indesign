@@ -80,7 +80,7 @@ const allProducts:Product[]=[
 {id:5,price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:false},
 {id:6,price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:false},
 {id:7,price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:true},
-{id:8,price:230,img:chair_3,title:"Modern Shoe",categories:"Tables",novelties:true,discounted:false},
+{id:8,price:230,img:chair_4,title:"Modern Shoe",categories:"Tables",novelties:true,discounted:false},
 
 
     ]
@@ -91,6 +91,7 @@ const allProducts:Product[]=[
 
 
  useEffect(()=>{
+  // shown or filtered products
         let shownProduct=allProducts;
 
  if(activeCategories!=null){
@@ -149,11 +150,9 @@ setShownProducts(shownProduct);
         setNovelties,
         Discounted,
         setDiscounted,
+             setShownProducts,
         shownProducts, 
-        setShownProducts,
-        shownProducts, 
-        setShownProducts,
-        inputVal,
+          inputVal,
         setInputVal
        
 

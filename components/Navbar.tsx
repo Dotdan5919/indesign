@@ -1,6 +1,7 @@
 'use client';
 
 import FavouriteProvider from '@/contexts/FavouriteContext';
+import useFavorite from '@/hooks/useFavorite';
 import {
   faBars,
   faHeart,
@@ -16,7 +17,11 @@ import React, { useState } from 'react';
 export default function Navbar() {
   const [nav, setNav] = useState(false);
 
+  const {wishlistState}=useFavorite();
+
   return (
+    
+   
     <div className="flex flex-row items-center justify-between w-full relative px-6 py-4">
       <h1 className="font-bold text-4xl">In.design</h1>
 
@@ -34,14 +39,20 @@ export default function Navbar() {
       {/* Desktop Icons */}
       <div className="xl:flex hidden flex-row items-center gap-5">
         <FontAwesomeIcon icon={faSearch} />
-        <FavouriteProvider>
+        <div className="flex relative">
         <FontAwesomeIcon icon={faHeart} />
-        </FavouriteProvider>
+
+{ wishlistState.wishlist.length>0 && (
+ <span className="absolute bg-prim w-4 h-4 rounded-full flex items-center justify-center -top-2 left-3 text-white text-[10px]">
+            {wishlistState.wishlist.length}
+          </span>)
+
+}
+        </div>
+
         <div className="flex relative">
           <FontAwesomeIcon icon={faStore} />
-          <span className="absolute bg-prim w-4 h-4 rounded-full flex items-center justify-center -top-2 left-3 text-white text-[10px]">
-            2
-          </span>
+         
         </div>
       </div>
 
@@ -57,7 +68,7 @@ export default function Navbar() {
           icon={nav ? faTimes : faBars}
           className="text-xl cursor-pointer hover:text-prim transition-all"
           onClick={() => setNav(!nav)}
-        />
+          />
       </div>
 
       {/* Mobile Menu */}
@@ -75,14 +86,21 @@ export default function Navbar() {
 
       <div className="xl:hidden flex flex-row items-center gap-5 pt-8">
         <FontAwesomeIcon icon={faSearch} />
-        <FavouriteProvider>
+
+<div className="flex relative">
         <FontAwesomeIcon icon={faHeart} />
-        </FavouriteProvider>
+
+{ wishlistState.wishlist.length>0 && (
+ <span className="absolute bg-prim w-4 h-4 rounded-full flex items-center justify-center -top-2 left-3 text-white text-[10px]">
+            {wishlistState.wishlist.length}
+          </span>)
+
+}
+        </div>
+
         <div className="flex relative">
           <FontAwesomeIcon icon={faStore} />
-          <span className="absolute bg-prim w-4 h-4 rounded-full flex items-center justify-center -top-2 left-3 text-white text-[10px]">
-            2
-          </span>
+         
         </div>
       </div>
 
@@ -96,5 +114,7 @@ export default function Navbar() {
         </div>
       )}
     </div>
+     
+      
   );
 }

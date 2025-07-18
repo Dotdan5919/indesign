@@ -1,8 +1,8 @@
 'use client'
 
-import React, { act, ReactNode, useEffect, useReducer, useState } from 'react'
+import React, {  ReactNode, useEffect, useReducer, useState } from 'react'
 import { createContext } from 'react'
-import chair_1 from '@/images/chairs/chair_1.png'
+
 import { StaticImageData } from 'next/image'
 
 
@@ -105,11 +105,6 @@ const addtoWishlist=(product:Product)=>
 }
 
 
-// useEffect(()=>{
-
-//     addtoWishlist({id:1,price:100,img:chair_1,title:"Modern Chair",categories:"Chairs",novelties:false,discounted:false});
-
-// })
 
 
 

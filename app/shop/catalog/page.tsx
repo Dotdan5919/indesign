@@ -40,8 +40,11 @@ export default function page() {
 
 
   return (
+<ShoppingProvider>
+<FavouriteProvider>
     <div>
 <div  className='h-fit w-screen overflow-hidden flex flex-col   gap-16 lg:pt-10 lg:pb-20  lg:px-32 p-8 pb-20'>
+
         <Navbar/>
 
 <Header previous='Shop' title='Catalog' subtitle={`Select Appropriate option`} />
@@ -50,15 +53,12 @@ export default function page() {
 
 
 <div className="flex sm:flex-row flex-col w-full h-fit gap-8 pb-32">
+{/* importing the providers to only where they are needed */}
 
-<ShoppingProvider>
-{/* left hand side */}
-<CatalogLeftHand/>
+    <CatalogLeftHand/>
 
-<FavouriteProvider>
-<CatalogRightHand/>
-</FavouriteProvider>
-</ShoppingProvider>
+    <CatalogRightHand/>
+
 
 
 
@@ -81,5 +81,7 @@ export default function page() {
 
 
     </div>
+</FavouriteProvider>
+</ShoppingProvider>
   )
 }
