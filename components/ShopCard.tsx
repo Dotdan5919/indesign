@@ -1,8 +1,9 @@
 import { faArrowRight, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image, { StaticImageData } from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import chair_1 from '@/images/chairs/chair_1.png'
+import useFavorite from '@/hooks/useFavorite'
 
 
 
@@ -11,21 +12,49 @@ newproduct?:boolean,
 price:number,
 img:StaticImageData,
 title:string,
-category:string
+category:string;
+click:()=>void,
+
+id:number
 
 
 }
 
-export default function ShopCard({newproduct,price,img,title,category}:Proptype) {
+export default function ShopCard({newproduct,price,img,title,category,click,id}:Proptype) {
+
+    const[isWishlistActive,setIsWishlistActive]=useState(false);
+
+    const{wishlistState}=useFavorite();
+
+    useEffect(()=>{
+
+        if(wishlistState.wishlist.some(item=>item.id===id)){
+
+            setIsWishlistActive(true);
+        }
+     
+      else if(wishlistState.wishlist.some(item=>item.id!=id)){
+
+            setIsWishlistActive(false);
+
+
+
+      }
+
+    },[wishlistState,click])
+    
+    
   return (
 
-    <div className="flex flex-col gap-7 scale-95">
-    <div className="flex flex-col shadow-lg rounded-md w-80 p-8">
+    <div className="flex flex-col gap-7 scale-95 ">
+    <div className="flex flex-col shadow-lg rounded-md md:w-80 w-full p-8">
 
 <div className="flex w-full justify-between items-center">
+    
+    <div className="flex  hover:scale-125 duration-150 transition-all   ">
 
-<FontAwesomeIcon icon={faHeart}/>
-
+<FontAwesomeIcon icon={faHeart} onClick={click} className={`${isWishlistActive?('text-prim'):('text-black ')}  `}/>
+</div>
 {newproduct===true && (<div className="flex bg-prim px-3 text-xs py-2 text-white">New</div>)}
 
 

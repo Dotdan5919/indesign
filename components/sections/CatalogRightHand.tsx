@@ -13,6 +13,7 @@ import chair_4 from '@/images/chairs/4.png'
 import recliner_1 from '@/images/chairs/8@0.33x.png'
 import ShopCard from '../ShopCard'
 import useShop from '@/hooks/useShop'
+import useFavorite from '@/hooks/useFavorite'
  
 
 interface Product {
@@ -30,9 +31,19 @@ export default function CatalogRightHand() {
 
         const { Novelties,Discounted,shownProducts}=useShop();
 
+        const{addtoWishlist,removefromWishlist,wishlistState}=useFavorite();
+
+
 
 
     
+        useEffect(()=>{
+
+    //         console.log(wishlistState); //check if value is in wishlist, it returns true or false
+
+    // console.log("hi")
+
+        })
     
      
     
@@ -61,11 +72,17 @@ export default function CatalogRightHand() {
 
 
 {shownProducts.length>0 ? (shownProducts.map((product,index)=>{
+//   const InWishlist=wishlistArray.includes(item=>item.id===product.id); //check if value is in wishlist, it returns true or false
 
+    
+    
+
+    
 return(
 
 
-<ShopCard key={index} newproduct={true} price={product.price}  img={product.img} title={product.title} category={product.categories}/>
+<ShopCard key={index} newproduct={true} price={product.price}  img={product.img} title={product.title} category={product.categories} click={()=>wishlistState.wishlist.some(item=>item.id===product.id)?removefromWishlist(product):addtoWishlist(product)}
+id={product.id}/>
 
 )
 

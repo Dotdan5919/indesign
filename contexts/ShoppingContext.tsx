@@ -47,7 +47,7 @@ interface ShopProviderProps {
 }
 
 interface Product {
-
+    id:number,
     price:number,
     img:StaticImageData,
     title:string,
@@ -73,14 +73,14 @@ export default function ShoppingProvider   ({children}:ShopProviderProps) {
 
 const allProducts:Product[]=[
 
-{price:100,img:chair_1,title:"Modern Chair",categories:"Chairs",novelties:false,discounted:false},
-{price:200,img:chair_2,title:"Modern Chair",categories:"Chairs",novelties:false,discounted:false},
-{price:400,img:recliner_1,title:"Modern Chair",categories:"Recliners",novelties:false,discounted:true},
-{price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:true,discounted:false},
-{price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:false},
-{price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:false},
-{price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:true},
-{price:230,img:chair_3,title:"Modern Shoe",categories:"Tables",novelties:true,discounted:false},
+{id:1,price:100,img:chair_1,title:"Modern Chair",categories:"Chairs",novelties:false,discounted:false},
+{id:2,price:200,img:chair_2,title:"Modern Chair",categories:"Chairs",novelties:false,discounted:false},
+{id:3,price:400,img:recliner_1,title:"Modern Chair",categories:"Recliners",novelties:false,discounted:true},
+{id:4,price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:true,discounted:false},
+{id:5,price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:false},
+{id:6,price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:false},
+{id:7,price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:true},
+{id:8,price:230,img:chair_3,title:"Modern Shoe",categories:"Tables",novelties:true,discounted:false},
 
 
     ]
