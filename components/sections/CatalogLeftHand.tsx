@@ -9,7 +9,7 @@ import useShop from '@/hooks/useShop';
 
 export default function ShopLeftHand() {
 
-    const {activeCategories,setActiveCategory,priceRange,setPriceRange, setNovelties,setDiscounted,Discounted,Novelties}=useShop();
+    const {activeCategories,setActiveCategory,priceRange,setPriceRange, setNovelties,setDiscounted,Discounted,Novelties,setShownProducts,shownProducts}=useShop();
    
     // const [values, setValues] = useState([0, 100]);
 
@@ -28,6 +28,7 @@ export default function ShopLeftHand() {
 
 
   setActiveCategory(cartegory);
+ 
 
 
 }

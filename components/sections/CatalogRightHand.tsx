@@ -1,7 +1,7 @@
 'use client'
 import { faArrowRight, faClose, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CartegoriesChip from '../CartegoriesChip'
 import Btn from '../Btn'
 import { ArrowRight } from 'lucide-react'
@@ -46,21 +46,47 @@ export default function CatalogRightHand() {
     ]
 
 
-    console.log(allProducts.filter(item=>item.categories===activeCategories));
-    let shownProduct:Product[]=allProducts;
-    if(activeCategories===undefined){
+     const [shownProducts, setShownProducts] = useState<Product[]>(allProducts); 
+    
+     
+    
+     
+     useEffect(()=>{
+        let shownProduct=allProducts;
 
-        shownProduct=allProducts;
+ if(activeCategories!=null){
+
+        shownProduct=shownProduct.filter(item=>item.categories===activeCategories);
+      
     }
-    else{
 
-        shownProduct=allProducts.filter(item=>item.categories===activeCategories);
+    if(Novelties===true){
+
+        shownProduct=shownProduct.filter(items=>items.novelties===true);
+        
+
+    }
+    if(Discounted===true)
+    {
+
+        shownProduct=shownProduct.filter(items=>items.discounted===true);
        
 
-
-
     }
 
+    if(priceRange && (priceRange[0]>0 || priceRange[1]<100)){
+
+
+        shownProduct=shownProduct.filter(product => product.price >= priceRange[0] && product.price <= priceRange[1])
+        
+    }
+   
+
+
+setShownProducts(shownProduct);
+
+
+    },[activeCategories,Novelties,priceRange,Discounted])
     
 
 
@@ -83,7 +109,7 @@ export default function CatalogRightHand() {
 <div className="grid grid-cols-3 gap-10">
 
 
-{shownProduct.length>0 && shownProduct.map((product,index)=>{
+{shownProducts.length>0 ? (shownProducts.map((product,index)=>{
 
 return(
 
@@ -93,7 +119,9 @@ return(
 )
 
 
-})}
+})):( <div className="col-span-full text-center text-gray-500">
+            No products found matching your criteria.
+          </div>)}
 
 </div>
 

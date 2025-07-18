@@ -1,7 +1,14 @@
 'use client'
 
 import { Bold } from 'lucide-react';
-import React from 'react'
+import { StaticImageData } from 'next/image';
+import React, { useEffect } from 'react'
+
+import chair_1 from '@/images/chairs/chair_1.png'
+import chair_2 from '@/images/chairs/1@0.33x.png'
+import chair_3 from '@/images/chairs/3@0.33x.png'
+import chair_4 from '@/images/chairs/4.png'
+import recliner_1 from '@/images/chairs/8@0.33x.png'
 
  import { createContext,useState, ReactNode } from 'react'
 
@@ -41,12 +48,20 @@ interface ShopProviderProps {
 
 
 
+
 export default function ShoppingProvider   ({children}:ShopProviderProps) {
 
     const[activeCategories,setActiveCategory]=useState<categoriesType>();
-    const[priceRange,setPriceRange]=useState<PriceRange>([0, 100]);
+    const[priceRange,setPriceRange]=useState<PriceRange>([50, 600]);
     const[Novelties,setNovelties]=useState<NoveltiesType>(false);
     const[Discounted,setDiscounted]=useState<DiscountedType>(false);
+
+   
+
+
+
+
+
 
 
     
@@ -61,10 +76,14 @@ export default function ShoppingProvider   ({children}:ShopProviderProps) {
         Novelties,
         setNovelties,
         Discounted,
-        setDiscounted
+        setDiscounted,
+       
 
 
     }
+
+
+  
 
   return (
     <ShoppingContext.Provider value={value}>
