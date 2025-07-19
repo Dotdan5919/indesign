@@ -22,18 +22,20 @@ import Group from '@/icons/group-of-users-svgrepo-com.svg'
 import NolongerLuxury from '@/components/sections/NolongerLuxury'
 import Testimonial from '@/components/sections/Testimonial'
 import FavouriteProvider from '@/contexts/FavouriteContext'
+import ClientProviders from '@/contexts/ClientProviders'
 
 
 
 export default function page() {
   return (
-      <div className="h-fit w-screen overflow-hidden" >
+      <ClientProviders>
+    <div className="h-fit w-screen overflow-hidden" >
 
 
    <div className="flex flex-col w-full gap-16 bg-[url('/images/bg.jpg')] h-fit  gap-16 lg:pt-10 lg:pb-20  lg:px-32 p-8 pb-20">  
-<FavouriteProvider>
+
 <Navbar/>
-</FavouriteProvider>
+
 
 
 
@@ -78,5 +80,6 @@ export default function page() {
 
       
     </div>
+      </ClientProviders>
   )
 }

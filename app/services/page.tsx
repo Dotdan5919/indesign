@@ -20,17 +20,19 @@ import OurFullProcess from '@/components/sections/OurFullProcess'
 import Btn from '@/components/Btn'
 import GetintouchFull from '@/components/sections/GetintouchFull'
 import FavouriteProvider from '@/contexts/FavouriteContext'
+import ClientProviders from '@/contexts/ClientProviders'
 
 export default function page() {
   return (
+      <ClientProviders>
     <div className='h-fit w-screen overflow-hidden'>
       
 
    <div className="flex flex-col w-full gap-16 bg-[url('/images/bg.jpg')] h-fit  gap-16 lg:pt-10 lg:pb-20  lg:px-32 p-8 pb-20">  
 
-<FavouriteProvider>
+
 <Navbar/>
-</FavouriteProvider>
+
 
 
 <Header title='Services' subtitle='Please review our services' img={img_2}/>
@@ -64,5 +66,6 @@ export default function page() {
 
 
     </div>
+    </ClientProviders>
   )
 }

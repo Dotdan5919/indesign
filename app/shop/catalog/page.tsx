@@ -16,10 +16,13 @@ import CatalogRightHand from '@/components/sections/CatalogRightHand'
 import useShop from '@/hooks/useShop'
 import  ShoppingProvider from '@/contexts/ShoppingContext'
 import FavouriteProvider from '@/contexts/FavouriteContext'
+import ClientProviders from '@/contexts/ClientProviders'
 
 
 
 export default function page() {
+
+  
 
   
 
@@ -36,12 +39,8 @@ export default function page() {
 
 
 
-
-
-
   return (
-<ShoppingProvider>
-<FavouriteProvider>
+<ClientProviders>
     <div>
 <div  className='h-fit w-screen overflow-hidden flex flex-col   gap-16 lg:pt-10 lg:pb-20  lg:px-32 p-8 pb-20'>
 
@@ -81,7 +80,6 @@ export default function page() {
 
 
     </div>
-</FavouriteProvider>
-</ShoppingProvider>
+</ClientProviders>
   )
 }

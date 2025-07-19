@@ -18,6 +18,7 @@ import OurBlog from "@/components/sections/OurBlog";
 import Footer from "@/components/sections/Footer";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
+import ClientProviders from "@/contexts/ClientProviders";
 
 
 export default function Home() {
@@ -54,6 +55,7 @@ const [showButton,setShowButton]=useState()
 
 
   return (
+      <ClientProviders>
     <div className=" w-screen overflow-hidden    " >
   
       
@@ -65,8 +67,8 @@ const [showButton,setShowButton]=useState()
 
     
     {showButton && (
-
- <div className="flex z-50 w-15 h-15 bg-prim items-center justify-center p-2 fixed bottom-3 right-5 rounded-full hover:shadow-2xl hover:scale-101 duration-200" onClick={scrollUp}>
+      
+      <div className="flex z-50 w-15 h-15 bg-prim items-center justify-center p-2 fixed bottom-3 right-5 rounded-full hover:shadow-2xl hover:scale-101 duration-200" onClick={scrollUp}>
 
 
     <FontAwesomeIcon icon={faArrowUp} className="text-white" />
@@ -99,5 +101,6 @@ const [showButton,setShowButton]=useState()
           </div>
 
 
+        </ClientProviders>
   );
 }

@@ -75,11 +75,11 @@ export default function Navbar() {
       {nav && (
         <div className="xl:hidden fixed top-0 right-0 w-96 h-screen bg-white p-10 z-40 gap-7">
           <ul className="flex flex-col gap-6 text-xs pt-36">
-            <Link href="/" className="hover:text-prim">Home</Link>
+          <Link href="/" className="hover:text-prim">Home</Link>
         <Link href="/about" className="hover:text-prim">About us</Link>
-        <Link href="/" className="hover:text-prim">Service</Link>
-        <Link href="/" className="hover:text-prim">PortfoLio</Link>
-        <Link href="/" className="hover:text-prim">Shop</Link>
+        <Link href="/services" className="hover:text-prim">Service</Link>
+        <Link href="/" className="hover:text-prim">Portfolio</Link>
+        <Link href="/shop" className="hover:text-prim">Shop</Link>
         <Link href="/" className="hover:text-prim">Contact</Link>
           </ul>
 

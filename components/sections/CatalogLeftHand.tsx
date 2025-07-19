@@ -1,9 +1,10 @@
 'use client'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Btn from '../Btn'
 import { DualRangeSlider } from '../ui/DropRangeSlider';
 import { Switch } from '@/components/ui/switch';
 import useShop from '@/hooks/useShop';
+import { useSearchParams } from 'next/navigation';
 
 
 
@@ -15,6 +16,16 @@ export default function ShopLeftHand() {
       
 
     const inputRef=useRef(null);
+    const searchParams = useSearchParams();
+    
+  
+  // Get the category from URL
+  useEffect(()=>{
+
+
+
+    setActiveCategory(searchParams.get('category')) ;
+  },[]);
 
     
     const categories=[{name:"Chairs",number:25},
