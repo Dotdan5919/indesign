@@ -7,12 +7,15 @@ import ImgSliderContainer from '@/components/ImgSliderContainer'
 import img_3 from '@/images/3.jpg'
 import ImgSliderContainer2 from '@/components/ImgSliderContainer2'
 import Footer from '@/components/sections/Footer'
+import FavouriteProvider from '@/contexts/FavouriteContext'
 
 export default function page() {
   return (
     <div>
 <div  className='h-fit w-screen overflow-hidden flex flex-col   gap-16 lg:pt-10 lg:pb-20  lg:px-32 p-8 pb-20'>
+      <FavouriteProvider>
         <Navbar/>
+        </FavouriteProvider>
 
 <Header title='Our Shop' subtitle={`In our Store you can buy the  missing item in the room`} />
 

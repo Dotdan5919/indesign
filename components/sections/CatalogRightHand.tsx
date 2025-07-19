@@ -31,19 +31,12 @@ export default function CatalogRightHand() {
 
         const { Novelties,Discounted,shownProducts}=useShop();
 
-        const{addtoWishlist,removefromWishlist,wishlistState}=useFavorite();
+        const{addtoWishlist,removefromWishlist,wishlistArray}=useFavorite();
 
 
 
 
     
-        useEffect(()=>{
-
-    //         console.log(wishlistState); //check if value is in wishlist, it returns true or false
-
-    // console.log("hi")
-
-        })
     
      
     
@@ -72,7 +65,10 @@ export default function CatalogRightHand() {
 
 
 {shownProducts.length>0 ? (shownProducts.map((product,index)=>{
-//   const InWishlist=wishlistArray.includes(item=>item.id===product.id); //check if value is in wishlist, it returns true or false
+
+
+  const safeWishlistArray = Array.isArray(wishlistArray) ? wishlistArray : [];
+ const isInWishlist = safeWishlistArray.some(item => item.id === product.id);
 
     
     
@@ -81,7 +77,8 @@ export default function CatalogRightHand() {
 return(
 
 
-<ShopCard key={index} newproduct={true} price={product.price}  img={product.img} title={product.title} category={product.categories} click={()=>wishlistState.wishlist.some(item=>item.id===product.id)?removefromWishlist(product):addtoWishlist(product)}
+<ShopCard key={index} newproduct={true} price={product.price}  img={product.img} title={product.title} category={product.categories} 
+click={() => isInWishlist ? removefromWishlist(product) : addtoWishlist(product)}
 id={product.id}/>
 
 )

@@ -4,6 +4,7 @@ import React, {  ReactNode, useEffect, useReducer, useState } from 'react'
 import { createContext } from 'react'
 
 import { StaticImageData } from 'next/image'
+import { json } from 'stream/consumers'
 
 
 interface Product {
@@ -23,41 +24,71 @@ export const FavouriteContext=createContext();
 
   REMOVE_ITEM: 'REMOVE_ITEM',
 
+  LOAD_FROM_STORAGE:'LOAD_FROM_STORAGE'
+
 };
 
 
 
 const wishlistReducer=(state,action)=>{
 
+    const currentState={...state,wishlist:Array.isArray(state.wishlist) ?state.wishlist : []};
+
     switch (action.type){
         case WISHLIST_ACTIONS.ADD_ITEM:
             
-            if(!state.wishlist.find(item=>item.id===action.payload.id))
+            if(!currentState.wishlist.find(item=>item.id===action.payload.id))
                 {
                     
-                    return {
-                        wishlist:[...state.wishlist,action.payload]
+                    const newState= {
+                        ...currentState,
+                        wishlist:[...currentState.wishlist,action.payload]
                         
                     };
+                if(typeof window!= 'undefined')
+                {
 
+                    localStorage.setItem('wishlist',JSON.stringify(newState.wishlist))
+                }
+
+                return newState;
                     
                 };
+
+               
                 
-                return state;
+                return currentState;
                 
                 
                 case WISHLIST_ACTIONS.REMOVE_ITEM:
+
+       
+
                     
-                    
+                const filteredwishlist=currentState.wishlist.filter(item=>item.id!=action.payload.id);
+                    if(typeof window != 'undefined'){
+
+                        localStorage.setItem('wishlist',JSON.stringify(filteredwishlist))
+                        }
                     return{
                         
-                        ...state,
-                        wishlist:state.wishlist.filter(item=>item.id!=action.payload.id)
+                        ...currentState,
+                        wishlist:filteredwishlist
                     };
+
+
+                    case WISHLIST_ACTIONS.LOAD_FROM_STORAGE:
+                        
+                    const validPayload = Array.isArray(action.payload) ? action.payload : [];
+                        return {
+
+                            ...currentState,
+                            wishlist:validPayload
+                        }
                     
                     
                     default:
-            return state;
+            return currentState;
 
         
 
@@ -84,13 +115,32 @@ export default function FavouriteProvider({children}:FavouriteType) {
     
 const [wishlistState,wishlistDispatch]=useReducer(wishlistReducer,initialState);
 
+const [isLoaded,setIsLoaded]=useState(false);
 
+const loadfromStorage=()=>
+{
+try{
+    const savedWishlist=localStorage.getItem('wishlist');
+    return savedWishlist ? JSON.parse(savedWishlist):[];
+
+}
+
+catch(error)
+{
+    console.error('Error loading wishlist :',error);
+
+    return [];
+}
+
+
+
+
+}
 const removefromWishlist=(product:Product)=>
 {
 
    wishlistDispatch({type:'REMOVE_ITEM',payload:product});
-    console.log("Removed")
-    console.log(wishlistState)
+  
 
 
 }
@@ -98,21 +148,48 @@ const addtoWishlist=(product:Product)=>
 {
 
     wishlistDispatch({type:'ADD_ITEM',payload:product});
-    console.log("added")
-    console.log(wishlistState)
+  
     
 
 }
 
+const clearWishlist=()=>{
 
+
+    if(typeof window!= 'undefined')
+    {
+
+        localStorage.removeItem('wishlist');
+
+
+    }
+    wishlistDispatch({type:'LOAD_FROM_STORAGE',payload:[]});
+    
+}
+
+
+useEffect(()=>{
+
+const savedWishlist=loadfromStorage();
+
+const validateList=Array.isArray(savedWishlist) ? savedWishlist : [];
+
+wishlistDispatch({type:'LOAD_FROM_STORAGE',payload:validateList});
+setIsLoaded(true)
+
+},[]);
 
 
 
 
 const values={
 
-   wishlistState,
-   addtoWishlist,removefromWishlist
+   wishlistArray:wishlistState?.wishlist || [],
+   addtoWishlist,
+   removefromWishlist,
+   clearWishlist,
+   isLoaded
+   
 }
 
     

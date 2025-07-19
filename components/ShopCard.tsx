@@ -24,24 +24,21 @@ export default function ShopCard({newproduct,price,img,title,category,click,id}:
 
     const[isWishlistActive,setIsWishlistActive]=useState(false);
 
-    const{wishlistState}=useFavorite();
+    const{wishlistArray}=useFavorite();
 
     useEffect(()=>{
 
-        if(wishlistState.wishlist.some(item=>item.id===id)){
+        if(wishlistArray && Array.isArray(wishlistArray)){
 
-            setIsWishlistActive(true);
+          const isWishlist=wishlistArray.some(item=>item.id===id);
+          setIsWishlistActive(isWishlist);
+
+
         }
-     
-      else if(wishlistState.wishlist.some(item=>item.id!=id)){
 
-            setIsWishlistActive(false);
+          
 
-
-
-      }
-
-    },[wishlistState,click])
+    },[wishlistArray,id])
     
     
   return (

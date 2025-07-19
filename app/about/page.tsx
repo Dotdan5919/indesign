@@ -21,6 +21,7 @@ import Chair from '@/icons/modern-chair-svgrepo-com.svg'
 import Group from '@/icons/group-of-users-svgrepo-com.svg'
 import NolongerLuxury from '@/components/sections/NolongerLuxury'
 import Testimonial from '@/components/sections/Testimonial'
+import FavouriteProvider from '@/contexts/FavouriteContext'
 
 
 
@@ -30,7 +31,9 @@ export default function page() {
 
 
    <div className="flex flex-col w-full gap-16 bg-[url('/images/bg.jpg')] h-fit  gap-16 lg:pt-10 lg:pb-20  lg:px-32 p-8 pb-20">  
+<FavouriteProvider>
 <Navbar/>
+</FavouriteProvider>
 
 
 
