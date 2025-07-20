@@ -7,16 +7,17 @@ title:string,
 subtitle:string,
 img?:StaticImageData,
 previous?:string,
+preprevious?:string
 
 }
-export default function Header({title,subtitle,img,previous}:Proptype) {
+export default function Header_2({title,subtitle,img,previous,preprevious}:Proptype) {
   return (
     <div className="flex flex-row justify-between">
  <div className="flex flex-col gap-5">
 
 
 <div className='flex flex-row gap-3'>Home /
-  {previous ?( <> {previous} / <p className='text-prim'>{title}</p></>):( <p className='text-prim'>{title}</p>) }
+  <p> {preprevious}</p>/ <p>{previous} </p>/ <p className='text-prim'>{title}</p>
   
   </div>
 

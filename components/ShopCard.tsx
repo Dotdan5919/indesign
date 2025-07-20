@@ -4,6 +4,7 @@ import Image, { StaticImageData } from 'next/image'
 import React, { useEffect, useState } from 'react'
 import chair_1 from '@/images/chairs/chair_1.png'
 import useFavorite from '@/hooks/useFavorite'
+import Link from 'next/link'
 
 
 
@@ -85,9 +86,9 @@ ${price}
 </p>
 
 <div className="flex p-2 bg-white text-prim shadow-sm rounded-full absolute left-12 hover:scale-110 transition-all duration-100 ">
-
+<Link href={`/shop/catalog/product?productid=${id}`}>
 <FontAwesomeIcon icon={faArrowRight} />
-
+</Link>
 </div>
 
 </div>
