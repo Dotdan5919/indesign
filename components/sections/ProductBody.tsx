@@ -1,11 +1,12 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header_2 from './Header_2'
 import useShop from '@/hooks/useShop'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faArrowRight, faHeart } from '@fortawesome/free-solid-svg-icons'
 import Btn from '@/indesign/components/Btn'
+import useFavorite from '@/hooks/useFavorite'
 
 interface PropType{
 
@@ -16,6 +17,32 @@ export default function ProductBody({value}:PropType) {
   const{allProducts}=useShop();
   
   const item=allProducts.find(product=>product.id===value);
+
+   const[isWishlistActive,setIsWishlistActive]=useState(false);
+  
+      const {wishlistArray,removefromWishlist, addtoWishlist}=useFavorite();
+
+
+      const handleWish= () => {
+
+        isWishlistActive ? removefromWishlist(item) :addtoWishlist(item) 
+
+
+      }
+  
+      useEffect(()=>{
+  
+          if(wishlistArray && Array.isArray(wishlistArray)){
+  
+            const isWishlist=wishlistArray.some(item=>item.id===value);
+            setIsWishlistActive(isWishlist);
+  
+  
+          }
+  
+            
+  
+      },[wishlistArray])
   
 
   return (
@@ -44,8 +71,8 @@ export default function ProductBody({value}:PropType) {
  
   <Btn name='Buy Now' icon='arrow'/>
 
-<div className="flex bg-white rounded-full shadow-md w-3 h-3 p-5 items-center justify-center">
-    <FontAwesomeIcon icon={faHeart} />
+<div className="flex bg-white rounded-full shadow-md w-3 h-3 p-5 items-center justify-center active:scale-95 hover:scale-110 transition-all duration-100" onClick={()=>handleWish()} >
+    <FontAwesomeIcon icon={faHeart} className={`${isWishlistActive ? 'text-prim':'text-black'}`} />
 </div>
 </div>
 
