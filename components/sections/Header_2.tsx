@@ -1,29 +1,32 @@
 import Image, { StaticImageData } from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 
 interface Proptype{
 title:string,
-subtitle:string,
+
 img?:StaticImageData,
 previous?:string,
 preprevious?:string
 
 }
-export default function Header_2({title,subtitle,img,previous,preprevious}:Proptype) {
+export default function Header_2({title,img,previous,preprevious}:Proptype) {
   return (
     <div className="flex flex-row justify-between">
  <div className="flex flex-col gap-5">
 
 
-<div className='flex flex-row gap-3'>Home /
-  <p> {preprevious}</p>/ <p>{previous} </p>/ <p className='text-prim'>{title}</p>
+<div className='flex flex-row gap-3'>
+  <Link href={'/'}>Home</Link> /
+  <p className='capitalize'><Link href={`/${preprevious}`}> {preprevious} </Link>
+  </p>/
+   <p className='capitalize'><Link href={`/${preprevious}/${previous}`}>{previous}</Link>  </p>/ 
+  <p className='text-prim  '>{title}</p>
   
   </div>
 
-<h1 className='font-bold text-[45px]'>{title}</h1>
 
-<p className='text-gray-500'>{subtitle}</p>
 
 
 </div>

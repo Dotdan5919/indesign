@@ -23,7 +23,7 @@ export default function page() {
         <Navbar/>
        
 
-<Header title='Our Shop' subtitle={`In our Store you can buy the  missing item in the room`} />
+<Header title='Shop' subtitle={`In our Store you can buy the  missing item in the room`} />
 
 
 

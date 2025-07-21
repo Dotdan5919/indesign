@@ -16,6 +16,7 @@ export default function page() {
 
     const value=searchParams.get('id') ;
 
+  const convertedValue=parseInt(value,10);
     
     
 
@@ -23,7 +24,7 @@ export default function page() {
     <ClientProviders>
    <div className="h-fit w-screen overflow-hidden flex flex-col   gap-16 lg:pt-10 lg:pb-20  lg:px-32 p-8 pb-20">
       <Navbar/>
-      <ProductBody value={value}/>
+      <ProductBody value={convertedValue}/>
 
       
       

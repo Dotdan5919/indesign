@@ -86,7 +86,7 @@ ${price}
 </p>
 
 <div className="flex p-2 bg-white text-prim shadow-sm rounded-full absolute left-12 hover:scale-110 transition-all duration-100 ">
-<Link href={`/shop/catalog/product?productid=${id}`}>
+<Link href={`/shop/catalog/product?id=${id}`}>
 <FontAwesomeIcon icon={faArrowRight} />
 </Link>
 </div>

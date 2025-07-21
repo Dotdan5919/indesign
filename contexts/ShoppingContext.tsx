@@ -53,7 +53,8 @@ interface Product {
     title:string,
     categories:string,
     novelties:boolean,
-    discounted:boolean
+    discounted:boolean,
+    description:string
 
 
 }
@@ -73,14 +74,88 @@ export default function ShoppingProvider   ({children}:ShopProviderProps) {
 
 const allProducts:Product[]=[
 
-{id:1,price:100,img:chair_1,title:"Modern Chair",categories:"Chairs",novelties:false,discounted:false},
-{id:2,price:200,img:chair_2,title:"Modern Chair",categories:"Chairs",novelties:false,discounted:false},
-{id:3,price:400,img:recliner_1,title:"Modern Chair",categories:"Recliners",novelties:false,discounted:true},
-{id:4,price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:true,discounted:false},
-{id:5,price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:false},
-{id:6,price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:false},
-{id:7,price:230,img:chair_3,title:"Modern Shoe",categories:"Chairs",novelties:false,discounted:true},
-{id:8,price:230,img:chair_4,title:"Modern Shoe",categories:"Tables",novelties:true,discounted:false},
+
+  {
+    id: 1,
+    price: 100,
+    img: chair_1,
+    title: "Modern Chair",
+    categories: "Chairs",
+    novelties: false,
+    discounted: false,
+    description: "A sleek and contemporary chair featuring clean lines and minimalist design. Perfect for modern living spaces, this chair combines comfort with style at an affordable price point."
+  },
+  {
+    id: 2,
+    price: 200,
+    img: chair_2,
+    title: "Modern Chair",
+    categories: "Chairs",
+    novelties: false,
+    discounted: false,
+    description: "An elevated modern chair with premium materials and enhanced ergonomic features. Designed for both comfort and durability, this mid-range option offers superior quality and sophisticated aesthetics."
+  },
+  {
+    id: 3,
+    price: 400,
+    img: recliner_1,
+    title: "Modern Chair",
+    categories: "Recliners",
+    novelties: false,
+    discounted: true,
+    description: "A luxurious modern reclining chair with adjustable positions and plush cushioning. Features smooth reclining mechanism and contemporary styling. Now available at a special discounted price for exceptional value."
+  },
+  {
+    id: 4,
+    price: 230,
+    img: chair_3,
+    title: "Modern Shoe",
+    categories: "Chairs",
+    discounted:false,
+    novelties: true,
+    description: "An innovative new addition to our chair collection featuring a unique curved design reminiscent of modern footwear aesthetics. This conversation-starting piece combines artistic flair with functional seating."
+  },
+  {
+    id: 5,
+    price: 230,
+    img: chair_3,
+    title: "Modern Shoe",
+    categories: "Chairs",
+    novelties: false,
+    discounted: false,
+    description: "A distinctive chair with sculptural design inspired by contemporary shoe silhouettes. Features ergonomic comfort with an artistic twist, making it a standout piece for design-conscious spaces."
+  },
+  {
+    id: 6,
+    price: 230,
+    img: chair_3,
+    title: "Modern Shoe",
+    categories: "Chairs",
+    novelties: false,
+    discounted: false,
+    description: "An eye-catching chair that blends form and function with its unique shoe-inspired design. Crafted with attention to detail, this piece adds personality and comfort to any modern interior."
+  },
+  {
+    id: 7,
+    price: 230,
+    img: chair_3,
+    title: "Modern Shoe",
+    categories: "Chairs",
+    novelties: false,
+    discounted: true,
+    description: "The same distinctive shoe-inspired chair design now offered at a reduced price. Features the same quality construction and unique aesthetic, making it an excellent value for those seeking statement furniture."
+  },
+  {
+    id: 8,
+    price: 230,
+    img: chair_4,
+    title: "Modern Shoe",
+    categories: "Tables",
+    novelties: true,
+    discounted: false,
+    description: "A revolutionary new table design that brings the artistic shoe-inspired aesthetic to surface furniture. This innovative piece serves as both functional table and sculptural art, perfect for modern spaces seeking unique statement pieces."
+  }
+
 
 
     ]
@@ -153,7 +228,8 @@ setShownProducts(shownProduct);
              setShownProducts,
         shownProducts, 
           inputVal,
-        setInputVal
+        setInputVal,
+        allProducts
        
 
 

@@ -48,7 +48,7 @@ export default function page() {
 
         <Navbar/>
 
-<Header previous='Shop' title='Catalog' subtitle={`Select Appropriate option`} />
+<Header previous='shop' title='Catalog' subtitle={`Select Appropriate option`} />
 
 <hr className='w-20  border-prim border-2' />
 

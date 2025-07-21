@@ -1,4 +1,6 @@
+
 import Image, { StaticImageData } from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 
@@ -15,8 +17,9 @@ export default function Header({title,subtitle,img,previous}:Proptype) {
  <div className="flex flex-col gap-5">
 
 
-<div className='flex flex-row gap-3'>Home /
-  {previous ?( <> {previous} / <p className='text-prim'>{title}</p></>):( <p className='text-prim'>{title}</p>) }
+<div className='flex flex-row gap-3'><Link href={'/'}> Home </Link>/
+  {previous ?( <><Link href={`/${previous}`} > <p className='capitalize'>{previous} </p> </Link> / <p className='text-prim'>{title}</p></>):( <p className='text-prim'>{title}</p>) }
+  
   
   </div>
 
