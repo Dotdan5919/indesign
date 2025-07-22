@@ -17,7 +17,7 @@ const CART_ACTION={
 interface Product {
     id:number,
     price:number,
-    img:StaticImageData,
+    img:any,
     title:string,
     categories:string,
     novelties:boolean,
@@ -47,7 +47,7 @@ const cart_reducer=(state,action) =>
                };
                console.log('New state',newState);
 
-               if(typeof window!=undefined)
+               if(typeof window!==undefined)
                {
                 
                 localStorage.setItem('cart',JSON.stringify(newState.products));
@@ -67,7 +67,7 @@ const cart_reducer=(state,action) =>
 
                 };
 
-                 if(typeof window!=undefined)
+                 if(typeof window!==undefined)
                {
                 
                 localStorage.setItem('cart',JSON.stringify(newState.products));
@@ -96,7 +96,7 @@ const cart_reducer=(state,action) =>
             if(foundProduct.quantity===1)
             {
 
-                 if(typeof window!=undefined)
+                 if(typeof window!==undefined)
                {
                 
                 localStorage.setItem('cart',JSON.stringify(otherProducts));
@@ -120,7 +120,7 @@ const cart_reducer=(state,action) =>
 
 
 
-                 if(typeof window!=undefined)
+                 if(typeof window!==undefined)
                {
                 
                 localStorage.setItem('cart',JSON.stringify(newState.products));
