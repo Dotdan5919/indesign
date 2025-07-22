@@ -3,16 +3,6 @@
 import React, { ReactNode, useEffect, useReducer, useState } from 'react'
 import { createContext } from 'react'
 
-export const CartContext= createContext();
-
-const CART_ACTION={
-
-    ADD_ITEM:'ADD_ITEM',
-    REMOVE_ITEM:'REMOVE_ITEM',
-    LOAD_FROM_STORAGE:'LOAD_FROM_STORAGE'
-
-
-}
 
 interface Product {
     id:number,
@@ -26,10 +16,53 @@ interface Product {
 
 }
 
-const cart_reducer=(state,action) =>
+interface CartItem{
+
+product:Product,
+quantity:number
+
+
+}
+
+interface CartContextType{
+
+    isLoaded:boolean,
+    removeCart:(product:Product)=>void,
+    addToCart:(product:Product)=>void,
+    clearCart:()=>void,
+    cartArray:CartItem[]
+}
+
+
+interface CartState{
+
+products:CartItem[]
+
+}
+
+interface CartAction{
+
+    type:string,
+    payload:Product | CartItem[]
+
+}
+
+export const CartContext= createContext<CartContextType | null>(null);
+
+const CART_ACTION={
+
+    ADD_ITEM:'ADD_ITEM',
+    REMOVE_ITEM:'REMOVE_ITEM',
+    LOAD_FROM_STORAGE:'LOAD_FROM_STORAGE'
+
+
+}
+
+
+const cart_reducer=(state:CartState,action:CartAction):CartState =>
 {
     
-    const foundProduct=state.products.find(item=>item.product?.id===action.payload.id); 
+    const foundProduct=state.products.find(item=>item.product?.id===(action.payload as Product).id); 
 
     switch (action.type){
 
@@ -104,7 +137,7 @@ const cart_reducer=(state,action) =>
                }
                 return {
                     
-                    products:[otherProducts]
+                    products:otherProducts
 
                 }
 
@@ -114,7 +147,7 @@ const cart_reducer=(state,action) =>
             else{
 
                 const newState={
-                    products:[...state.products,{product:action.payload,quantity:foundProduct.quantity-1}]
+                    products:[...otherProducts,{product:action.payload,quantity:foundProduct.quantity-1}]
 
                                 }
 
@@ -141,7 +174,7 @@ const cart_reducer=(state,action) =>
 
         const validatePayload=Array.isArray(action.payload)?action.payload:[]
 
-        return {...validatePayload};
+        return {products:validatePayload};
 
 
 
@@ -168,7 +201,7 @@ const [cartState,cartDispatch]=useReducer(cart_reducer,initialState);
 const [isLoaded,setIsLoaded]=useState(false);
 
 
-const loadfromStorage=()=>
+const loadfromStorage=():CartItem[]=>
 {
 try{
 

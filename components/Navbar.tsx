@@ -1,6 +1,7 @@
 'use client';
 
 import FavouriteProvider from '@/contexts/FavouriteContext';
+import useCart from '@/hooks/useCart';
 import useFavorite from '@/hooks/useFavorite';
 import {
   faBars,
@@ -19,6 +20,7 @@ export default function Navbar() {
 
   const {wishlistArray}=useFavorite();
 
+  const {cartArray}=useCart();
   return (
     
    
@@ -52,6 +54,13 @@ export default function Navbar() {
 
         <div className="flex relative">
           <FontAwesomeIcon icon={faStore} />
+          { cartArray.length>0 && (
+ <span className="absolute bg-prim w-4 h-4 rounded-full flex items-center justify-center -top-2 left-3 text-white text-[10px]">
+            {cartArray.length}
+          </span>)
+
+}
+   
          
         </div>
       </div>

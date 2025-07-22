@@ -12,7 +12,7 @@ import React from 'react'
 export default function page() {
 
 
-    const searchParams=useSearchParams();
+    const earchParams=useSearchParams();
 
     const value=searchParams.get('id') ;
 

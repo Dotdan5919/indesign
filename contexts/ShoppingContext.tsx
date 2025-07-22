@@ -30,7 +30,27 @@ import recliner_1 from '@/images/chairs/8@0.33x.png'
 // ---------------------------
 // The default value should be of type ShoppingContextValue or undefined
 // export const ShoppingContext = createContext<ShoppingContextValue | undefined>(undefined);
-export const ShoppingContext = createContext();
+
+
+interface ShoppingContext{
+   activeCategories:string,
+        setActiveCategory:string,
+        priceRange:PriceRange,
+        setPriceRange:PriceRange,
+        Novelties:boolean,
+        setNovelties:React.Dispatch<React.SetStateAction<NoveltiesType>>,
+        Discounted:boolean,
+        setDiscounted:React.Dispatch<React.SetStateAction<DiscountedType>>,
+             setShownProducts:Product[],
+        shownProducts:React.Dispatch<React.SetStateAction<Product[]>>, 
+          inputVal:SearchType,
+        setInputVal:React.Dispatch<React.SetStateAction<SearchType>>,
+        allProducts:Product[]
+
+
+}
+
+export const ShoppingContext = createContext<ShoppingContext| undefined>(undefined);
 
 
 
@@ -211,7 +231,7 @@ const allProducts:Product[]=[
 setShownProducts(shownProduct);
 
 
-    },[activeCategories,Novelties,priceRange,Discounted,inputVal])
+    },[])
     
 
 

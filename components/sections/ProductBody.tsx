@@ -4,7 +4,7 @@ import Header_2 from './Header_2'
 import useShop from '@/hooks/useShop'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faArrowRight, faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import Btn from '@/indesign/components/Btn'
 import useFavorite from '@/hooks/useFavorite'
 import useCart from '@/hooks/useCart'
@@ -18,11 +18,11 @@ export default function ProductBody({value}:PropType) {
   const{allProducts}=useShop();
   const {addToCart,removeCart,cartArray,clearCart}=useCart();
 
-  const [isActiveCart,setActiveCart]=useState(false);
+  const [isActiveCart,setActiveCart]=useState<boolean>(false);
 
   const item=allProducts.find(product=>product.id===value);
 
-   const[isWishlistActive,setIsWishlistActive]=useState(false);
+   const[isWishlistActive,setIsWishlistActive]=useState<boolean>(false);
   
       const {wishlistArray,removefromWishlist, addtoWishlist}=useFavorite();
 
@@ -38,9 +38,9 @@ export default function ProductBody({value}:PropType) {
       const handleCart = () => {
 
 
-isActiveCart? removeCart(item) : addToCart(item);
+ isActiveCart? removeCart(item) : addToCart(item);
 
-console.log(localStorage.getItem('cart'));
+
 
 
       }

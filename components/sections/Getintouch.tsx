@@ -16,7 +16,7 @@ export default function Getintouch() {
 
 <div className="flex flex-row w-full gap-8  ">
 
-<input type="text" className=' px-8 py-4 w-1/2 bg-white  shadow-xl ' placeholder='text' />
+<input type="tex" className=' px-8 py-4 w-1/2 bg-white  shadow-xl ' placeholder='Get in touch' />
 
 <Btn name="Call back" />
 

@@ -18,7 +18,34 @@ interface Product {
 
 
 }
-export const FavouriteContext=createContext();
+
+interface Favourite{
+
+     wishlistArray:Product[],
+   addtoWishlist:(product:Product)=>void,
+   removefromWishlist:(product:Product)=>void,
+   clearWishlist:()=>void,
+   isLoaded:boolean
+   
+}
+
+interface WishlistState{
+
+wishlist:Product[],
+
+
+}
+
+
+interface WishlistAction{
+
+type:string,
+payload:Product[] | Product  
+
+}
+
+
+export const FavouriteContext=createContext<Favourite | null>(null);
  const WISHLIST_ACTIONS = {
   ADD_ITEM: 'ADD_ITEM',
 
@@ -30,7 +57,7 @@ export const FavouriteContext=createContext();
 
 
 
-const wishlistReducer=(state,action)=>{
+const wishlistReducer=(state:WishlistState,action:WishlistAction):WishlistState=>{
     const currentState={...state,wishlist:Array.isArray(state.wishlist) ?state.wishlist : []};
 
 
