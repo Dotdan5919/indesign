@@ -6,13 +6,14 @@ import React from 'react'
 interface Proptype{
 
 name?:string,
-icon?:string
+icon?:string,
+click?:()=>void
 
 }
 
-export default function Btn({name,icon}:Proptype) {
+export default function Btn({name,icon,click}:Proptype) {
   return (
-   <button className='flex bg-prim gap-2 px-7 py-4 text-white items-center justify-center hover:shadow-xl'>
+   <button className='flex bg-prim gap-2 px-7 py-4 text-white items-center justify-center hover:shadow-xl' onClick={click} >
     
    {name}
    

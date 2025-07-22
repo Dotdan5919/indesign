@@ -13,7 +13,7 @@ preprevious?:string
 }
 export default function Header_2({title,img,previous,preprevious}:Proptype) {
   return (
-    <div className="flex flex-row justify-between">
+    <div className="sm:flex hidden flex-row justify-between">
  <div className="flex flex-col gap-5">
 
 

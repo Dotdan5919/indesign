@@ -31,8 +31,8 @@ export const FavouriteContext=createContext();
 
 
 const wishlistReducer=(state,action)=>{
-
     const currentState={...state,wishlist:Array.isArray(state.wishlist) ?state.wishlist : []};
+
 
     switch (action.type){
         case WISHLIST_ACTIONS.ADD_ITEM:

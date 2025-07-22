@@ -9,7 +9,7 @@ import FooterCompany from '../FooterCompany'
 
 export default function Footer() {
   return (
-    <div className='flex flex-col w-full  text-white bg-prim  p-8 pb-20 gap-16 sm:p-20 sm:px-32'>
+    <div className='flex flex-col w-dvw text-white bg-prim  p-8 pb-20 gap-16 sm:p-20 sm:px-32'>
 
 
 <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-8">
