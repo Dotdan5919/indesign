@@ -41,7 +41,7 @@ export default function SingleBlogBody({ id }: SingleBlogBodyProps) {
 <div className="flex bg-gray-100 px-4 py-2 w-fit rounded-2xl">hi</div>
 <div className="flex bg-gray-100 px-4 py-2 w-fit rounded-2xl">hi</div>
 <div className="flex bg-gray-100 px-4 py-2 w-fit rounded-2xl">hi</div>
-
+..
 </div>
 
 </div>
