@@ -1,7 +1,9 @@
+'use client'
 import Image, { StaticImageData } from 'next/image'
 import React from 'react'
 import More from './More'
 import Title from './Title'
+import {  useRouter } from 'next/navigation'
 
 
 interface Proptype{
@@ -9,13 +11,24 @@ img:StaticImageData,
 date:string,
 title:string,
 description:any,
-category:string
+category:string,
+id:number
 
 
 
 }
 
-export default function Blogbox({img,date,title,description,category}:Proptype) {
+export default function Blogbox({img,date,title,description,category,id}:Proptype) {
+
+const router=useRouter();
+
+  const handleRoute=()=>{
+
+router.push(`/blog/singleblog?id=${id}`);
+
+
+
+  }
   return (
     <div className="flex flex-col gap-4 max-w-96 h-[480px] bg-white shadow-lg ">
 
@@ -42,7 +55,7 @@ export default function Blogbox({img,date,title,description,category}:Proptype) 
 
     </div>
 
-    <More text="View more" />
+    <More text="View more" click={handleRoute} />
     </div>
 
     

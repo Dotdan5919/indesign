@@ -2,6 +2,7 @@
 import Navbar from '@/components/Navbar'
 import Header from '@/components/sections/Header'
 import Header_2 from '@/components/sections/Header_2'
+import SingleBlogBody from '@/components/sections/SingleBlogBody'
 import ClientProviders from '@/contexts/ClientProviders'
 import { useSearchParams } from 'next/navigation'
 import React from 'react'
@@ -10,6 +11,8 @@ export default function singleblog() {
 
   const search = useSearchParams();
   const id=search.get('id');
+const intValue = parseInt(id, 10);
+  
 
 
 
@@ -22,7 +25,8 @@ export default function singleblog() {
 <div className="flex flex-col w-full gap-16 bg-[url('/images/bg.jpg')] h-fit  gap-16 lg:pt-10  lg:px-32 p-8 ">
         <Navbar/>
 </div>
-<Header_2 title=''/>
+
+<SingleBlogBody id={intValue}/>
 
       
     </div>

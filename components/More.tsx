@@ -6,13 +6,13 @@ import React from 'react'
 
 
 
-type TypeMore={text:string,arrowForward?:boolean};
+type TypeMore={text:string,arrowForward?:boolean,click?:()=>void};
 
-export default function More({text,arrowForward}:TypeMore) {
+export default function More({text,arrowForward,click}:TypeMore) {
   return (
 
 
-    <div className="flex flex-row gap-2 items-center text-prim cursor-default w-fit">
+    <div className="flex flex-row gap-2 items-center text-prim cursor-default w-fit" onClick={click}>
     
 
     { arrowForward ? (

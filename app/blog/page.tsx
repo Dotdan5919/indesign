@@ -1,3 +1,4 @@
+
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/sections/Footer'
 import Header from '@/components/sections/Header'
@@ -14,6 +15,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { ArrowLeft } from 'lucide-react'
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { StaticImageData } from 'next/image'
+import useBlog from '@/hooks/useBlog'
+import Blogbody from '@/components/sections/Blogbody'
 
 
 interface BlogTypes{
@@ -28,44 +31,9 @@ id:number,
 
 export default function page() {
 
-    const Blogs:BlogTypes[]=[
+   
 
-        {   id:1,
-            img:img_1,
-            date:'July, 21 2020',
-            title:'Types of homes',
-            description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolorem  quidem labore itaque sit nostrum, m officia!',
-            cartegory:'Interior design' },
-                    {
-                        id:2,
-                        img:img_1,
-            date:'July, 21 2020',
-            title:'Types of homes',
-            description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolorem  quidem labore itaque sit nostrum, m officia!',
-            cartegory:'Interior design' },
-                    {
-                        id:3,
-                        img:img_3,
-            date:'July, 21 2020',
-            title:'Purchase furniture',
-            description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolorem  quidem labore itaque sit nostrum, m officia!',
-            cartegory:'Interior design' },
-                    {
-                        id:4,
-                        img:img_2,
-            date:'July, 21 2020',
-            title:'Types of homes',
-            description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolorem  quidem labore itaque sit nostrum, m officia!',
-            cartegory:'Interior design' },
-                    {   id:5,
-                        img:img_1,
-            date:'July, 21 2020',
-            title:'Kitchen design ideas',
-            description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolorem  quidem labore itaque sit nostrum, m officia!',
-            cartegory:'Interior design' },
-
-    ]
-
+    
 
   return (
     <ClientProviders>
@@ -83,23 +51,7 @@ export default function page() {
 
 
  
-<div className='grid grid-rows-1 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 w-full   items-center justify-center'>
-
-
-{Blogs.map((blog,index)=>{
-
-
-return(
-
-    <Blogbox key={index} img={blog.img}  date={blog.date} title={blog.title} description={blog.description} category={blog.cartegory} />
-)
-
-
-})}
-
-
- 
-    </div>
+<Blogbody/>
     
 
 
