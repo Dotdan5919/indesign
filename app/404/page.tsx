@@ -37,7 +37,7 @@ router.push('/')
     <Btn name="Go Home" click={handleClick} icon='back' />
     </div>
 
-</div>
+</div>..
 
 
 
