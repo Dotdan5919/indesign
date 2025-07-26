@@ -1,4 +1,4 @@
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
@@ -19,6 +19,8 @@ export default function Btn({name,icon,click}:Proptype) {
    
    {icon==="arrow" && (<FontAwesomeIcon icon={faArrowRight} /> )}
    {icon==="search" && (<FontAwesomeIcon icon={faSearch} /> )}
+   {icon==="back" && (<FontAwesomeIcon icon={faArrowLeft} /> )}
+
 
 
    

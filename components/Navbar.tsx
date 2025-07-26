@@ -33,9 +33,9 @@ export default function Navbar() {
         <Link href="/" className="hover:text-prim">Home</Link>
         <Link href="/about" className="hover:text-prim">About us</Link>
         <Link href="/services" className="hover:text-prim">Service</Link>
-        <Link href="/" className="hover:text-prim">Portfolio</Link>
+        <Link href="/blog" className="hover:text-prim">Blog</Link>
         <Link href="/shop" className="hover:text-prim">Shop</Link>
-        <Link href="/" className="hover:text-prim">Contact</Link>
+        <Link href="/contact" className="hover:text-prim">Contact</Link>
       </ul>
 
       {/* Desktop Icons */}
@@ -87,9 +87,9 @@ export default function Navbar() {
           <Link href="/" className="hover:text-prim">Home</Link>
         <Link href="/about" className="hover:text-prim">About us</Link>
         <Link href="/services" className="hover:text-prim">Service</Link>
-        <Link href="/" className="hover:text-prim">Portfolio</Link>
+        <Link href="/blog" className="hover:text-prim">Blogs</Link>
         <Link href="/shop" className="hover:text-prim">Shop</Link>
-        <Link href="/" className="hover:text-prim">Contact</Link>
+        <Link href="/contact" className="hover:text-prim">Contact</Link>
           </ul>
 
 
