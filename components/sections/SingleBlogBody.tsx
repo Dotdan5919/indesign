@@ -1,10 +1,9 @@
 'use client'
 import React from 'react'
 import Header from '@/components/sections/Header'
-import Header_2 from './Header_2'
+
 import useBlog from '@/hooks/useBlog'
-import Btn from '@/indesign/components/Btn'
-import Image from 'next/image'
+
 
 
 import BlogLeftHand from './BlogLeftHand'

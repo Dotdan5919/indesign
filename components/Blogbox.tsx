@@ -2,7 +2,7 @@
 import Image, { StaticImageData } from 'next/image'
 import React from 'react'
 import More from './More'
-import Title from './Title'
+
 import {  useRouter } from 'next/navigation'
 
 

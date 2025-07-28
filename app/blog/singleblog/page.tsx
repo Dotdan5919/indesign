@@ -1,7 +1,6 @@
 'use client'
 import Navbar from '@/components/Navbar'
-import Header from '@/components/sections/Header'
-import Header_2 from '@/components/sections/Header_2'
+
 import SingleBlogBody from '@/components/sections/SingleBlogBody'
 import ClientProviders from '@/contexts/ClientProviders'
 import { useSearchParams } from 'next/navigation'

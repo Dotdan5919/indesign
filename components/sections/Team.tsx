@@ -6,10 +6,10 @@ import team2 from '@/images/Team/t2.jpg'
 import team3 from '@/images/Team/t3.jpg'
 import team4 from '@/images/Team/t4.jpg'
 import team5 from '@/images/Team/t5.jpg'
-import team6 from '@/images/Team/t6.jpg'
+
 import team7 from '@/images/Team/t7.jpg'
 
-import Image from 'next/image'
+
 import ImageBox from '../ImageBox'
 
 import {motion} from "motion/react"

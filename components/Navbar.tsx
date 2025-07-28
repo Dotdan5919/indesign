@@ -1,6 +1,6 @@
 'use client';
 
-import FavouriteProvider from '@/contexts/FavouriteContext';
+
 import useCart from '@/hooks/useCart';
 import useFavorite from '@/hooks/useFavorite';
 import {

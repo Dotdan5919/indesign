@@ -5,8 +5,7 @@ import img_1 from '@/images/6.jpg'
 import img_2 from '@/images/3.jpg'
 import img_3 from '@/images/4.jpg'
 
-import Image from 'next/image'
-import More from '../More'
+
 import Blogbox from '../Blogbox'
 
 import { motion } from "motion/react"

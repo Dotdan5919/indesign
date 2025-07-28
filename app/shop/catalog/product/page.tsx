@@ -1,11 +1,10 @@
 'use client'
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/sections/Footer';
-import Header from '@/components/sections/Header';
-import Header_2 from '@/components/sections/Header_2';
+
 import ProductBody from '@/components/sections/ProductBody';
 import ClientProviders from '@/contexts/ClientProviders';
-import useShop from '@/hooks/useShop';
+
 import { useSearchParams } from 'next/navigation'
 import React from 'react'
 

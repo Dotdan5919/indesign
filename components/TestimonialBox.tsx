@@ -1,7 +1,7 @@
-import { Avatar , AvatarImage ,AvatarFallback } from '@radix-ui/react-avatar'
+
 import Image from 'next/image'
 import React from 'react'
-import test_1 from '@/images/Team/t-1.jpg';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { StaticImageData } from 'next/image';

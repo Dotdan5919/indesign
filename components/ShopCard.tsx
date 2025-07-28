@@ -2,7 +2,7 @@ import { faArrowRight, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image, { StaticImageData } from 'next/image'
 import React, { useEffect, useState } from 'react'
-import chair_1 from '@/images/chairs/chair_1.png'
+
 import useFavorite from '@/hooks/useFavorite'
 import Link from 'next/link'
 

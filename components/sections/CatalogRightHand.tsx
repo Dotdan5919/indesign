@@ -1,16 +1,11 @@
 'use client'
-import { faArrowRight, faClose, faHeart } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import React, { useEffect, useState } from 'react'
 import CartegoriesChip from '../CartegoriesChip'
-import Btn from '../Btn'
-import { ArrowRight } from 'lucide-react'
-import Image, { StaticImageData } from 'next/image'
-import chair_1 from '@/images/chairs/chair_1.png'
-import chair_2 from '@/images/chairs/1@0.33x.png'
-import chair_3 from '@/images/chairs/3@0.33x.png'
-import chair_4 from '@/images/chairs/4.png'
-import recliner_1 from '@/images/chairs/8@0.33x.png'
+
+import  { StaticImageData } from 'next/image'
+
+
 import ShopCard from '../ShopCard'
 import useShop from '@/hooks/useShop'
 import useFavorite from '@/hooks/useFavorite'

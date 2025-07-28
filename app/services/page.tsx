@@ -3,23 +3,17 @@ import Footer from '@/components/sections/Footer'
 import Header from '@/components/sections/Header'
 import React from 'react'
 import img_2 from '@/images/9.jpg'
-import img_3 from '@/images/12.jpg'
-import Team from '@/components/sections/Team'
-import Title from '@/components/Title'
-import Image from 'next/image'
 
-import More from '@/components/More'
-import Card from '@/components/Card'
+import Team from '@/components/sections/Team'
+
+
+
 import SectionService from '@/components/sections/SectionService'
-import ProcessTitle from '@/components/ProcessTitle'
-import Dropdown from '@/components/Dropdown'
-import OurProcessone from '@/components/sections/OurProcessone'
-import OurProcesstwo from '@/components/sections/OurProcesstwo'
-import OurProcessthree from '@/components/sections/OurProcessthree'
+
 import OurFullProcess from '@/components/sections/OurFullProcess'
-import Btn from '@/components/Btn'
+
 import GetintouchFull from '@/components/sections/GetintouchFull'
-import FavouriteProvider from '@/contexts/FavouriteContext'
+
 import ClientProviders from '@/contexts/ClientProviders'
 
 export default function page() {

@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { StaticImageData } from 'next/image'
-import Link from 'next/link'
+
 import useShop from '@/hooks/useShop'
 import { useRouter } from 'next/navigation'
 

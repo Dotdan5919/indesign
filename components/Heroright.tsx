@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+
 import React, { useRef, useState } from 'react'
 import img1 from '@/images/1.jpg'
 import img2 from '@/images/2.jpg'
@@ -8,7 +8,7 @@ import img3 from '@/images/3.jpg'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faAngleRight, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import ImgSliderContainer from './ImgSliderContainer'
 
 import {motion} from "motion/react"

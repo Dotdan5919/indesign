@@ -3,7 +3,7 @@ import React from 'react'
 
 import Image, { StaticImageData } from 'next/image'
 
-import img_1 from '@/images/4.jpg'
+
 import useBlog from '@/hooks/useBlog'
 import { useParams, useSearchParams } from 'next/navigation'
 

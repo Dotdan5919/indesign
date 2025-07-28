@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../Navbar'
 import Heroleft from '../Heroleft'
 import Heroright from '../Heroright'
-import FavouriteProvider from '@/contexts/FavouriteContext'
+
 
 
 export default function CompleteHero() {

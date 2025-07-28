@@ -4,18 +4,16 @@ import Footer from '@/components/sections/Footer'
 import Header from '@/components/sections/Header'
 import ClientProviders from '@/contexts/ClientProviders'
 import React from 'react'
-import blog_img from '@/images/5.jpg'
-import Blogbox from '@/components/Blogbox'
+
 import Title from '@/components/Title'
 import img_1 from '@/images/6.jpg'
-import img_2 from '@/images/3.jpg'
-import img_3 from '@/images/4.jpg'
-import { motion } from "motion/react"
+
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { ArrowLeft } from 'lucide-react'
+
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { StaticImageData } from 'next/image'
-import useBlog from '@/hooks/useBlog'
+
 import Blogbody from '@/components/sections/Blogbody'
 
 

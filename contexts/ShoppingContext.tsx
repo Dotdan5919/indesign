@@ -1,6 +1,6 @@
 'use client'
 
-import { Bold } from 'lucide-react';
+
 import { StaticImageData } from 'next/image';
 import React, { useEffect } from 'react'
 

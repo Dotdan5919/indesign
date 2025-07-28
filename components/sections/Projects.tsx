@@ -3,9 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Title from '../Title'
 import More from '../More'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
-import ImgSliderContainer from '../ImgSliderContainer'
+
 import Img1 from '@/images/6.jpg';
 import Img2 from '@/images/3.jpg';
 import Img3 from '@/images/2.jpg';

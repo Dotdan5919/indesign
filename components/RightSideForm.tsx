@@ -1,7 +1,7 @@
 import React from 'react'
 import ContactFormInput from './ContactFormInput'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faForward, faPaperPlane, faPlane } from '@fortawesome/free-solid-svg-icons'
+import {  faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
 export default function RightSideForm() {
   return (

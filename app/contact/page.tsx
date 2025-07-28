@@ -4,8 +4,7 @@ import React from 'react'
 import img_new from '@/images/5.jpg'
 import ClientProviders from '@/contexts/ClientProviders'
 import Footer from '@/components/sections/Footer'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faLocation, faLocationPin, faMailBulk, faMobilePhone } from '@fortawesome/free-solid-svg-icons'
+
 import LeftSideForm from '@/components/LeftSideForm'
 import RightSideForm from '@/components/RightSideForm'
 

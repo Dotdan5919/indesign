@@ -1,6 +1,4 @@
-import { faBehance, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import React from 'react'
 import FooterNewsletter from '../FooterNewsletter'
 import FooterContact from '../FooterContact'

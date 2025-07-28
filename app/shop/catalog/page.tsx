@@ -3,22 +3,18 @@
 import Navbar from '@/components/Navbar'
 import Header from '@/components/sections/Header'
 import React, { useEffect, useState } from 'react'
-import img_2 from '@/images/9.jpg'
-import ImgSliderContainer from '@/components/ImgSliderContainer'
+
 
 import CatalogLeftHand from '@/components/sections/CatalogLeftHand'
 
-import img_3 from '@/images/3.jpg'
-import ImgSliderContainer2 from '@/components/ImgSliderContainer2'
+
 import Footer from '@/components/sections/Footer'
-import Btn from '@/components/Btn'
+
 import CatalogRightHand from '@/components/sections/CatalogRightHand'
-import useShop from '@/hooks/useShop'
-import  ShoppingProvider from '@/contexts/ShoppingContext'
-import FavouriteProvider from '@/contexts/FavouriteContext'
+
 import ClientProviders from '@/contexts/ClientProviders'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import {  faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 
 

@@ -1,7 +1,5 @@
 'use client'
-import { faArrowCircleRight, faArrowLeft, faArrowRight, faAward, faChair } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { ArrowRight, Icon } from 'lucide-react'
+
 import React from 'react'
 import IconText from './IconText'
 import Btn from './Btn'

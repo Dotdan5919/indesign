@@ -1,14 +1,12 @@
 import Navbar from '@/components/Navbar'
 import Header from '@/components/sections/Header'
 import React from 'react'
-import img_2 from '@/images/9.jpg'
-import ImgSliderContainer from '@/components/ImgSliderContainer'
+
 
 import img_3 from '@/images/3.jpg'
 import ImgSliderContainer2 from '@/components/ImgSliderContainer2'
 import Footer from '@/components/sections/Footer'
-import FavouriteProvider from '@/contexts/FavouriteContext'
-import ShoppingProvider from '@/contexts/ShoppingContext'
+
 import ClientProviders from '@/contexts/ClientProviders'
 
 export default function page() {

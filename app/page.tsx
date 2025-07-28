@@ -1,11 +1,7 @@
 'use client'
-import Heroleft from "@/components/Heroleft";
-import Heroright from "@/components/Heroright";
-import Navbar from "@/components/Navbar";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
-import bg from "@/images/bg.jpg"
+
 
 import CompleteHero from "@/components/sections/CompleteHero";
 import History from "@/components/sections/History";

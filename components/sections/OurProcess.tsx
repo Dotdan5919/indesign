@@ -1,7 +1,7 @@
 import React from 'react'
 import Title from '../Title'
 import More from '../More'
-import CircleLine from '../CircleLine'
+
 import ProcessBox from '../ProcessBox'
 
 export default function OurProcess() {

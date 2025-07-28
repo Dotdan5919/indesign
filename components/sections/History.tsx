@@ -1,8 +1,7 @@
-import Image from 'next/image'
+
 import React from 'react'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+
 import HistoryRight from '../HistoryRight'
 import HistoryLeft from '../HistoryLeft'
 
