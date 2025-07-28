@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import imga from "@/images/section a.jpg"
 import imgb from "@/images/section b.jpg"
 import Image from 'next/image'
