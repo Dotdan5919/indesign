@@ -5,7 +5,7 @@ import useShop from '@/hooks/useShop'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import Btn from '@/indesign/components/Btn'
+import Btn from '@/components/Btn'
 import useFavorite from '@/hooks/useFavorite'
 import useCart from '@/hooks/useCart'
 
