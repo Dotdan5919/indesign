@@ -1,7 +1,11 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import React from 'react'
 
-export default function ImgSliderContainer({img}) {
+interface ImgSliderContainerProps {
+  img: StaticImageData | string;
+}
+
+export default function ImgSliderContainer({ img }: ImgSliderContainerProps) {
   return (
      <div className=" h-[600px] w-[420px]  bg-amber-400 flex    overflow-hidden relative">
 

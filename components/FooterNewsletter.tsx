@@ -2,6 +2,7 @@ import { faBehance, faFacebook, faInstagram } from '@fortawesome/free-brands-svg
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import Link from 'next/link'
 
 export default function FooterNewsletter() {
   return (
@@ -11,24 +12,26 @@ export default function FooterNewsletter() {
 
     <div className="flex flex-row justify-between items-center p-4 max-w-60 outline-1 outline-white">
 
-
 <input type='email' placeholder='Your Email' className='w-full outline-none' />
 
 <FontAwesomeIcon icon={faArrowRight} className='text-white' />
-
 
     </div>
 <p className='text-xs'>Signup to receive offers</p>
 
 <div className="flex flex-row gap-2 text-xs">
 
-<FontAwesomeIcon icon={faBehance} className='text-white bg-primdark p-3 rounded-sm shadow-lg w-fit h-fit'/>
-<FontAwesomeIcon icon={faInstagram} className='text-white bg-primdark p-3 rounded-sm shadow-lg w-fit h-fit'/>
-<FontAwesomeIcon icon={faFacebook} className='text-white bg-primdark p-3 rounded-sm shadow-lg w-fit h-fit'/>
+<Link href="https://behance.net" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+  <FontAwesomeIcon icon={faBehance} className='text-white bg-primdark p-3 rounded-sm shadow-lg w-fit h-fit'/>
+</Link>
+<Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+  <FontAwesomeIcon icon={faInstagram} className='text-white bg-primdark p-3 rounded-sm shadow-lg w-fit h-fit'/>
+</Link>
+<Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+  <FontAwesomeIcon icon={faFacebook} className='text-white bg-primdark p-3 rounded-sm shadow-lg w-fit h-fit'/>
+</Link>
 
 </div>
-
-
 
 </div>
   )

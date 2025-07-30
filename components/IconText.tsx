@@ -2,9 +2,15 @@ import { faAward, faChair, faCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
-export default function IconText({main,sub,type}) {
+interface IconTextProps {
+  main: string;
+  sub: string;
+  type: string;
+}
 
-    var iconType;
+export default function IconText({ main, sub, type }: IconTextProps) {
+
+    let iconType;
 
 switch(type){
 

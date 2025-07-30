@@ -20,7 +20,7 @@ import ClientProviders from "@/contexts/ClientProviders";
 export default function Home() {
 
   const homeRef = useRef<HTMLDivElement>(null);
-const [showButton,setShowButton]=useState()
+const [showButton, setShowButton] = useState<boolean>(false)
 
   useEffect(() => {
   const handleScroll = () => {

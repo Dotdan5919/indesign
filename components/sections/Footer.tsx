@@ -1,5 +1,6 @@
 
 import React from 'react'
+import Link from 'next/link'
 import FooterNewsletter from '../FooterNewsletter'
 import FooterContact from '../FooterContact'
 import FooterCategory from '../FooterCategory'
@@ -40,12 +41,18 @@ export default function Footer() {
 <hr className="w-full border-2 border-white opacity-10" />
 <div className="flex flex-row w-full justify-between">
 
-    <h1 className="font-bold font-myblack">In.design</h1>
+    <Link href="/" className="font-bold font-myblack hover:opacity-80 transition-opacity">
+      In.design
+    </Link>
 
 
 <div className="flex flex-row gap-4 text-xs">
-    <p className=""> Privacy Policy</p>
-    <p className=""> Terms and conditions</p>
+    <Link href="#" className="hover:opacity-80 transition-opacity">
+      Privacy Policy
+    </Link>
+    <Link href="#" className="hover:opacity-80 transition-opacity">
+      Terms and conditions
+    </Link>
 </div>
 
 

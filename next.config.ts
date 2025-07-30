@@ -2,19 +2,22 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   webpack(config) {
+    // Configure SVG handling
     config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack'],
+      test: /\.svg$/,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            typescript: true,
+            icon: true,
+          },
+        },
+      ],
     });
+
     return config;
   },
-  // Add any other configuration options here
-  experimental: {
-    // Enable any experimental features if needed
-  },
-  // Optimize for production
-  swcMinify: true,
   // Handle images properly
   images: {
     formats: ['image/webp', 'image/avif'],

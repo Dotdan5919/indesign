@@ -33,21 +33,19 @@ import recliner_1 from '@/images/chairs/8@0.33x.png'
 
 
 interface ShoppingContext{
-   activeCategories:string,
-        setActiveCategory:string,
-        priceRange:PriceRange,
-        setPriceRange:PriceRange,
-        Novelties:boolean,
-        setNovelties:React.Dispatch<React.SetStateAction<NoveltiesType>>,
-        Discounted:boolean,
-        setDiscounted:React.Dispatch<React.SetStateAction<DiscountedType>>,
-             setShownProducts:Product[],
-        shownProducts:React.Dispatch<React.SetStateAction<Product[]>>, 
-          inputVal:SearchType,
-        setInputVal:React.Dispatch<React.SetStateAction<SearchType>>,
-        allProducts:Product[]
-
-
+   activeCategories:string | undefined,
+   setActiveCategory:React.Dispatch<React.SetStateAction<string | undefined>>,
+   priceRange:PriceRange,
+   setPriceRange:React.Dispatch<React.SetStateAction<PriceRange>>,
+   Novelties:boolean,
+   setNovelties:React.Dispatch<React.SetStateAction<NoveltiesType>>,
+   Discounted:boolean,
+   setDiscounted:React.Dispatch<React.SetStateAction<DiscountedType>>,
+   setShownProducts:React.Dispatch<React.SetStateAction<Product[]>>,
+   shownProducts:Product[],
+   inputVal:SearchType,
+   setInputVal:React.Dispatch<React.SetStateAction<SearchType>>,
+   allProducts:Product[]
 }
 
 export const ShoppingContext = createContext<ShoppingContext| undefined>(undefined);

@@ -6,11 +6,11 @@ import ClientProviders from '@/contexts/ClientProviders'
 import { useSearchParams } from 'next/navigation'
 import React from 'react'
 
-export default function singleblog() {
+export default function SingleBlog() {
 
   const search = useSearchParams();
-  const id=search.get('id');
-const intValue = parseInt(id, 10);
+  const id = search.get('id');
+  const intValue = id ? parseInt(id, 10) : 0;
   
 
 

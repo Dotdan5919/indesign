@@ -1,7 +1,13 @@
 import React from 'react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 
-export default function ImageBox({img,name,position}) {
+interface ImageBoxProps {
+  img: StaticImageData | string;
+  name: string;
+  position: string;
+}
+
+export default function ImageBox({ img, name, position }: ImageBoxProps) {
   return (
    <div className="relative w-full overflow-hidden h-60 flex items-center justify-center">
 
@@ -11,8 +17,6 @@ export default function ImageBox({img,name,position}) {
 
 <div className=" w-full h-full p-32 bg-prim opacity-50 absolute z-0 top-0 left-0"></div>
 </div>
-
-
 
 <Image src={img} alt='image' className='object-cover h-full z-0' />
 

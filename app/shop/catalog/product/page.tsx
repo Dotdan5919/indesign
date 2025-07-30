@@ -8,14 +8,14 @@ import ClientProviders from '@/contexts/ClientProviders';
 import { useSearchParams } from 'next/navigation'
 import React from 'react'
 
-export default function page() {
+export default function ProductPage() {
 
 
     const searchParams=useSearchParams();
 
-    const value=searchParams.get('id') ;
+    const value = searchParams.get('id');
 
-  const convertedValue=parseInt(value,10);
+  const convertedValue = value ? parseInt(value, 10) : 0;
     
     
 
