@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import CartegoriesChip from '../CartegoriesChip'
 
 import  { StaticImageData } from 'next/image'
@@ -11,17 +11,17 @@ import useShop from '@/hooks/useShop'
 import useFavorite from '@/hooks/useFavorite'
  
 
-interface Product {
-
-    price:number,
-    img:StaticImageData,
-    title:string,
-    categories:string,
-    novelties:boolean,
-    discounted:boolean
-
-
+interface ProductItem {
+    id: number;
+    price: number;
+    img: StaticImageData;
+    title: string;
+    categories: string;
+    novelties: boolean;
+    discounted: boolean;
+    description: string;
 }
+
 export default function CatalogRightHand() {
 
         const { Novelties,Discounted,shownProducts}=useShop();
@@ -59,7 +59,7 @@ export default function CatalogRightHand() {
 <div className="grid xl:grid-cols-3 grid-cols-1 lg:grid-cols-2 gap-10">
 
 
-{shownProducts.length>0 ? (shownProducts.map((product,index)=>{
+{shownProducts.length>0 ? (shownProducts.map((product: ProductItem,index: number)=>{
 
 
   const safeWishlistArray = Array.isArray(wishlistArray) ? wishlistArray : [];

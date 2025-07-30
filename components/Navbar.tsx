@@ -53,7 +53,9 @@ export default function Navbar() {
         </div>
 
         <div className="flex relative">
+          <Link href="/cart">
           <FontAwesomeIcon icon={faStore} />
+          </Link>
           { cartArray.length>0 && (
  <span className="absolute bg-prim w-4 h-4 rounded-full flex items-center justify-center -top-2 left-3 text-white text-[10px]">
             {cartArray.length}
@@ -108,7 +110,9 @@ export default function Navbar() {
         </div>
 
         <div className="flex relative">
+          <Link href="/cart">
           <FontAwesomeIcon icon={faStore} />
+          </Link>
          
         </div>
       </div>
