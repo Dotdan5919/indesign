@@ -72,7 +72,7 @@ const wishlistReducer=(state:WishlistState,action:WishlistAction):WishlistState=
                         wishlist:[...currentState.wishlist,action.payload]
                         
                     };
-                if(typeof window!= 'undefined')
+                if(typeof window !== 'undefined')
                 {
 
                     localStorage.setItem('wishlist',JSON.stringify(newState.wishlist))

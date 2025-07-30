@@ -17,7 +17,7 @@ export default function NotFound() {
   return (
     <ClientProviders>
       <div className='h-fit w-screen overflow-hidden'>
-        <div className="flex flex-col w-full gap-16 bg-[url('/images/bg.jpg')] h-fit gap-16 lg:pt-10 lg:pb-20 lg:px-32 p-8 pb-20">
+        <div className="flex flex-col w-full  bg-[url('/images/bg.jpg')] h-fit gap-16 lg:pt-10 lg:pb-20 lg:px-32 p-8 pb-20">
           <Navbar />
         </div>
 
