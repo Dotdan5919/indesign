@@ -20,11 +20,11 @@ id:number,
 export default function BlogRightHand() {
 
   const {BlogsArray} =useBlog();
-  const params=useSearchParams();
-  const value=params.get('id');
-  const Intvalue= parseInt(value,10)  //convert to integer
+  const params = useSearchParams();
+  const value = params.get('id') ?? '0';
+  const Intvalue = parseInt(value, 10); // convert to integer
 
-  const Blog:BlogTypes=BlogsArray.find(item=>item.id===Intvalue);
+  const Blog=BlogsArray.find(item=>item.id===Intvalue) as BlogTypes;
 
   return (
     <div className='sm:w-[70%] w-full md:[70%] flex flex-col gap-4'>
