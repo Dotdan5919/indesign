@@ -14,7 +14,7 @@ id:number,
     img:StaticImageData,
     date:string,
     title:string,
-    description:unknown,
+    description:string,
     cartegory:string
 }
 export default function BlogRightHand() {
