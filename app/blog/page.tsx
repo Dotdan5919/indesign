@@ -12,20 +12,9 @@ import img_1 from '@/images/6.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import { StaticImageData } from 'next/image'
 
 import Blogbody from '@/components/sections/Blogbody'
 
-
-interface BlogTypes{
-
-id:number,
-    img:StaticImageData,
-    date:string,
-    title:string,
-    description:any,
-    cartegory:string
-}
 
 export default function page() {
 

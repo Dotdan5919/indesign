@@ -10,7 +10,7 @@ import { useSearchParams } from 'next/navigation';
 
 export default function ShopLeftHand() {
 
-    const {activeCategories,setActiveCategory,priceRange,setPriceRange, setNovelties,setDiscounted,Discounted,Novelties,setShownProducts,shownProducts,inputVal,setInputVal}=useShop();
+    const {activeCategories,setActiveCategory,priceRange,setPriceRange, setNovelties,setDiscounted,Discounted,Novelties,setInputVal}=useShop();
    
     // const [values, setValues] = useState([0, 100]);
       

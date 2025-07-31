@@ -10,7 +10,7 @@ interface PropType{img:StaticImageData,name:string,subtitle:string,hoverProp?:bo
 
 export default function ImgSliderContainer2({img,name,subtitle,hoverProp}:PropType) {
 
-  const {activeCategories,setActiveCategory}=useShop();
+  const { setActiveCategory } = useShop();
   const router=useRouter();
 
   const handleClick=()=>{

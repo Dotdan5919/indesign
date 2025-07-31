@@ -5,7 +5,7 @@ import Image, { StaticImageData } from 'next/image'
 
 
 import useBlog from '@/hooks/useBlog'
-import { useParams, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 
 
 interface BlogTypes{
@@ -14,7 +14,7 @@ id:number,
     img:StaticImageData,
     date:string,
     title:string,
-    description:any,
+    description:unknown,
     cartegory:string
 }
 export default function BlogRightHand() {

@@ -2,7 +2,7 @@
 import React from 'react'
 
 import { motion, useMotionValue, useTransform, animate } from "motion/react";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 interface PropType{
 
@@ -21,7 +21,7 @@ export default function Highlights({figure,name,cls}:PropType) {
   useEffect(() => {
     const controls = animate(count,figure, { duration: 2,ease:'easeIn' });
     return controls.stop;
-  }, []);
+  }, [count, figure]);
 
 
   return (

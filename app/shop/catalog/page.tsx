@@ -2,7 +2,7 @@
 
 import Navbar from '@/components/Navbar'
 import Header from '@/components/sections/Header'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 
 import CatalogLeftHand from '@/components/sections/CatalogLeftHand'
