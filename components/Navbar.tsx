@@ -34,7 +34,14 @@ export default function Navbar() {
         <Link href="/about" className="hover:text-prim">About us</Link>
         <Link href="/services" className="hover:text-prim">Service</Link>
         <Link href="/blog" className="hover:text-prim">Blog</Link>
-        <Link href="/shop" className="hover:text-prim">Shop</Link>
+        {/* Shop dropdown for desktop */}
+        <li className="relative group">
+          <button className="hover:text-prim focus:outline-none">Shop</button>
+          <div className="absolute left-0 top-full mt-2 w-40 bg-white shadow-lg rounded hidden group-hover:block z-20">
+            <Link href="/shop" className="block px-4 py-2 hover:bg-gray-100">Shop Home</Link>
+            <Link href="/shop/catalog" className="block px-4 py-2 hover:bg-gray-100">Catalog</Link>
+          </div>
+        </li>
         <Link href="/contact" className="hover:text-prim">Contact</Link>
       </ul>
 
@@ -87,12 +94,21 @@ export default function Navbar() {
       {nav && (
         <div className="xl:hidden fixed top-0 right-0 w-96 h-screen bg-white p-10 z-40 gap-7">
           <ul className="flex flex-col gap-6 text-xs pt-36">
-          <Link href="/" className="hover:text-prim">Home</Link>
-        <Link href="/about" className="hover:text-prim">About us</Link>
-        <Link href="/services" className="hover:text-prim">Service</Link>
-        <Link href="/blog" className="hover:text-prim">Blogs</Link>
-        <Link href="/shop" className="hover:text-prim">Shop</Link>
-        <Link href="/contact" className="hover:text-prim">Contact</Link>
+            <Link href="/" className="hover:text-prim">Home</Link>
+            <Link href="/about" className="hover:text-prim">About us</Link>
+            <Link href="/services" className="hover:text-prim">Service</Link>
+            <Link href="/blog" className="hover:text-prim">Blogs</Link>
+            {/* Shop dropdown for mobile */}
+            <li className="relative">
+              <details>
+                <summary className="hover:text-prim cursor-pointer">Shop</summary>
+                <div className="flex flex-col ml-4 mt-2">
+                  <Link href="/shop" className="hover:text-prim py-1">Shop Home</Link>
+                  <Link href="/shop/catalog" className="hover:text-prim py-1">Catalog</Link>
+                </div>
+              </details>
+            </li>
+            <Link href="/contact" className="hover:text-prim">Contact</Link>
           </ul>
 
 
