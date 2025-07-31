@@ -42,8 +42,9 @@ export default function Navbar() {
       <div className="xl:flex hidden flex-row items-center gap-5">
         <FontAwesomeIcon icon={faSearch} />
         <div className="flex relative">
+          <Link href="/wishlist"> 
         <FontAwesomeIcon icon={faHeart} />
-
+        </Link>
 { wishlistArray.length>0 && (
  <span className="absolute bg-prim w-4 h-4 rounded-full flex items-center justify-center -top-2 left-3 text-white text-[10px]">
             {wishlistArray.length}
@@ -99,7 +100,10 @@ export default function Navbar() {
         <FontAwesomeIcon icon={faSearch} />
 
 <div className="flex relative">
+        <Link href="/wishlist"> 
         <FontAwesomeIcon icon={faHeart} />
+        </Link>
+
 
 { wishlistArray.length>0 && (
  <span className="absolute bg-prim w-4 h-4 rounded-full flex items-center justify-center -top-2 left-3 text-white text-[10px]">
