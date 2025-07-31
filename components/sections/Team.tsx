@@ -33,7 +33,7 @@ export default function Team({service}:Proptype) {
 
 {service && (
 <p className=' sm:text-right text-left sm:text-sm text-xs'> We are fans of our business, we work for your emotions, We are happy <br/>
-to see the family enjoying something new in their life and we are<br/>
+to see the family enjoying something new in their life and we are
 happy with them, because interior design in something more</p>)}
 
 </div>

@@ -12,7 +12,7 @@ export default function GetintouchFull() {
      <div className="flex flex-col lg:w-3/5 gap-16 shadow-2xl p-14 rounded-md z-50 bg-white">
 <Title title={<>Get a free consultation <br /> Just leave a request below</>} />
 
-<div className="flex flex-row w-full gap-8  ">
+<div className="flex flex-row w-full gap-1  ">
 
 <input type="text" className=' px-8 py-4 w-1/2 bg-white  shadow-xl ' placeholder='text' />
 

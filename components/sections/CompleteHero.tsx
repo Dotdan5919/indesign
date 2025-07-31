@@ -11,7 +11,7 @@ export default function CompleteHero() {
     
       <Navbar/>
 
-<div className="flex md:flex-row flex-col items-center justify-between gap-10  w-full  h-fit overflow-hidden  ">
+<div className="flex md:flex-row flex-col items-center justify-between gap-10  w-full  h-fit sm:overflow-hidden overflow-visible  ">
 <Heroleft/>
 
 <Heroright/>

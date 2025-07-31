@@ -56,7 +56,7 @@ export default function Heroright() {
 
 </div>
 
-  <div className="flex w-40 h-32 flex-row  z-20 absolute  justify-end items-end bottom-0">
+  <div className="flex w-40 h-32 flex-row  z-20 absolute  justify-end items-end bottom-0 right-0 ">
 
 <FontAwesomeIcon icon={faAngleLeft}  className={slider>1?('flex items-center justify-center bg-prim p-4 text-white hover:opacity-90 hover:shadow-sm'):('flex items-center justify-center bg-gray-300 p-4 text-black hover:opacity-90 hover:shadow-sm')}  onClick={()=>handlePress("left")}/>
 

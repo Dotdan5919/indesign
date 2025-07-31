@@ -19,7 +19,7 @@ export default function FooterNewsletter() {
     </div>
 <p className='text-xs'>Signup to receive offers</p>
 
-<div className="flex flex-row gap-2 text-xs">
+<div className="flex flex-row gap-2 text-xs w-fit">
 
 <Link href="https://behance.net" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
   <FontAwesomeIcon icon={faBehance} className='text-white bg-primdark p-3 rounded-sm shadow-lg w-fit h-fit'/>

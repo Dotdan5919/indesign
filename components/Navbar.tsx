@@ -25,7 +25,7 @@ export default function Navbar() {
     
    
     <div className="flex flex-row items-center justify-between w-full relative px-6 py-4">
-      <h1 className="font-bold text-4xl">In.design</h1>
+      <Link href="/"><h1 className="font-bold text-4xl">In.design</h1></Link>
 
       {/* Desktop Menu */}
       <ul className="xl:flex hidden flex-row gap-10 text-sm">
@@ -117,6 +117,12 @@ export default function Navbar() {
           <Link href="/cart">
           <FontAwesomeIcon icon={faStore} />
           </Link>
+              { cartArray.length>0 && (
+ <span className="absolute bg-prim w-4 h-4 rounded-full flex items-center justify-center -top-2 left-3 text-white text-[10px]">
+            {cartArray.length}
+          </span>)
+
+}
          
         </div>
       </div>

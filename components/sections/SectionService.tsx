@@ -13,8 +13,8 @@ export default function SectionService() {
 
 <div className="flex sm:flex-row flex-col w-full h-fit justify-between gap-4 ">
 <Title title="We are ready to offer you the following services" />
-<p className=' sm:text-right text-left  sm:text-sm text-xs'> We are fans of our business, we work for your emotions, We are happy <br/>
-to see the family enjoying something new in their life and we are<br/>
+<p className=' sm:text-right text-left  sm:text-sm text-xs'> We are fans of our business, we work for your emotions, We are happy 
+to see the family enjoying something new in their life and we are
 happy with them, because interior design in something more</p>
 
 </div>

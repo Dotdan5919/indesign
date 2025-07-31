@@ -1,5 +1,6 @@
 'use client'
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/sections/Footer'
 import SingleBlogBody from '@/components/sections/SingleBlogBody'
 import ClientProviders from '@/contexts/ClientProviders'
 import { useSearchParams } from 'next/navigation'
@@ -22,6 +23,8 @@ export default function SingleBlog() {
         <React.Suspense>
           <BlogBodyWithParams />
         </React.Suspense>
+
+        <Footer/>
       </div>
     </ClientProviders>
   );

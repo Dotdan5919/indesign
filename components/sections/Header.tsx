@@ -31,7 +31,7 @@ export default function Header({title,subtitle,img,previous}:Proptype) {
 </div>
 
 { img && (
-<div className="flex relative sm:w-96 w-60">
+<div className="hidden relative sm:w-96 w-60 sm:flex">
 
 <Image src={img} className='w-96 h-90 absolute' alt='Indesign service Img'/>
 <div className="flex w-40 h-30 absolute bg-prim p-10 top-64 -right-5 -z-10"></div>
