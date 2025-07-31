@@ -49,7 +49,7 @@ export default function Heroright() {
         <div className=' bg-prim absolute w-44 h-44 p-3 -left-4 -top-30  hidden'> </div>
 
        <div className="flex relative justify-end  h-fit">
-      <div className="grid grid-rows-1 grid-flow-col gap-2 w-[420px] overflow-hidden" ref={divRef}>
+      <div className="grid grid-rows-1 grid-flow-col gap-2 sm:w-[420px] w-[390px] overflow-hidden" ref={divRef}>
 <ImgSliderContainer img={img1} />
 <ImgSliderContainer img={img2} />
 <ImgSliderContainer img={img3} />

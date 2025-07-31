@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     
    
-    <div className="flex flex-row items-center justify-between w-full relative px-6 py-4">
+    <div className="flex flex-row items-center justify-between w-full relative ">
       <Link href="/"><h1 className="font-bold text-4xl">In.design</h1></Link>
 
       {/* Desktop Menu */}
@@ -100,6 +100,7 @@ export default function Navbar() {
             <Link href="/blog" className="hover:text-prim">Blogs</Link>
             {/* Shop dropdown for mobile */}
             <li className="relative">
+              
               <details>
                 <summary className="hover:text-prim cursor-pointer">Shop</summary>
                 <div className="flex flex-col ml-4 mt-2">

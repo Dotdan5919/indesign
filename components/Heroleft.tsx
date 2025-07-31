@@ -4,8 +4,18 @@ import React from 'react'
 import IconText from './IconText'
 import Btn from './Btn'
 import {motion}  from "motion/react"
+import { useRouter } from 'next/navigation'
 
 export default function Heroleft() {
+
+
+      const router = useRouter();
+      const handleClick = () => {
+router.push('/shop/catalog');
+
+      }
+
+
   return (
     <motion.div   
 
@@ -26,7 +36,7 @@ export default function Heroleft() {
 <motion.p className='font-light text-[16px]'>We are tending to the thousand of details it takes <br/> to create a custom home tailored to your lifestyle</motion.p>  
 
 
-<Btn name="TO ORDER" icon='arrow' />
+<Btn name="TO ORDER" icon='arrow' click={handleClick} />
 
 <motion.div className="flex flex-row gap-15 relative h-fit">
 
