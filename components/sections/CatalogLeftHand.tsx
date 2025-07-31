@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Btn from '../Btn'
 import { DualRangeSlider } from '../ui/DropRangeSlider';
 import { Switch } from '@/components/ui/switch';
@@ -25,7 +25,7 @@ export default function ShopLeftHand() {
 
 
     setActiveCategory(searchParams.get('category')) ;
-  },[]);
+  },[searchParams,setActiveCategory]);
 
     
     const categories=[{name:"Chairs",number:25},

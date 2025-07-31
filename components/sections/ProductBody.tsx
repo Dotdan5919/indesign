@@ -16,7 +16,7 @@ interface PropType{
 export default function ProductBody({value}:PropType) {
 
   const{allProducts}=useShop();
-  const {addToCart,removeCart,cartArray,clearCart}=useCart();
+  const {addToCart,removeCart,cartArray}=useCart();
 
   const [isActiveCart,setActiveCart]=useState<boolean>(false);
 
@@ -29,7 +29,7 @@ export default function ProductBody({value}:PropType) {
 
       const handleWish= () => {
 
-        isWishlistActive ? removefromWishlist(item) :addtoWishlist(item) 
+        isWishlistActive ? removefromWishlist(item) :addtoWishlist(item); 
 
 
       }
