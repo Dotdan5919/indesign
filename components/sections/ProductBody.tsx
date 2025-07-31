@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Header_2 from './Header_2'
 import useShop from '@/hooks/useShop'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import Btn from '@/components/Btn'
@@ -13,6 +13,19 @@ interface PropType{
 
   value:number
 }
+
+interface Product {
+    id:number,
+    price:number,
+    img:StaticImageData,
+    title:string,
+    categories:string,
+    novelties:boolean,
+    discounted:boolean,
+    description:string
+
+
+}
 export default function ProductBody({value}:PropType) {
 
   const{allProducts}=useShop();
@@ -20,7 +33,7 @@ export default function ProductBody({value}:PropType) {
 
   const [isActiveCart,setActiveCart]=useState<boolean>(false);
 
-  const item=allProducts.find(product=>product.id===value);
+  const item=allProducts.find(product=>product.id===value) as Product;
 
    const[isWishlistActive,setIsWishlistActive]=useState<boolean>(false);
   
@@ -28,12 +41,19 @@ export default function ProductBody({value}:PropType) {
 
 
       const handleWish = () => {
-        return isWishlistActive ? removefromWishlist(item) : addtoWishlist(item);
+
+        const action= isWishlistActive ? removefromWishlist(item) : addtoWishlist(item);
+        return action;
+      
       }
   
 
       const handleCart = () => {
-        return isActiveCart ? removeCart(item) : addToCart(item);
+
+        const action= isActiveCart ? removeCart(item) : addToCart(item);
+        return action;
+
+
       }
       useEffect(() => {
         if (wishlistArray && Array.isArray(wishlistArray)) {
