@@ -78,12 +78,15 @@ export default function AboutHistory() {
           <div className="bg-white rounded-lg p-4 w-[90vw] max-w-2xl">
             <div className="relative pb-[56.25%] h-0 mb-4">
            
-              <iframe  src="https://www.youtube.com/embed/zumJJUL_ruM?si=KnAanfsETN4nVkyA" 
-              title="YouTube video player" 
-              frameborder="0"
-              className="absolute top-0 left-0 w-full h-full"
-               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+             <iframe 
+  src="https://www.youtube.com/embed/zumJJUL_ruM?si=KnAanfsETN4nVkyA"
+  title="YouTube video player"
+  frameBorder="0"  // Changed from frameborder to frameBorder
+  className="absolute top-0 left-0 w-full h-full"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerPolicy="strict-origin-when-cross-origin"  // Also fixed this one
+  allowFullScreen  // And this one
+/>
             </div>
             <button onClick={closeModal} className="bg-prim text-white px-3 py-1 rounded">
               Close
