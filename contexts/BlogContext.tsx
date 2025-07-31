@@ -3,6 +3,7 @@ import React, { createContext, ReactNode } from 'react'
 import img_1 from '@/images/6.jpg'
 import img_2 from '@/images/3.jpg'
 import img_3 from '@/images/4.jpg'
+import { StaticImageData } from 'next/image'
 
 
 
@@ -12,13 +13,13 @@ id:number,
     img:StaticImageData,
     date:string,
     title:string,
-    description:any,
+    description:string,
     cartegory:string
 }
 
 interface BlogContext{
 
-    BlogArray:BlogTypes[]
+    BlogsArray:BlogTypes[]
 
 
 
