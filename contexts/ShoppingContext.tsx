@@ -214,16 +214,13 @@ const allProducts:Product[]=[
         shownProduct=shownProduct.filter(product => product.price >= priceRange[0] && product.price <= priceRange[1])
         
     }
-    if(inputVal!=undefined)
-        {
-            
-             const lowerCaseSearchTerm = inputVal.toLowerCase();
+    if (inputVal && inputVal !== "") {
+      const lowerCaseSearchTerm = inputVal.toLowerCase();
       shownProduct = shownProduct.filter(product =>
         product.title.toLowerCase().includes(lowerCaseSearchTerm) ||
-        product.categories.toLowerCase().includes(lowerCaseSearchTerm) // Example: search by ID too
+        product.categories.toLowerCase().includes(lowerCaseSearchTerm)
       );
-
-   }
+    }
 
 
 setShownProducts(shownProduct);
