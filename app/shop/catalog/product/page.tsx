@@ -8,14 +8,20 @@ import ClientProviders from '@/contexts/ClientProviders';
 import { useSearchParams } from 'next/navigation'
 import React from 'react'
 
+
+function Productparams() {
+  const search = useSearchParams();
+  const id = search.get('id');
+  const intValue = id ? parseInt(id, 10) : 0;
+  return <ProductBody value={intValue} />;
+}
+
 export default function ProductPage() {
 
 
-    const searchParams=useSearchParams();
+   
 
-    const value = searchParams.get('id');
 
-  const convertedValue = value ? parseInt(value, 10) : 0;
     
     
 
@@ -23,7 +29,10 @@ export default function ProductPage() {
     <ClientProviders>
    <div className="h-fit w-screen flex flex-col   gap-16 lg:pt-10 lg:pb-20  lg:px-32 p-8 pb-20">
       <Navbar/>
-      <ProductBody value={convertedValue}/>
+   
+      <React.Suspense>
+        <Productparams />
+      </React.Suspense>
 
       
       
