@@ -42,6 +42,8 @@ export default function ShopLeftHand() {
 
 
   setActiveCategory(cartegory);
+
+  
  
 
 

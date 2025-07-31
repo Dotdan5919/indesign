@@ -90,9 +90,7 @@ export default function ShoppingProvider   ({children}:ShopProviderProps) {
 
 
 
-const allProducts:Product[]=[
-
-
+const allProducts:Product[] = React.useMemo(() => [
   {
     id: 1,
     price: 100,
@@ -173,10 +171,7 @@ const allProducts:Product[]=[
     discounted: false,
     description: "A revolutionary new table design that brings the artistic shoe-inspired aesthetic to surface furniture. This innovative piece serves as both functional table and sculptural art, perfect for modern spaces seeking unique statement pieces."
   }
-
-
-
-    ]
+], []);
 
 
      const [shownProducts, setShownProducts] = useState<Product[]>(allProducts); 
@@ -226,7 +221,7 @@ const allProducts:Product[]=[
 setShownProducts(shownProduct);
 
 
-    },[])
+    },[activeCategories, Novelties, Discounted, priceRange, inputVal, allProducts])
     
 
 

@@ -32,7 +32,9 @@ export default function CatalogRightHand() {
 
 
     
-    
+  
+
+  
      
     
      
