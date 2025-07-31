@@ -6,7 +6,7 @@ import {motion} from 'motion/react'
 
 interface Prop{
 
-    title?:string
+    title?:React.ReactNode
 
 
 }

@@ -19,7 +19,9 @@ export default function SingleBlogBody({ id }: SingleBlogBodyProps) {
     
     const blog = BlogsArray.find(item => item.id === id);
     
-    console.log(BlogsArray);
+    if (!blog) {
+        return <div>Blog not found</div>;
+    }
  
     return (
         <div className='lg:pt-10  lg:px-32 p-8 gap-9 flex flex-col'>

@@ -15,7 +15,7 @@ export default function ShopLeftHand() {
     // const [values, setValues] = useState([0, 100]);
       
 
-    const inputRef=useRef(null);
+    const inputRef = useRef<HTMLInputElement>(null);
     const searchParams = useSearchParams();
     
   
@@ -24,7 +24,7 @@ export default function ShopLeftHand() {
 
 
 
-    setActiveCategory(searchParams.get('category')) ;
+    setActiveCategory(searchParams.get('category') ?? undefined);
   },[searchParams,setActiveCategory]);
 
     
@@ -56,7 +56,7 @@ setNovelties(checked)
 
 }
 const handleSearch=()=>{
-setInputVal(inputRef.current.value);
+setInputVal(inputRef.current?.value ?? undefined);
 
 
 
@@ -112,7 +112,7 @@ setInputVal(inputRef.current.value);
     <DualRangeSlider
         label={(value) => <span>${value}</span>}
         value={priceRange}
-        onValueChange={setPriceRange}
+        onValueChange={(val) => setPriceRange(val as [number, number])}
         min={0}
         max={700}
         step={1}

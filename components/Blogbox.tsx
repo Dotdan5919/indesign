@@ -10,7 +10,7 @@ interface Proptype{
 img:StaticImageData,
 date:string,
 title:string,
-description:string,
+description:React.ReactNode,
 category:string,
 id:number
 

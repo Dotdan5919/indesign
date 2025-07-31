@@ -23,16 +23,16 @@ export default function OurBlog() {
     
 
 
-<Blogbox img={img_1} date='July, 21 2020' title='Types of homes'
+<Blogbox id={1} img={img_1} date='July, 21 2020' title='Types of homes'
  description={<>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolorem <br/> quidem labore itaque sit nostrum, m officia!</>}
 category='Interior design' />
 
 
-<Blogbox img={img_3} date='July, 21 2020' title='Purchase furniture'
+<Blogbox id={2} img={img_3} date='July, 21 2020' title='Purchase furniture'
  description={<>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolorem <br/> quidem labore itaque sit nostrum, m officia!</>}
 category='Interior design' />
 
-<Blogbox img={img_2} date='July, 21 2020' title='Kitchen design ideas'
+<Blogbox id={3} img={img_2} date='July, 21 2020' title='Kitchen design ideas'
  description={<>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolorem <br/> quidem labore itaque sit nostrum, m officia!</>}
 category='Interior design' />
     

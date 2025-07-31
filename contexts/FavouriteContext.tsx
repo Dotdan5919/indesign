@@ -62,46 +62,31 @@ const wishlistReducer=(state:WishlistState,action:WishlistAction):WishlistState=
 
 
     switch (action.type){
-        case WISHLIST_ACTIONS.ADD_ITEM:
-            
-            if(!currentState.wishlist.find(item=>item.id===action.payload.id))
-                {
-                    
-                    const newState= {
-                        ...currentState,
-                        wishlist:[...currentState.wishlist,action.payload]
-                        
-                    };
-                if(typeof window !== 'undefined')
-                {
-
+        case WISHLIST_ACTIONS.ADD_ITEM: {
+            const product = action.payload as Product;
+            if(!currentState.wishlist.find(item=>item.id===product.id)) {
+                const newState= {
+                    ...currentState,
+                    wishlist:[...currentState.wishlist, product]
+                };
+                if(typeof window !== 'undefined') {
                     localStorage.setItem('wishlist',JSON.stringify(newState.wishlist))
                 }
-
                 return newState;
-                    
-                };
-
-               
-                
-                return currentState;
-                
-                
-                case WISHLIST_ACTIONS.REMOVE_ITEM:
-
-       
-
-                    
-                const filteredwishlist=currentState.wishlist.filter(item=>item.id!=action.payload.id);
-                    if(typeof window != 'undefined'){
-
-                        localStorage.setItem('wishlist',JSON.stringify(filteredwishlist))
-                        }
-                    return{
-                        
-                        ...currentState,
-                        wishlist:filteredwishlist
-                    };
+            }
+            return currentState;
+        }
+        case WISHLIST_ACTIONS.REMOVE_ITEM: {
+            const product = action.payload as Product;
+            const filteredwishlist=currentState.wishlist.filter(item=>item.id!=product.id);
+            if(typeof window != 'undefined'){
+                localStorage.setItem('wishlist',JSON.stringify(filteredwishlist))
+            }
+            return{
+                ...currentState,
+                wishlist:filteredwishlist
+            };
+        }
 
 
                     case WISHLIST_ACTIONS.LOAD_FROM_STORAGE:

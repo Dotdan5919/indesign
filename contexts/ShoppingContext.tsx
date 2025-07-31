@@ -43,8 +43,8 @@ interface ShoppingContext{
    setDiscounted:React.Dispatch<React.SetStateAction<DiscountedType>>,
    setShownProducts:React.Dispatch<React.SetStateAction<Product[]>>,
    shownProducts:Product[],
-   inputVal:SearchType,
-   setInputVal:React.Dispatch<React.SetStateAction<SearchType>>,
+   inputVal:SearchType | undefined,
+   setInputVal:React.Dispatch<React.SetStateAction<SearchType | undefined>>,
    allProducts:Product[]
 }
 
@@ -86,7 +86,7 @@ export default function ShoppingProvider   ({children}:ShopProviderProps) {
     const[Novelties,setNovelties]=useState<NoveltiesType>(false);
     const[Discounted,setDiscounted]=useState<DiscountedType>(false);
 
-   const [inputVal,setInputVal]=useState<SearchType>("");
+   const [inputVal,setInputVal]=useState<SearchType | undefined>("");
 
 
 
@@ -214,7 +214,7 @@ const allProducts:Product[]=[
         shownProduct=shownProduct.filter(product => product.price >= priceRange[0] && product.price <= priceRange[1])
         
     }
-    if(inputVal!="")
+    if(inputVal!=undefined)
         {
             
              const lowerCaseSearchTerm = inputVal.toLowerCase();
