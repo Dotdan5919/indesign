@@ -39,32 +39,32 @@ export default function ProductBody({value}:PropType) {
   
       const {wishlistArray,removefromWishlist, addtoWishlist}=useFavorite();
 
+const handleWish = () => {
+    if (isWishlistActive) {
+      removefromWishlist(item);
+    } else {
+      addtoWishlist(item);
+    }
+  }
 
-      const handleWish = () => {
+  const handleCart = () => {
+    if (isActiveCart) {
+      removeCart(item);
+    } else {
+      addToCart(item);
+    }
+  }
 
-        const action= isWishlistActive ? removefromWishlist(item) : addtoWishlist(item);
-        return action;
-      
-      }
-  
-
-      const handleCart = () => {
-
-        const action= isActiveCart ? removeCart(item) : addToCart(item);
-        return action;
-
-
-      }
-      useEffect(() => {
-        if (wishlistArray && Array.isArray(wishlistArray)) {
-          const isWishlist = wishlistArray.some(item => item.id === value);
-          setIsWishlistActive(isWishlist);
-        }
-        if (cartArray && Array.isArray(cartArray)) {
-          const isCart = cartArray.some(item => item.product?.id === value);
-          setActiveCart(isCart);
-        }
-      }, [wishlistArray, cartArray, value]);
+  useEffect(() => {
+    if (wishlistArray && Array.isArray(wishlistArray)) {
+      const isWishlist = wishlistArray.some(item => item.id === value);
+      setIsWishlistActive(isWishlist);
+    }
+    if (cartArray && Array.isArray(cartArray)) {
+      const isCart = cartArray.some(item => item.product?.id === value);
+      setActiveCart(isCart);
+    }
+  }, [wishlistArray, cartArray, value]);
   
 
   return (
