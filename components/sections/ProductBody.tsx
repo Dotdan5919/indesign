@@ -28,45 +28,23 @@ export default function ProductBody({value}:PropType) {
 
 
       const handleWish= () => {
-
-        isWishlistActive ? removefromWishlist(item) :addtoWishlist(item); 
-
-
+        return isWishlistActive ? removefromWishlist(item) : addtoWishlist(item);
       }
   
 
       const handleCart = () => {
-
-
- isActiveCart? removeCart(item) : addToCart(item);
-
-
-
-
+        return isActiveCart ? removeCart(item) : addToCart(item);
       }
       useEffect(()=>{
-  
           if(wishlistArray && Array.isArray(wishlistArray)){
-  
             const isWishlist=wishlistArray.some(item=>item.id===value);
             setIsWishlistActive(isWishlist);
-         
-  
-  
           }
-          if(cartArray && Array.isArray(cartArray))
-          {
+          if(cartArray && Array.isArray(cartArray)) {
             const isCart=cartArray.some(item=>item.product?.id===value);
-         
             setActiveCart(isCart);
-
           }
-
-
-  
-            
-  
-      },[wishlistArray,cartArray])
+      },[wishlistArray,cartArray,value])
   
 
   return (
@@ -109,4 +87,5 @@ export default function ProductBody({value}:PropType) {
       
     </div>
   )
+// ...existing code...
 }

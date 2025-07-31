@@ -10,7 +10,7 @@ interface Proptype{
 img:StaticImageData,
 date:string,
 title:string,
-description:unknown,
+description:string,
 category:string,
 id:number
 
