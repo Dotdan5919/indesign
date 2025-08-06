@@ -7,7 +7,7 @@ import { StaticImageData } from 'next/image'
 
 
 
-interface BlogTypes{
+interface BlogTypes{    
 
 id:number,
     img:StaticImageData,
